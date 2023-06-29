@@ -1,4 +1,5 @@
-function PlayerTased:enter(enter_data)
+local PlayerTased = module:hook_class("PlayerTased")
+module:hook(PlayerTased, "enter", function(enter_data)
 	PlayerTased.super.enter(self, enter_data)
 	self._ids_tased_boost = Idstring("tased_boost")
 	self._ids_tased = Idstring("tased")
@@ -22,4 +23,4 @@ function PlayerTased:enter(enter_data)
 
 	self:_interupt_action_reload()
 	self._rumble_electrified = managers.rumble:play("electrified")
-end
+end)
