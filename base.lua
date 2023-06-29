@@ -18,7 +18,7 @@ module:hook_post_require("lib/tweak_data/weapontweakdata", "WeaponTweakData")
 
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "raycastweaponbase")
 module:hook_post_require("lib/managers/gameplaycentralmanager", "gameplaycentralmanager")
---module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "ammobagbase")
+--module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "ammobagbase") e
 
 module:set_update({ id = "42754", platform = "modworkshop" })
 
