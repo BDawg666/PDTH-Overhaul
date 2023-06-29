@@ -39,7 +39,8 @@ module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/weapontweakd
 
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployables/bag_collision")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
-module:hook_post_require("lib/managers/objectinteractionmanager", "player/interactionext")
+-- module:hook_post_require("lib/units/interactions/interactionext", "player/block_interaction")
+-- module:hook_post_require("lib/managers/objectinteractionmanager", "player/block_interaction")
 
 module:set_update({ id = "42754", platform = "modworkshop" })
 
