@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local GroupAITweakData = module:hook_class("GroupAITweakData")
 
 function GroupAITweakData:_set_easy()

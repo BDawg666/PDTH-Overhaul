@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local CharacterTweakData = module:hook_class("CharacterTweakData")
 
 function CharacterTweakData:_set_easy()
@@ -59,18 +58,23 @@ function CharacterTweakData:_set_overkill_145()
 end
 
 module:post_hook(CharacterTweakData, "_init_spanish", function(self, presets)
-	self.spanish.SPEED_WALK = 215
-	self.spanish.SPEED_RUN = 340
+	self.spanish.SPEED_WALK = 400
+	self.spanish.SPEED_RUN = 600
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_german", function(self, presets)
-	self.german.SPEED_WALK = 215
-	self.german.SPEED_RUN = 340
+	self.german.SPEED_WALK = 400
+	self.german.SPEED_RUN = 600
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_russian", function(self, presets)
-	self.russian.SPEED_WALK = 215
-	self.russian.SPEED_RUN = 340
+	self.russian.SPEED_WALK = 400
+	self.russian.SPEED_RUN = 600
+end, false)
+
+module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
+	self.american.SPEED_WALK = 400
+	self.american.SPEED_RUN = 600
 end, false)
 
 --Copied whole function because I'm too lazy to figure out how to post hook it properly, fixed shotguns aim delay being 0.02 instead of 0.2

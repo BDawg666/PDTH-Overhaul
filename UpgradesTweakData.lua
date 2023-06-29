@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local UpgradesTweakData = module:hook_class("UpgradesTweakData")
 
 module:post_hook(UpgradesTweakData, "init", function(self)

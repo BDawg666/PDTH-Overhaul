@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
 
 module:post_hook(RaycastWeaponBase, "init", function(self)

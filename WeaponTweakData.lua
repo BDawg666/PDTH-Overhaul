@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local WeaponTweakData = module:hook_class("WeaponTweakData")
 
 module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)

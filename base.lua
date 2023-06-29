@@ -1,5 +1,5 @@
 local module = DorHUDMod:new("fgo", {
-	version = "0.2",
+	version = "0.3",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	description = {
@@ -18,6 +18,7 @@ module:hook_post_require("lib/tweak_data/weapontweakdata", "WeaponTweakData")
 
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "raycastweaponbase")
 module:hook_post_require("lib/managers/gameplaycentralmanager", "gameplaycentralmanager")
+module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "civilianlogicescort")
 --module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "ammobagbase")
 
 module:set_update({ id = "42754", platform = "modworkshop" })

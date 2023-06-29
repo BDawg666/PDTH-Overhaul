@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local GamePlayCentralManager = module:hook_class("GamePlayCentralManager")
 
 function GamePlayCentralManager:queue_fire_raycast(expire_t, weapon_unit, ...)

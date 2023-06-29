@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local WeaponTweakData = module:hook_class("FPCameraPlayerBase")
 
 module:hook(FPCameraPlayerBase, "stop_shooting", function(self)

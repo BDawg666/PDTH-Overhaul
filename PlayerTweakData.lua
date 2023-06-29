@@ -1,4 +1,3 @@
-local module = DorHUD:module('fgo')
 local PlayerTweakData = module:hook_class("PlayerTweakData")
 
 function PlayerTweakData:_set_easy()
