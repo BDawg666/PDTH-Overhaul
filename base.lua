@@ -2,6 +2,7 @@ local module = DorHUDMod:new("fgo", {
 	version = "0.3",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
+	dependencies = "[ovk_193]",
 	description = {
 		english = "WIP",
 	},
@@ -27,6 +28,7 @@ module:hook_post_require("lib/units/beings/player/states/playertased", "PlayerTa
 module:hook_post_require("lib/tweak_data/equipmentstweakdata", "EquipmentsTweakData")
 module:hook_post_require("lib/tweak_data/tweakdata", "Masks")
 module:hook_post_require("lib/managers/menumanager", "Masks")
+module:hook_post_require("lib/units/enemies/cop/copbase", "copbase")
 
 module:set_update({ id = "42754", platform = "modworkshop" })
 
