@@ -3,8 +3,8 @@ local module = DorHUDMod:new("fgo", {
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	description = {
-		english = "WIP"
-	}
+		english = "WIP",
+	},
 })
 
 module:hook_post_require("lib/tweak_data/charactertweakdata", "CharacterTweakData")
@@ -20,6 +20,8 @@ module:hook_post_require("lib/managers/gameplaycentralmanager", "gameplaycentral
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "civilianlogicescort")
 module:hook_post_require("lib/managers/hudmanager", "HUDManager")
 module:hook_post_require("lib/units/player_team/teamaidamage", "TeamAIDamage")
+module:hook_post_require("lib/managers/menu/menunodegui", "MenuNodeGUI")
+
 --module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "ammobagbase")
 
 module:set_update({ id = "42754", platform = "modworkshop" })
