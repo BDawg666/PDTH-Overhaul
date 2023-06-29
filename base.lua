@@ -25,6 +25,8 @@ module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "Deployable
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "Deployables")
 module:hook_post_require("lib/units/beings/player/states/playertased", "PlayerTased")
 module:hook_post_require("lib/tweak_data/equipmentstweakdata", "EquipmentsTweakData")
+module:hook_post_require("lib/tweak_data/tweakdata", "Masks")
+module:hook_post_require("lib/managers/menumanager", "Masks")
 
 module:set_update({ id = "42754", platform = "modworkshop" })
 
