@@ -23,6 +23,7 @@ module:hook_post_require("lib/units/player_team/teamaidamage", "TeamAIDamage")
 module:hook_post_require("lib/managers/menu/menunodegui", "MenuNodeGUI")
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "Deployables")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "Deployables")
+module:hook_post_require("lib/units/beings/player/states/playertased", "PlayerTased")
 
 --module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "ammobagbase")
 
