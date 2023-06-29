@@ -37,7 +37,7 @@ module:post_hook(UpgradesTweakData, "init", function(self)
 		10
 	}
 	self.values.trip_mine.damage_multiplier = {1, 1}
-	self.ammo_bag_base = 10
+	self.ammo_bag_base = 5
 	self.values.ammo_bag.ammo_increase = {
 		0,
 		0,
@@ -57,7 +57,7 @@ module:post_hook(UpgradesTweakData, "init", function(self)
 		0,
 		0
 	}
-	self.doctor_bag_base = 5
+	self.doctor_bag_base = 2
 	self.values.doctor_bag.amount_increase = {
 		0,
 		0,
