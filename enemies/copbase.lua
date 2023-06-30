@@ -7,8 +7,9 @@ local overrides = {
 }
 
 -- credits: Dorentuz` for the template
+local CopBase = module:hook_class("CopBase")
 module:pre_hook(60, CopBase, "init", function(self, unit)
-	if not Network:is_server() then
+	if Network:is_client() then
 		return
 	end
 
