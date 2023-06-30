@@ -95,7 +95,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.normal.ak47 = deep_clone(presets.weapon.normal.m4)
 	presets.weapon.good.ak47 = deep_clone(presets.weapon.good.m4)
 	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
-	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
+	presets.weapon.gang_member.ak47 = deep_clone(presets.weapon.gang_member.m4)
 
 	return presets
 end, false)
