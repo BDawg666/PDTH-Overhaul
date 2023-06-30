@@ -43,7 +43,12 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 	module:post_hook(RaycastWeaponBase, "init", function(self)
 		self._shoot_through_data = { from = Vector3() }
 		self._can_shoot_through_shield = tweak_data.weapon[self._name_id].can_shoot_through_shield
+		self._bullet_slotmask = self._bullet_slotmask - World:make_slot_mask(16)
 	end, false)
+
+	module:post_hook(RaycastWeaponBase, "setup", function(self)
+		self._bullet_slotmask = self._bullet_slotmask - World:make_slot_mask(16)
+	end)
 
 	local mvec_to = Vector3()
 	local mvec_spread_direction = Vector3()
