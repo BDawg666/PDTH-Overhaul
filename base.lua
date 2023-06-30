@@ -35,7 +35,8 @@ module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/bullet_penetration")
 module:hook_post_require("lib/managers/gameplaycentralmanager", "weapons/bullet_penetration")
 module:hook_post_require("lib/tweak_data/upgradestweakdata", "weapons/upgradestweakdata")
-module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/weapontweakdata")
+module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/player_weapons")
+module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/npc_weapons")
 
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployables/bag_collision")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
