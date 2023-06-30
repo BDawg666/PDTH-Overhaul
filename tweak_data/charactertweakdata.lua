@@ -87,7 +87,15 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
 
 	-- presets for glock
+	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
 	presets.weapon.good.glock = deep_clone(presets.weapon.good.mp5)
+	presets.weapon.expert.glock = deep_clone(presets.weapon.expert.mp5)
+	presets.weapon.gang_member.glock = deep_clone(presets.weapon.gang_member.mp5)
+
+	presets.weapon.normal.ak47 = deep_clone(presets.weapon.normal.m4)
+	presets.weapon.good.ak47 = deep_clone(presets.weapon.good.m4)
+	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
+	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
 
 	return presets
 end, false)
@@ -104,6 +112,7 @@ module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
 		"sniper_rifle",
 		"glock",
 		"mossberg",
+		"ak47",
 	}
 
 	self.weap_unit_names = {
@@ -117,5 +126,6 @@ module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
 		Idstring("units/weapons/sniper_rifle_npc/sniper_rifle_npc"),
 		Idstring("units/weapons/glock_npc/glock_18_npc"),
 		Idstring("units/weapons/mossberg_npc/mossberg_npc"),
+		Idstring("units/weapons/ak47_npc/ak47_npc"),
 	}
 end, false)
