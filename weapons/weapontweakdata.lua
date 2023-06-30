@@ -18,7 +18,7 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self.beretta92.can_shoot_through_shield = true
 	self.beretta92.CLIP_AMMO_MAX = 20
 	self.beretta92.AMMO_MAX = 56
-	self.beretta92.AMMO_PICKUP = {4, 6}
+	self.beretta92.AMMO_PICKUP = { 4, 6 }
 	self.beretta92.spread.standing = 2.52
 	self.beretta92.spread.crouching = 2.52
 	self.beretta92.spread.steelsight = 1.008
@@ -59,7 +59,7 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self.glock.muzzleflash = "effects/particles/weapons/c45/muzzleflash"
 	self.glock.CLIP_AMMO_MAX = 40
 	self.glock.AMMO_MAX = 80
-	self.glock.AMMO_PICKUP = {6, 8}
+	self.glock.AMMO_PICKUP = { 6, 8 }
 	self.glock.spread.standing = 3.6
 	self.glock.spread.crouching = 3.6
 	self.glock.spread.steelsight = 1.62
@@ -87,7 +87,7 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	--self.mossberg.single.fire_rate = 0.5
 	self.mossberg.CLIP_AMMO_MAX = 6
 	self.mossberg.AMMO_MAX = 24
-	self.mossberg.AMMO_PICKUP = {1, 2}
+	self.mossberg.AMMO_PICKUP = { 1, 2 }
 	self.mossberg.kick.v.standing = 2.8
 	self.mossberg.kick.v.crouching = 2
 	self.mossberg.kick.v.steelsight = 0.8
@@ -137,7 +137,7 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self.hk21.DAMAGE = 3.5
 	self.hk21.CLIP_AMMO_MAX = 160
 	self.hk21.AMMO_MAX = 240
-	self.hk21.AMMO_PICKUP = {2, 9}
+	self.hk21.AMMO_PICKUP = { 2, 9 }
 	self.hk21.spread.standing = 2.25
 	self.hk21.spread.crouching = 2.125
 	self.hk21.spread.steelsight = 2
@@ -156,7 +156,7 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self.ak47.DAMAGE = 3.5
 	self.ak47.CLIP_AMMO_MAX = 35
 	self.ak47.AMMO_MAX = 125
-	self.ak47.AMMO_PICKUP = {2, 7}
+	self.ak47.AMMO_PICKUP = { 2, 7 }
 	self.ak47.spread.standing = 3.6
 	self.ak47.spread.crouching = 2.88
 	self.ak47.spread.steelsight = 1.08
@@ -170,3 +170,8 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self.ak47.kick.h.steelsight = 0.36
 	self.trip_mines.damage = 160
 end, false)
+
+module:post_hook(WeaponTweakData, "_init_data_glock_18_npc", function(self)
+	self.glock_18_npc.usage = "mp5"
+	self.glock_18_npc.auto.fire_rate = 0.066
+end)

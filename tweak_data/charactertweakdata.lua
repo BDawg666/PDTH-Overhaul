@@ -80,10 +80,42 @@ end, false)
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
 
+	-- nerf shotgun reaction times
 	presets.weapon.normal.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.good.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.expert.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
 
+	-- presets for glock
+	presets.weapon.good.glock = deep_clone(presets.weapon.good.mp5)
+
 	return presets
+end, false)
+
+module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
+	self.weap_ids = {
+		"beretta92",
+		"c45",
+		"m4",
+		"r870",
+		"mp5",
+		"mac11",
+		"shield",
+		"sniper_rifle",
+		"glock",
+		"mossberg",
+	}
+
+	self.weap_unit_names = {
+		Idstring("units/weapons/beretta92_npc/beretta92_npc"),
+		Idstring("units/weapons/c45_npc/c45_npc"),
+		Idstring("units/weapons/m4_rifle_npc/m4_rifle_npc"),
+		Idstring("units/weapons/r870_shotgun_npc/r870_shotgun_npc"),
+		Idstring("units/weapons/mp5_npc/mp5_npc"),
+		Idstring("units/weapons/mac11_npc/mac11_npc"),
+		Idstring("units/weapons/shield_pistol_npc/shield_pistol_npc"),
+		Idstring("units/weapons/sniper_rifle_npc/sniper_rifle_npc"),
+		Idstring("units/weapons/glock_npc/glock_18_npc"),
+		Idstring("units/weapons/mossberg_npc/mossberg_npc"),
+	}
 end, false)
