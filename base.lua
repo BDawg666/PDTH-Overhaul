@@ -9,6 +9,7 @@ local module = DMod:new("fgo", {
 })
 
 -- sandbox overrides
+module:hook_post_require("lib/managers/achievmentmanager.", "sandbox/achievmentmanager")
 module:hook_post_require("lib/network/matchmaking/networkaccountsteam", "sandbox/NetworkAccountSTEAM")
 module:hook_post_require("lib/network/matchmaking/networkmatchmakingsteam", "sandbox/NetworkMatchMakingSTEAM")
 module:hook_post_require("lib/managers/menu/menunodegui", "sandbox/menunodegui")
