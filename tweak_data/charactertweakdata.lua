@@ -96,6 +96,8 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.good.ak47 = deep_clone(presets.weapon.good.m4)
 	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
 	presets.weapon.gang_member.ak47 = deep_clone(presets.weapon.gang_member.m4)
+	
+	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
 
 	return presets
 end, false)
@@ -113,6 +115,7 @@ module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
 		"glock",
 		"mossberg",
 		"ak47",
+		"bronco",
 	}
 
 	self.weap_unit_names = {
@@ -127,5 +130,6 @@ module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
 		Idstring("units/weapons/glock_npc/glock_18_npc"),
 		Idstring("units/weapons/mossberg_npc/mossberg_npc"),
 		Idstring("units/weapons/ak47_npc/ak47_npc"),
+		Idstring("units/weapons/raging_bull_npc/raging_bull_npc"),
 	}
 end, false)

@@ -1,7 +1,7 @@
 local overrides = {
 	spooc = "mac11",
-	gangster = { "glock", "ak47", "mac11", "mossberg" },
-	dealer = { "ak47", "mac11", "mossberg" },
+	gangster = { "glock", "ak47", "mac11", "mossberg", "bronco" },
+	dealer = { "glock", "ak47", "mac11", "mossberg", "bronco" },
 	murky = { "m4", "mp5", "r870" },
 	fbi = { "m4", "mp5" },
 }
