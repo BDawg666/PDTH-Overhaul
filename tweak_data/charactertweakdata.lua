@@ -58,23 +58,23 @@ function CharacterTweakData:_set_overkill_145()
 end
 
 module:post_hook(CharacterTweakData, "_init_spanish", function(self, presets)
-	self.spanish.SPEED_WALK = 400
-	self.spanish.SPEED_RUN = 600
+	self.spanish.SPEED_WALK = 215
+	self.spanish.SPEED_RUN = 340
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_german", function(self, presets)
-	self.german.SPEED_WALK = 400
-	self.german.SPEED_RUN = 600
+	self.german.SPEED_WALK = 215
+	self.german.SPEED_RUN = 340
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_russian", function(self, presets)
-	self.russian.SPEED_WALK = 400
-	self.russian.SPEED_RUN = 600
+	self.russian.SPEED_WALK = 215
+	self.russian.SPEED_RUN = 340
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
-	self.american.SPEED_WALK = 400
-	self.american.SPEED_RUN = 600
+	self.american.SPEED_WALK = 215
+	self.american.SPEED_RUN = 340
 end, false)
 
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
