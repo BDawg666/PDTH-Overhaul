@@ -23,5 +23,5 @@ module:post_hook(EquipmentsTweakData, "init", function(self)
 		description_id = "des_sentry_gun",
 	}
 
-	self.specials.gold_bag_equip.player_rule = true
+	self.specials.gold_bag_equip.player_rule = "no_run"
 end)
