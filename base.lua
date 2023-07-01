@@ -33,6 +33,7 @@ module:hook_post_require("lib/units/beings/player/states/playertased", "player/p
 module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_recoil")
 
 -- weapon overrides
+module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/player_spread")
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/bullet_penetration")
 module:hook_post_require("lib/managers/gameplaycentralmanager", "weapons/bullet_penetration")
 module:hook_post_require("lib/tweak_data/upgradestweakdata", "weapons/upgradestweakdata")

@@ -10,6 +10,7 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.spread.steelsight = 1.008
 	self.beretta92.spread.moving_standing = 2.52
 	self.beretta92.spread.moving_crouching = 2.52
+	self.beretta92.spread.moving_steelsight = 1.008
 	self.beretta92.kick.v.standing = 0.24
 	self.beretta92.kick.v.crouching = 0.18
 	self.beretta92.kick.v.steelsight = 0.12
@@ -24,6 +25,7 @@ module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 	self.c45.spread.steelsight = 0.99
 	self.c45.spread.moving_standing = 2.7
 	self.c45.spread.moving_crouching = 2.7
+	self.c45.spread.moving_steelsight = 0.99
 	self.c45.kick.v.standing = 1.5
 	self.c45.kick.v.crouching = 1.2
 	self.c45.kick.v.steelsight = 0.9
@@ -42,6 +44,7 @@ module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
 	self.raging_bull.spread.steelsight = 0.972
 	self.raging_bull.spread.moving_standing = 1.35
 	self.raging_bull.spread.moving_crouching = 1.35
+	self.raging_bull.spread.moving_steelsight = 0.972
 	self.raging_bull.kick.v.standing = 5.6
 	self.raging_bull.kick.v.crouching = 4.5
 	self.raging_bull.kick.v.steelsight = 3.4
@@ -60,6 +63,7 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.spread.steelsight = 1.62
 	self.glock.spread.moving_standing = 3.6
 	self.glock.spread.moving_crouching = 3.6
+	self.glock.spread.moving_steelsight = 1.62
 	--self.glock.timers.reload_not_empty = 2
 	--self.glock.timers.reload_empty = 2.16
 	self.glock.kick.v.standing = 0.9
@@ -80,6 +84,7 @@ module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 	self.test_raycast_weapon.spread.steelsight = 0.54
 	self.test_raycast_weapon.spread.moving_standing = 3.24
 	self.test_raycast_weapon.spread.moving_crouching = 2.7
+	self.test_raycast_weapon.spread.moving_steelsight = 1.08
 	self.test_raycast_weapon.kick.v.standing = 0.75
 	self.test_raycast_weapon.kick.v.crouching = 0.6
 	self.test_raycast_weapon.kick.v.steelsight = 0.375
@@ -100,6 +105,7 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.spread.steelsight = 2
 	self.hk21.spread.moving_standing = 3.6
 	self.hk21.spread.moving_crouching = 3.15
+	self.hk21.spread.moving_steelsight = 2.5
 	self.hk21.kick.v.standing = 1.2
 	self.hk21.kick.v.crouching = 1
 	self.hk21.kick.v.steelsight = 0.8
@@ -117,6 +123,7 @@ module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 	self.m14.spread.steelsight = 0.072
 	self.m14.spread.moving_standing = 7.2
 	self.m14.spread.moving_crouching = 5.76
+	self.m14.spread.moving_steelsight = 0.216
 	self.m14.kick.v.standing = 2.1
 	self.m14.kick.v.crouching = 1.35
 	self.m14.kick.v.steelsight = 1.2
@@ -129,6 +136,7 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.DAMAGE = 8.4
 	self.r870_shotgun.CLIP_AMMO_MAX = 10
 	self.r870_shotgun.AMMO_MAX = 30
+	self.r870_shotgun.spread.moving_steelsight = self.r870_shotgun.spread.steelsight
 	self.r870_shotgun.kick.v.standing = 2.4
 	self.r870_shotgun.kick.v.crouching = 1.8
 	self.r870_shotgun.kick.v.steelsight = 1.5
@@ -147,6 +155,7 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.spread.steelsight = 1.08
 	self.ak47.spread.moving_standing = 4.32
 	self.ak47.spread.moving_crouching = 3.96
+	self.ak47.spread.moving_steelsight = 2.16
 	self.ak47.kick.v.standing = 0.9
 	self.ak47.kick.v.crouching = 0.7
 	self.ak47.kick.v.steelsight = 0.5
@@ -163,6 +172,7 @@ module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
 	self.mac11.spread.steelsight = 1.98
 	self.mac11.spread.moving_standing = 4.5
 	self.mac11.spread.moving_crouching = 3.6
+	self.mac11.spread.moving_steelsight = 2.97
 	self.mac11.kick.v.standing = 0.825
 	self.mac11.kick.v.crouching = 0.675
 	self.mac11.kick.v.steelsight = 0.525
@@ -174,9 +184,11 @@ end)
 module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	--Does not affect animation speed like the upgrade
 	--self.mossberg.single.fire_rate = 0.5
+	self.mossberg.DAMAGE = 8.4
 	self.mossberg.CLIP_AMMO_MAX = 6
-	self.mossberg.AMMO_MAX = 24
-	self.mossberg.AMMO_PICKUP = { 1, 2 }
+	self.mossberg.AMMO_MAX = 12
+	self.mossberg.AMMO_PICKUP = { 0, 1 }
+	self.mossberg.spread.moving_steelsight = self.mossberg.spread.steelsight
 	self.mossberg.kick.v.standing = 2.8
 	self.mossberg.kick.v.crouching = 2
 	self.mossberg.kick.v.steelsight = 0.8
@@ -193,6 +205,7 @@ module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
 	self.mp5.spread.steelsight = 0.765
 	self.mp5.spread.moving_standing = 2.025
 	self.mp5.spread.moving_crouching = 1.71
+	self.mp5.spread.moving_steelsight = 1.1475
 	self.mp5.kick.v.standing = 0.525
 	self.mp5.kick.v.crouching = 0.4375
 	self.mp5.kick.v.steelsight = 0.2625
@@ -204,6 +217,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.DAMAGE = 56
 	self.m79.AMMO_MAX = 5
+	self.m79.spread.moving_steelsight = 0.2
 	self.m79.kick.h.steelsight = 0.35
 	self.m79.EXPLOSION_RANGE = 600
 end)
