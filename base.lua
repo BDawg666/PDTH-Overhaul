@@ -8,6 +8,10 @@ local module = DMod:new("fgo", {
 	},
 })
 
+module:hook("OnModuleRegistered", "load_fgo", function()
+	D:unregister_module("anticheat")
+end)
+
 -- sandbox overrides
 module:hook_post_require("lib/managers/achievmentmanager.", "sandbox/achievmentmanager")
 module:hook_post_require("lib/network/matchmaking/networkaccountsteam", "sandbox/NetworkAccountSTEAM")
