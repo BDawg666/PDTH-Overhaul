@@ -46,7 +46,7 @@ module:pre_hook(60, CopBase, "init", function(self, unit)
 end, false)
 
 module:pre_hook(60, CopBase, "post_init", function(self)
-	if self._default_weapon_id_override then
+	if type(self._default_weapon_id_override) == "string" then
 		self._default_weapon_id = self._default_weapon_id_override
 	end
 end, false)

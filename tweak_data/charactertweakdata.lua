@@ -96,40 +96,20 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.good.ak47 = deep_clone(presets.weapon.good.m4)
 	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
 	presets.weapon.gang_member.ak47 = deep_clone(presets.weapon.gang_member.m4)
-	
+
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
 
 	return presets
 end, false)
 
-module:hook(81, CharacterTweakData, "_create_table_structure", function(self)
-	self.weap_ids = {
-		"beretta92",
-		"c45",
-		"m4",
-		"r870",
-		"mp5",
-		"mac11",
-		"shield",
-		"sniper_rifle",
-		"glock",
-		"mossberg",
-		"ak47",
-		"bronco",
-	}
-
-	self.weap_unit_names = {
-		Idstring("units/weapons/beretta92_npc/beretta92_npc"),
-		Idstring("units/weapons/c45_npc/c45_npc"),
-		Idstring("units/weapons/m4_rifle_npc/m4_rifle_npc"),
-		Idstring("units/weapons/r870_shotgun_npc/r870_shotgun_npc"),
-		Idstring("units/weapons/mp5_npc/mp5_npc"),
-		Idstring("units/weapons/mac11_npc/mac11_npc"),
-		Idstring("units/weapons/shield_pistol_npc/shield_pistol_npc"),
-		Idstring("units/weapons/sniper_rifle_npc/sniper_rifle_npc"),
-		Idstring("units/weapons/glock_npc/glock_18_npc"),
-		Idstring("units/weapons/mossberg_npc/mossberg_npc"),
-		Idstring("units/weapons/ak47_npc/ak47_npc"),
-		Idstring("units/weapons/raging_bull_npc/raging_bull_npc"),
-	}
+module:post_hook(CharacterTweakData, "_create_table_structure", function(self)
+	for id, data in pairs({
+		glock = { folder = "glock_npc", unit = "glock_18_npc" },
+		bronco = { folder = "raging_bull_npc", unit = "raging_bull_npc" },
+		mossberg = { folder = "mossberg_npc", unit = "mossberg_npc" },
+		ak47 = { folder = "ak47_npc", unit = "ak47_npc" },
+	}) do
+		table.insert(self.weap_ids, id)
+		table.insert(self.weap_unit_names, Idstring(string.format("units/weapons/%s/%s", data.folder, data.unit)))
+	end
 end, false)
