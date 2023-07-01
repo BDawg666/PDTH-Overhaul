@@ -12,6 +12,16 @@ module:hook("OnModuleRegistered", "load_fgo", function()
 	D:unregister_module("anticheat")
 end)
 
+-- init classes
+module:hook_post_require("lib/states/ingamewaitingforplayers", function(m)
+	m:post_hook(m:hook_class("IngameWaitingForPlayersState"), "at_enter", function()
+		local scripts = { "element_spy" }
+		for i = 1, #scripts do
+			dofile(string.format("%s/classes/%s.lua", m:path(), scripts[i]))
+		end
+	end)
+end)
+
 -- sandbox overrides
 module:hook_post_require("lib/managers/achievmentmanager.", "sandbox/achievmentmanager")
 module:hook_post_require("lib/network/matchmaking/networkaccountsteam", "sandbox/NetworkAccountSTEAM")
@@ -49,6 +59,10 @@ module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployable
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
 -- module:hook_post_require("lib/units/interactions/interactionext", "player/block_interaction")
 -- module:hook_post_require("lib/managers/objectinteractionmanager", "player/block_interaction")
+
+-- mission scripts
+module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
+module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
 
 module:set_update({ id = "42754", platform = "modworkshop" })
 
