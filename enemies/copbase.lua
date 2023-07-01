@@ -4,7 +4,31 @@ local overrides = {
 	dealer = { "glock", "ak47", "mac11", "mossberg", "bronco" },
 	murky = { "m4", "mp5", "r870" },
 	fbi = { "m4", "mp5" },
+	security = {
+		bank = { "bronco", "c45", "mp5" },
+		slaughter_house = { "bronco", "m4", "mp5", "r870" },
+	},
 }
+
+local current_level
+local function get_weapon(data)
+	current_level = current_level or Global.level_data.level_id
+
+	local result
+	if type(data) == "table" then
+		if data[current_level] then
+			data = get_weapon(data[current_level])
+		end
+
+		result = data[math.random(1, #data)]
+	end
+
+	if type(data) == "string" then
+		result = data
+	end
+
+	return result
+end
 
 -- credits: Dorentuz` for the template
 local CopBase = module:hook_class("CopBase")
@@ -14,20 +38,11 @@ module:pre_hook(60, CopBase, "init", function(self, unit)
 	end
 
 	local data = overrides[unit:base()._tweak_table]
-	local weapon_override
 	if type(data) == "nil" then
 		return
 	end
 
-	if type(data) == "table" then
-		weapon_override = data[math.random(1, #data)]
-	end
-
-	if type(data) == "string" then
-		weapon_override = data
-	end
-
-	self._default_weapon_id_override = weapon_override
+	self._default_weapon_id_override = get_weapon(data)
 end, false)
 
 module:pre_hook(60, CopBase, "post_init", function(self)
