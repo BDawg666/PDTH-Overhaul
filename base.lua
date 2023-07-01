@@ -31,6 +31,7 @@ module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
+module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
 
 -- player overrides
 module:hook_post_require("lib/units/beings/player/states/playertased", "player/playertased")
