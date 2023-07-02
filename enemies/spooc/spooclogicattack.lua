@@ -1,15 +1,7 @@
 local SpoocLogicAttack = module:hook_class("SpoocLogicAttack")
 
 module:hook(SpoocLogicAttack, "_is_last_standing_criminal", function(focus_enemy)
-	local all_criminals = managers.groupai:state():all_char_criminals()
-
-	for u_key, u_data in pairs(all_criminals) do
-		if not u_data.status and focus_enemy.u_key ~= u_key then
-			return
-		end
-	end
-
-	return true
+	return table.size(managers.groupai:state():all_char_criminals()) <= 1
 end)
 
 module:hook(SpoocLogicAttack, "_upd_spooc_attack", function(data, my_data)
