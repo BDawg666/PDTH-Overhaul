@@ -78,7 +78,7 @@ module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
-	self.swat.HEALTH_INIT = 5
+	self.swat.HEALTH_INIT = 4
 	self.swat.rescue_hostages = false
 end, false)
 
