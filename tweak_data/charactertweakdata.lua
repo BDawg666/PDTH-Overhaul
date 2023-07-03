@@ -77,13 +77,22 @@ module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
 	self.american.SPEED_RUN = 340
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
+	self.fbi.weapon = presets.weapon.expert
+	self.fbi.HEALTH_INIT = 4
+	self.fbi.headshot_dmg_mul = 3
+	self.fbi.dodge = presets.dodge.ninja
+end, false)
+
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
 	self.swat.HEALTH_INIT = 4
 	self.swat.rescue_hostages = false
+	self.swat.dodge = presets.dodge.expert
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
 	self.heavy_swat.rescue_hostages = false
+	self.heavy_swat.dodge = presets.dodge.good
 end, false)
 
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
