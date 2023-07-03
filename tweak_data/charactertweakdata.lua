@@ -77,6 +77,15 @@ module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
 	self.american.SPEED_RUN = 340
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
+	self.swat.HEALTH_INIT = 5
+	self.swat.rescue_hostages = false
+end, false)
+
+module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
+	self.heavy_swat.rescue_hostages = false
+end, false)
+
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
 

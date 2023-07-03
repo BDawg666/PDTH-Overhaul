@@ -4,8 +4,9 @@ module:post_hook(UpgradesTweakData, "init_data_player_overhaul", function(self)
 
 	self.values.extra_cable_tie.quantity = { 18, 18, 18, 18 }
 	self.values.player.thick_skin = { 10, 10, 10, 10, 10 }
-	self.values.player.extra_ammo_multiplier = { 1.5, 1.5, 1.5, 1.5, 1.5 }
-	self.values.player.toolset = { 0.5, 0.5, 0.5, 0.5 }
+	self.values.player.extra_ammo_multiplier = { 1.25, 1.25, 1.25, 1.25, 1.25 }
+	self.values.player.toolset = { 0.6, 0.6, 0.6, 0.6 }
+	self.values.crew_bonus.more_ammo = { 1.1 }
 end)
 
 module:post_hook(UpgradesTweakData, "init_data_deployable_overhaul", function(self)
@@ -71,8 +72,8 @@ end)
 module:post_hook(UpgradesTweakData, "init_data_secondary_overhaul", function(self)
 	self.values.mac11.clip_ammo_increase = { 0, 0, 0, 0 }
 	self.values.mac11.recoil_multiplier = { 1, 1, 1, 1 }
-	--ToDo, not in weapontweakdata
-	--self.values.mac11.enter_steelsight_speed_multiplier = {1.1, 1.2}
+	--Remove steelsight multipliers for now, re-add later and to more weapons
+	self.values.mac11.enter_steelsight_speed_multiplier = {1, 1}
 
 	self.values.mossberg.clip_ammo_increase = { 0, 0 }
 	self.values.mossberg.recoil_multiplier = { 1, 1 }
@@ -84,7 +85,7 @@ module:post_hook(UpgradesTweakData, "init_data_secondary_overhaul", function(sel
 	self.values.mp5.spread_multiplier = { 1, 1 }
 	--ToDo: not in weapontweakdata
 	-- self.values.mp5.reload_speed_multiplier = { 1, 1, 1, 1 }
-	--self.values.mp5.enter_steelsight_speed_multiplier = {1.5, 1.8}
+	self.values.mp5.enter_steelsight_speed_multiplier = {1, 1}
 
 	self.values.m79.damage_multiplier = { 1, 1, 1, 1 }
 	self.values.m79.explosion_range_multiplier = { 1, 1 }
