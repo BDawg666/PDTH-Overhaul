@@ -2,6 +2,7 @@ local WeaponTweakData = module:hook_class("WeaponTweakData")
 
 module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.can_shoot_through_shield = true
+	self.beretta92.DAMAGE = 1.8
 	self.beretta92.CLIP_AMMO_MAX = 20
 	self.beretta92.AMMO_MAX = 40
 	self.beretta92.AMMO_PICKUP = { 1, 3 }
