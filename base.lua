@@ -64,6 +64,17 @@ module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deploy
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
 module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
 
+-- localization
+module:add_localization_string("des_beretta92", {
+	english = "stats : 9mm : semiautomatic : low recoil \nthe b9-s is one of the most used law-enforcement pistols todayn \nthe relatively light damage is compensated by its big clipsn \nloaded with shield piercing rounds.",
+})
+module:add_localization_string("des_glock", {
+	english = "stats : 9mm : full auto : medium recoil \nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute.",
+})
+module:add_localization_string("des_m4", {
+	english = "stats : 5.56 : semiautomatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there isn \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
+})
+
 module:set_update({ id = "42754", platform = "modworkshop" })
 
 return module
