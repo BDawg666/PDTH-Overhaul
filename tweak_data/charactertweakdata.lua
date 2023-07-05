@@ -85,7 +85,7 @@ module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
-	self.swat.HEALTH_INIT = 4
+	self.swat.HEALTH_INIT = 4.5
 	self.swat.rescue_hostages = false
 	self.swat.dodge = presets.dodge.expert
 end, false)

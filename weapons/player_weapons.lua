@@ -104,6 +104,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 	self.test_raycast_weapon.DAMAGE = 2.4
+	self.test_raycast_weapon.damage_melee = 3
 	self.test_raycast_weapon.CLIP_AMMO_MAX = 30
 	self.test_raycast_weapon.AMMO_MAX = 120
 	self.test_raycast_weapon.AMMO_PICKUP = { 2, 4 }
@@ -131,6 +132,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.DAMAGE = 3.6
+	self.hk21.damage_melee = 4.5
 	self.hk21.CLIP_AMMO_MAX = 160
 	self.hk21.AMMO_MAX = 240
 	self.hk21.AMMO_PICKUP = { 2, 9 }
@@ -156,6 +158,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 	self.m14.DAMAGE = 4.8
+	self.m14.damage_melee = 3
 	self.m14.CLIP_AMMO_MAX = 16
 	self.m14.AMMO_MAX = 60
 	self.m14.AMMO_PICKUP = { 1, 3 }
@@ -181,6 +184,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.DAMAGE = 8.4
+	self.r870_shotgun.damage_melee = 3
 	self.r870_shotgun.CLIP_AMMO_MAX = 10
 	self.r870_shotgun.AMMO_MAX = 30
 	self.r870_shotgun.spread.moving_steelsight = self.r870_shotgun.spread.steelsight
@@ -200,6 +204,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.DAMAGE = 3.6
+	self.ak47.damage_melee = 3
 	self.ak47.CLIP_AMMO_MAX = 35
 	self.ak47.AMMO_MAX = 90
 	self.ak47.AMMO_PICKUP = { 1, 4 }
@@ -296,6 +301,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.DAMAGE = 56
+	self.m79.damage_melee = 3
 	self.m79.AMMO_MAX = 5
 	self.m79.spread.moving_steelsight = 0.2
 	self.m79.kick.h.steelsight = 0.35
