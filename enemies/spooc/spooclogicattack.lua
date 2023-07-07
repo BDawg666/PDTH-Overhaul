@@ -20,7 +20,7 @@ module:hook(SpoocLogicAttack, "_upd_spooc_attack", function(data, my_data)
 	if
 		(my_data.attitude == "engage" and 1500 or 900) > target.verified_dis
 		and (not my_data.last_dmg_t or data.t - my_data.last_dmg_t > 0.6)
-		and not data.unit:chk_action_forbidden("walk")
+		and not data.unit:movement():chk_action_forbidden("walk")
 		and not SpoocLogicAttack._is_last_standing_criminal()
 	then
 		local enemy_tracker = target_mov:nav_tracker()
