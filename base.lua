@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.4.2",
+	version = "0.4.3",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = { "ummlib", "[ovk_193]" },
@@ -41,7 +41,7 @@ module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
---module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
+module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
 
 -- player overrides
 module:hook_post_require("lib/units/beings/player/states/playertased", "player/playertased")
@@ -73,6 +73,18 @@ module:add_localization_string("des_glock", {
 })
 module:add_localization_string("des_m4", {
 	english = "stats : 5.56 : semiautomatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there isn \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
+})
+module:add_localization_string("des_thick_skin", {
+	english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",
+})
+module:add_localization_string("des_extra_start_out_ammo", {
+	english = "extra start out ammo allows the owner to carry more ammo. you carry 25% more ammo per weapon.",
+})
+module:add_localization_string("des_toolset", {
+	english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces the interaction time by 40%.",
+})
+module:add_localization_string("des_extra_cable_tie", {
+	english = "extra cable ties give you 18 more cable ties to start with.",
 })
 
 module:set_update({ id = "42754", platform = "modworkshop" })
