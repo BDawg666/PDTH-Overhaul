@@ -81,7 +81,7 @@ module:add_localization_string("des_extra_start_out_ammo", {
 	english = "extra start out ammo allows the owner to carry more ammo. you carry 25% more ammo per weapon.",
 })
 module:add_localization_string("des_toolset", {
-	english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces the interaction time by 40%.",
+	english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces interaction times by 40%.",
 })
 module:add_localization_string("des_extra_cable_tie", {
 	english = "extra cable ties give you 18 more cable ties to start with.",
