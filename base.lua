@@ -46,6 +46,7 @@ module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "ene
 -- player overrides
 module:hook_post_require("lib/units/beings/player/states/playertased", "player/playertased")
 module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_recoil")
+module:hook_post_require("lib/managers/playermanager", "player/playermanager")
 
 -- weapon overrides
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/player_spread")
