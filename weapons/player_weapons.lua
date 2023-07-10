@@ -18,9 +18,9 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.crosshair.crouching.offset = 0.06
 	self.beretta92.crosshair.crouching.moving_offset = 0.15
 	self.beretta92.crosshair.crouching.kick_offset = 0.0
-	self.beretta92.kick.v.standing = 0.48
-	self.beretta92.kick.v.crouching = 0.36
-	self.beretta92.kick.v.steelsight = 0.24
+	self.beretta92.kick.v.standing = 0.72
+	self.beretta92.kick.v.crouching = 0.54
+	self.beretta92.kick.v.steelsight = 0.36
 end)
 
 module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
@@ -40,9 +40,9 @@ module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 	self.c45.crosshair.crouching.offset = 0.075
 	self.c45.crosshair.crouching.moving_offset = 0.187
 	self.c45.crosshair.crouching.kick_offset = 0.0
-	self.c45.kick.v.standing = 1.5
-	self.c45.kick.v.crouching = 1.2
-	self.c45.kick.v.steelsight = 0.9
+	self.c45.kick.v.standing = 2.25
+	self.c45.kick.v.crouching = 1.8
+	self.c45.kick.v.steelsight = 1.35
 	self.c45.kick.h.standing = 0.9
 	self.c45.kick.h.crouching = 0.6
 	self.c45.kick.h.steelsight = 0.3
@@ -66,9 +66,9 @@ module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
 	self.raging_bull.crosshair.crouching.offset = 0.078
 	self.raging_bull.crosshair.crouching.moving_offset = 0.195
 	self.raging_bull.crosshair.crouching.kick_offset = 0.0
-	self.raging_bull.kick.v.standing = 2.8
-	self.raging_bull.kick.v.crouching = 2.25
-	self.raging_bull.kick.v.steelsight = 1.7
+	self.raging_bull.kick.v.standing = 4.2
+	self.raging_bull.kick.v.crouching = 3.37
+	self.raging_bull.kick.v.steelsight = 3.05
 	self.raging_bull.kick.h.standing = 0.8
 	self.raging_bull.kick.h.crouching = 0.75
 	self.raging_bull.kick.h.steelsight = 0.5
@@ -94,12 +94,12 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.crosshair.crouching.kick_offset = 0.0
 	--self.glock.timers.reload_not_empty = 2
 	--self.glock.timers.reload_empty = 2.16
-	self.glock.kick.v.standing = 0.9
-	self.glock.kick.v.crouching = 0.8
-	self.glock.kick.v.steelsight = 0.7
-	self.glock.kick.h.standing = 1.08
-	self.glock.kick.h.crouching = 0.96
-	self.glock.kick.h.steelsight = 0.84
+	self.glock.kick.v.standing = 1.35
+	self.glock.kick.v.crouching = 1.2
+	self.glock.kick.v.steelsight = 1.05
+	self.glock.kick.h.standing = 0.81
+	self.glock.kick.h.crouching = 0.72
+	self.glock.kick.h.steelsight = 0.63
 end)
 
 module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
@@ -120,9 +120,9 @@ module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 	self.test_raycast_weapon.crosshair.crouching.offset = 0.057
 	self.test_raycast_weapon.crosshair.crouching.moving_offset = 0.285
 	self.test_raycast_weapon.crosshair.crouching.kick_offset = 0.0
-	self.test_raycast_weapon.kick.v.standing = 0.75
-	self.test_raycast_weapon.kick.v.crouching = 0.6
-	self.test_raycast_weapon.kick.v.steelsight = 0.375
+	self.test_raycast_weapon.kick.v.standing = 1.12
+	self.test_raycast_weapon.kick.v.crouching = 0.9
+	self.test_raycast_weapon.kick.v.steelsight = 0.562
 	self.test_raycast_weapon.kick.h.standing = 0.45
 	self.test_raycast_weapon.kick.h.crouching = 0.3
 	self.test_raycast_weapon.kick.h.steelsight = 0.15
@@ -133,27 +133,27 @@ end)
 module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 4.5
-	self.hk21.CLIP_AMMO_MAX = 160
-	self.hk21.AMMO_MAX = 240
-	self.hk21.AMMO_PICKUP = { 2, 9 }
-	self.hk21.spread.standing = 2.25
-	self.hk21.spread.crouching = 2.12
-	self.hk21.spread.steelsight = 2
-	self.hk21.spread.moving_standing = 3.6
-	self.hk21.spread.moving_crouching = 3.15
-	self.hk21.spread.moving_steelsight = 2.5
-	self.hk21.crosshair.standing.offset = 0.225
-	self.hk21.crosshair.standing.moving_offset = 0.36
+	self.hk21.CLIP_AMMO_MAX = 90
+	self.hk21.AMMO_MAX = 180
+	self.hk21.AMMO_PICKUP = { 0, 2 }
+	self.hk21.spread.standing = 4
+	self.hk21.spread.crouching = 3.2
+	self.hk21.spread.steelsight = 0.4
+	self.hk21.spread.moving_standing = 10
+	self.hk21.spread.moving_crouching = 7.5
+	self.hk21.spread.moving_steelsight = 5
+	self.hk21.crosshair.standing.offset = 0.4
+	self.hk21.crosshair.standing.moving_offset = 1.0
 	self.hk21.crosshair.standing.kick_offset = 0.0
-	self.hk21.crosshair.crouching.offset = 0.212
-	self.hk21.crosshair.crouching.moving_offset = 0.315
+	self.hk21.crosshair.crouching.offset = 0.32
+	self.hk21.crosshair.crouching.moving_offset = 0.75
 	self.hk21.crosshair.crouching.kick_offset = 0.0
-	self.hk21.kick.v.standing = 1.2
-	self.hk21.kick.v.crouching = 1
-	self.hk21.kick.v.steelsight = 0.8
-	self.hk21.kick.h.standing = 0.72
-	self.hk21.kick.h.crouching = 0.6
-	self.hk21.kick.h.steelsight = 0.48
+	self.hk21.kick.v.standing = 2.4
+	self.hk21.kick.v.crouching = 2
+	self.hk21.kick.v.steelsight = 1.6
+	self.hk21.kick.h.standing = 1.44
+	self.hk21.kick.h.crouching = 1.2
+	self.hk21.kick.h.steelsight = 0.9
 end)
 
 module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
@@ -174,9 +174,9 @@ module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 	self.m14.crosshair.crouching.offset = 0.033
 	self.m14.crosshair.crouching.moving_offset = 0.297
 	self.m14.crosshair.crouching.kick_offset = 0.0
-	self.m14.kick.v.standing = 2.1
-	self.m14.kick.v.crouching = 1.35
-	self.m14.kick.v.steelsight = 1.2
+	self.m14.kick.v.standing = 3.15
+	self.m14.kick.v.crouching = 2.02
+	self.m14.kick.v.steelsight = 1.8
 	self.m14.kick.h.standing = 0.27
 	self.m14.kick.h.crouching = 0.21
 	self.m14.kick.h.steelsight = 0.15
@@ -194,9 +194,9 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.crosshair.crouching.offset = 0.4
 	self.r870_shotgun.crosshair.crouching.moving_offset = 0.4
 	self.r870_shotgun.crosshair.crouching.kick_offset = 0.0
-	self.r870_shotgun.kick.v.standing = 2.4
-	self.r870_shotgun.kick.v.crouching = 1.8
-	self.r870_shotgun.kick.v.steelsight = 1.5
+	self.r870_shotgun.kick.v.standing = 3.6
+	self.r870_shotgun.kick.v.crouching = 2.7
+	self.r870_shotgun.kick.v.steelsight = 2.25
 	self.r870_shotgun.kick.h.standing = 0.42
 	self.r870_shotgun.kick.h.crouching = 0.36
 	self.r870_shotgun.kick.h.steelsight = 0.3
@@ -220,9 +220,9 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.crosshair.crouching.offset = 0.103
 	self.ak47.crosshair.crouching.moving_offset = 0.517
 	self.ak47.crosshair.crouching.kick_offset = 0.0
-	self.ak47.kick.v.standing = 0.9
-	self.ak47.kick.v.crouching = 0.7
-	self.ak47.kick.v.steelsight = 0.5
+	self.ak47.kick.v.standing = 1.35
+	self.ak47.kick.v.crouching = 1.05
+	self.ak47.kick.v.steelsight = 0.75
 	self.ak47.kick.h.standing = 0.55
 	self.ak47.kick.h.crouching = 0.48
 	self.ak47.kick.h.steelsight = 0.36
@@ -245,9 +245,9 @@ module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
 	self.mac11.crosshair.crouching.offset = 0.157
 	self.mac11.crosshair.crouching.moving_offset = 0.659
 	self.mac11.crosshair.crouching.kick_offset = 0.0
-	self.mac11.kick.v.standing = 1.24
-	self.mac11.kick.v.crouching = 1.01
-	self.mac11.kick.v.steelsight = 0.787
+	self.mac11.kick.v.standing = 1.86
+	self.mac11.kick.v.crouching = 1.51
+	self.mac11.kick.v.steelsight = 1.18
 	self.mac11.kick.h.standing = 0.81
 	self.mac11.kick.h.crouching = 0.675
 	self.mac11.kick.h.steelsight = 0.54
@@ -267,12 +267,12 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	self.mossberg.crosshair.crouching.offset = 0.5
 	self.mossberg.crosshair.crouching.moving_offset = 0.5
 	self.mossberg.crosshair.crouching.kick_offset = 0.0
-	self.mossberg.kick.v.standing = 2.8
-	self.mossberg.kick.v.crouching = 2
-	self.mossberg.kick.v.steelsight = 0.8
-	self.mossberg.kick.h.standing = 0.48
-	self.mossberg.kick.h.crouching = 0.4
-	self.mossberg.kick.h.steelsight = 0.32
+	self.mossberg.kick.v.standing = 4.4
+	self.mossberg.kick.v.crouching = 3.6
+	self.mossberg.kick.v.steelsight = 3.3
+	self.mossberg.kick.h.standing = 0.5
+	self.mossberg.kick.h.crouching = 0.44
+	self.mossberg.kick.h.steelsight = 0.38
 end)
 
 module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
@@ -291,9 +291,9 @@ module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
 	self.mp5.crosshair.crouching.offset = 0.063
 	self.mp5.crosshair.crouching.moving_offset = 0.264
 	self.mp5.crosshair.crouching.kick_offset = 0.0
-	self.mp5.kick.v.standing = 0.525
-	self.mp5.kick.v.crouching = 0.437
-	self.mp5.kick.v.steelsight = 0.262
+	self.mp5.kick.v.standing = 0.78
+	self.mp5.kick.v.crouching = 0.65
+	self.mp5.kick.v.steelsight = 0.39
 	self.mp5.kick.h.standing = 0.367
 	self.mp5.kick.h.crouching = 0.315
 	self.mp5.kick.h.steelsight = 0.21
