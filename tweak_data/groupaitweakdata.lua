@@ -48,7 +48,7 @@ function GroupAITweakData:_set_normal()
 	self.max_nr_simultaneous_boss_types = 4
 	self.besiege.assault.sustain_duration_min = { 150, 180, 250 }
 	self.besiege.assault.sustain_duration_max = { 200, 220, 360 }
-	self.besiege.assault.delay = { 20, 20, 20 }
+	self.besiege.assault.delay = { 40, 35, 30 }
 	self.besiege.assault.units = {
 		swat = { 1, 0.5, 0.25 },
 		swat_kevlar = { 0.4, 1, 0.2 },
@@ -93,7 +93,7 @@ function GroupAITweakData:_set_hard()
 	self.max_nr_simultaneous_boss_types = 4
 	self.besiege.assault.sustain_duration_min = { 150, 180, 250 }
 	self.besiege.assault.sustain_duration_max = { 200, 220, 360 }
-	self.besiege.assault.delay = { 20, 20, 20 }
+	self.besiege.assault.delay = { 40, 35, 30 }
 	self.besiege.assault.units = {
 		swat = { 1, 0.5, 0.25 },
 		swat_kevlar = { 0.4, 1, 0.2 },
@@ -139,7 +139,7 @@ function GroupAITweakData:_set_overkill()
 	self.besiege.assault.build_duration = 30
 	self.besiege.assault.sustain_duration_min = { 200, 360, 400 }
 	self.besiege.assault.sustain_duration_max = { 200, 360, 400 }
-	self.besiege.assault.delay = { 20, 20, 20 }
+	self.besiege.assault.delay = { 40, 35, 30 }
 	self.besiege.assault.units = {
 		swat = { 1, 0.5, 0 },
 		swat_kevlar = { 0.5, 1, 0.1 },
@@ -191,7 +191,7 @@ function GroupAITweakData:_set_overkill_145()
 	self.besiege.assault.build_duration = 30
 	self.besiege.assault.sustain_duration_min = { 200, 360, 400 }
 	self.besiege.assault.sustain_duration_max = { 200, 360, 400 }
-	self.besiege.assault.delay = { 20, 20, 20 }
+	self.besiege.assault.delay = { 40, 35, 30 }
 	self.besiege.assault.units = {
 		swat = { 1, 0.5, 0 },
 		swat_kevlar = { 0.5, 1, 0.1 },
@@ -236,3 +236,16 @@ function GroupAITweakData:_set_overkill_145()
 		},
 	}
 end
+
+module:post_hook(GroupAITweakData, "init", function(self)
+	self.besiege.recon.units = {
+		cop = { 0.5, 0, 0 },
+		fbi = { 0.5, 0.5, 0.25 },
+		fbi_special = { 0, 0.5, 0.75 },
+	}
+	self.besiege.rescue.units = {
+		cop = { 0.5, 0, 0 },
+		fbi = { 0.5, 0.5, 0.25 },
+		fbi_special = { 0, 0.5, 0.75 },
+	}
+end, false)
