@@ -302,8 +302,11 @@ end)
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.DAMAGE = 56
 	self.m79.damage_melee = 3
-	self.m79.AMMO_MAX = 5
+	self.m79.AMMO_MAX = 6
 	self.m79.spread.moving_steelsight = 0.2
+	self.m79.kick.v.standing = 5.25
+	self.m79.kick.v.crouching = 4.8
+	self.m79.kick.v.steelsight = 4.8
 	self.m79.kick.h.steelsight = 0.35
 	self.m79.EXPLOSION_RANGE = 600
 end)

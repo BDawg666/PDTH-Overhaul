@@ -248,4 +248,9 @@ module:post_hook(GroupAITweakData, "init", function(self)
 		fbi = { 0.5, 0.5, 0.25 },
 		fbi_special = { 0, 0.5, 0.75 },
 	}
+	self.street.capture.units = {
+		cop = { 0.5, 0, 0 },
+		fbi = { 0.5, 0.5, 0.25 },
+		fbi_special = { 0, 0.5, 0.75 },
+	}
 end, false)

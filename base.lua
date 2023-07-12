@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.4.3",
+	version = "0.5",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = { "ummlib", "[ovk_193]" },
@@ -39,6 +39,7 @@ module:hook_post_require("lib/tweak_data/playertweakdata", "tweak_data/playertwe
 -- enemy overrides
 module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
+module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/teamaibase")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
@@ -55,6 +56,7 @@ module:hook_post_require("lib/managers/gameplaycentralmanager", "weapons/bullet_
 module:hook_post_require("lib/tweak_data/upgradestweakdata", "weapons/upgradestweakdata")
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/player_weapons")
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/npc_weapons")
+module:register_post_override("lib/units/weapons/grenades/m79grenadebase", "weapons/m79grenadebase")
 
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployables/bag_collision")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
