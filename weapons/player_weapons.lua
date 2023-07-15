@@ -10,7 +10,7 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.spread.crouching = 0.6
 	self.beretta92.spread.steelsight = 0.4
 	self.beretta92.spread.moving_standing = 2.25
-	self.beretta92.spread.moving_crouching = 1,5
+	self.beretta92.spread.moving_crouching = 1.5
 	self.beretta92.spread.moving_steelsight = 1
 	self.beretta92.crosshair.standing.offset = 0.09
 	self.beretta92.crosshair.standing.moving_offset = 0.225
