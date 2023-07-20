@@ -2,7 +2,7 @@ local module = DMod:new("fgo", {
 	version = "0.5",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
-	dependencies = { "ummlib", "[ovk_193]" },
+	dependencies = { "ummlib", "[ovk_193]", "[nwpab]", "[static_recoil]", "[bwr]", "[Alleviations Weapon Rework]", "[1° A.W.U. Rebalance]", "[yet_another_weapon_rebalance]" },
 	description = {
 		english = "WIP",
 	},

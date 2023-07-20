@@ -7,8 +7,7 @@ function CharacterTweakData:_set_easy()
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0.75)
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 3)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 1.5)
-	self.presets.gang_member_damage.REGENERATE_TIME = 2
-	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.35
 end
 
 function CharacterTweakData:_set_normal()
@@ -18,8 +17,7 @@ function CharacterTweakData:_set_normal()
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0.5)
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
-	self.presets.gang_member_damage.REGENERATE_TIME = 2.5
-	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 1.4
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.3
 end
 
 function CharacterTweakData:_set_hard()
@@ -29,8 +27,7 @@ function CharacterTweakData:_set_hard()
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0.5)
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
-	self.presets.gang_member_damage.REGENERATE_TIME = 2.5
-	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 1.4
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.25
 end
 
 function CharacterTweakData:_set_overkill()
@@ -41,8 +38,7 @@ function CharacterTweakData:_set_overkill()
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0.25)
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 1)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.25)
-	self.presets.gang_member_damage.REGENERATE_TIME = 2.5
-	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 1.4
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.2
 end
 
 function CharacterTweakData:_set_overkill_145()
@@ -53,8 +49,7 @@ function CharacterTweakData:_set_overkill_145()
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0.25)
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 1)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.25)
-	self.presets.gang_member_damage.REGENERATE_TIME = 2.5
-	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 1.4
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.15
 end
 
 module:post_hook(CharacterTweakData, "_init_spanish", function(self, presets)
@@ -115,7 +110,14 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
 	presets.weapon.gang_member.ak47 = deep_clone(presets.weapon.gang_member.m4)
 
+	-- presets for bronco
+	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
+	
+	-- presets for AI heisters
+	presets.gang_member_damage.HEALTH_INIT = 50
+	presets.gang_member_damage.REGENERATE_TIME = 3
+	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 
 	return presets
 end, false)

@@ -22,7 +22,7 @@ end
 
 function PlayerTweakData:_set_overkill()
 	self.damage.ARMOR_INIT = 5
-	self.damage.MIN_DAMAGE_INTERVAL = 0.20
+	self.damage.MIN_DAMAGE_INTERVAL = 0.2
 	self.damage.DOWNED_TIME_DEC = 10
 	self.damage.DOWNED_TIME_MIN = 1
 	self.damage.REVIVE_HEALTH_STEPS = {
