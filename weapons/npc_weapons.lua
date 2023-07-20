@@ -6,5 +6,5 @@ module:post_hook(WeaponTweakData, "_init_data_glock_18_npc", function(self)
 end)
 
 module:post_hook(WeaponTweakData, "_init_data_raging_bull_npc", function(self)
-	self.raging_bull_npc.DAMAGE = 2.4
+	self.raging_bull_npc.DAMAGE = 2
 end)
