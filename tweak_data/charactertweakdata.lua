@@ -147,7 +147,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		}
 	}
 	presets.weapon.gang_member.m4 = deep_clone(presets.weapon.expert.m4)
-	presets.weapon.gang_member.FALLOFF = {
+	presets.weapon.gang_member.m4.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
