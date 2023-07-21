@@ -114,6 +114,41 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
 	
+	-- custom loco preset
+	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
+	presets.weapon.good.mossberg.FALLOFF = {
+		{
+			r = 0,
+			dmg_mul = 4,
+			recoil = {2, 2},
+			mode = { 1, 1, 0, 0 }
+		},
+		{
+			r = 700,
+			dmg_mul = 1,
+			recoil = {2, 2},
+			mode = { 1, 1, 0, 0 }
+		},
+		{
+			r = 1000,
+			dmg_mul = 0.5,
+			recoil = {2, 3},
+			mode = { 1, 1, 0, 0 }
+		},
+		{
+			r = 4000,
+			dmg_mul = 0.3,
+			recoil = {2, 4},
+			mode = { 1, 0, 0, 0 }
+		},
+		{
+			r = 10000,
+			dmg_mul = 0.1,
+			recoil = {2, 4},
+			mode = { 1, 0, 0, 0 }
+		}
+	}
+	
 	-- presets for AI heisters
 	presets.gang_member_damage.HEALTH_INIT = 50
 	presets.gang_member_damage.REGENERATE_TIME = 3
