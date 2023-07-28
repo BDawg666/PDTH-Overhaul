@@ -61,7 +61,7 @@ module:post_hook(UpgradesTweakData, "init_data_primary_overhaul", function(self)
 
 	self.values.r870_shotgun.clip_ammo_increase = { 0, 0 }
 	self.values.r870_shotgun.recoil_multiplier = { 1, 1, 1, 1 }
-	self.values.r870_shotgun.damage_multiplier = { 1, 1, 1, 1 }
+	self.values.r870_shotgun.fire_rate_multiplier = { 1.25, 1.25, 1.25, 1.25 }
 
 	self.values.ak47.spread_multiplier = { 1, 1 }
 	self.values.ak47.recoil_multiplier = { 1, 1, 1, 1 }
@@ -99,3 +99,97 @@ module:post_hook(UpgradesTweakData, "init", function(self)
 	self:init_data_primary_overhaul()
 	self:init_data_secondary_overhaul()
 end, false)
+
+function UpgradesTweakData:_remington_definitions()
+	self.definitions.r870_shotgun = {
+		tree = 3,
+		step = 13,
+		category = "weapon",
+		weapon_id = "r870_shotgun",
+		unit_name = Idstring("units/weapons/r870_shotgun/r870_shotgun"),
+		name_id = "debug_r870_shotgun",
+		title_id = "debug_upgrade_new_weapon",
+		subtitle_id = "debug_r870_shotgun_short",
+		icon = "r870_shotgun",
+		image = "upgrades_remington",
+		image_slice = "upgrades_remington_slice",
+		unlock_lvl = 1,
+		prio = "high",
+		description_text_id = "des_r870_shotgun"
+	}
+	for i, _ in ipairs(self.values.r870_shotgun.clip_ammo_increase) do
+		local depends_on = i - 1 > 0 and "remington_mag" .. i - 1 or "r870_shotgun"
+		local unlock_lvl = 2
+		local prio = i == 1 and "high"
+		self.definitions["remington_mag" .. i] = {
+			tree = 3,
+			step = self.steps.r870_shotgun.clip_ammo_increase[i],
+			category = "feature",
+			name_id = "debug_upgrade_remington_mag" .. i,
+			title_id = "debug_r870_shotgun_short",
+			subtitle_id = "debug_upgrade_mag" .. i,
+			icon = "r870_shotgun",
+			image = "upgrades_remington",
+			image_slice = "upgrades_remington_slice",
+			description_text_id = "clip_ammo_increase",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "r870_shotgun",
+				upgrade = "clip_ammo_increase",
+				value = i
+			}
+		}
+	end
+	for i, _ in ipairs(self.values.r870_shotgun.recoil_multiplier) do
+		local depends_on = i - 1 > 0 and "remington_recoil" .. i - 1 or "r870_shotgun"
+		local unlock_lvl = 3
+		local prio = i == 1 and "high"
+		self.definitions["remington_recoil" .. i] = {
+			tree = 3,
+			step = self.steps.r870_shotgun.recoil_multiplier[i],
+			category = "feature",
+			name_id = "debug_upgrade_remington_recoil" .. i,
+			title_id = "debug_r870_shotgun_short",
+			subtitle_id = "debug_upgrade_recoil" .. i,
+			icon = "r870_shotgun",
+			image = "upgrades_remington",
+			image_slice = "upgrades_remington_slice",
+			description_text_id = "recoil_multiplier",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "r870_shotgun",
+				upgrade = "recoil_multiplier",
+				value = i
+			}
+		}
+	end
+	for i, _ in ipairs(self.values.r870_shotgun.damage_multiplier) do
+		local depends_on = i - 1 > 0 and "remington_fire_rate_multiplier" .. i - 1 or "r870_shotgun"
+		local unlock_lvl = 4
+		local prio = i == 1 and "high"
+		self.definitions["remington_fire_rate_multiplier" .. i] = {
+			tree = 3,
+			step = self.steps.r870_shotgun.damage_multiplier[i],
+			category = "feature",
+			name_id = "debug_upgrade_remington_damage" .. i,
+			title_id = "debug_r870_shotgun_short",
+			subtitle_id = "debug_upgrade_damage" .. i,
+			icon = "r870_shotgun",
+			image = "upgrades_remington",
+			image_slice = "upgrades_remington_slice",
+			description_text_id = "damage_multiplier",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "r870_shotgun",
+				upgrade = "fire_rate_multiplier",
+				value = i
+			}
+		}
+	end
+end

@@ -187,6 +187,7 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.damage_melee = 3
 	self.r870_shotgun.CLIP_AMMO_MAX = 10
 	self.r870_shotgun.AMMO_MAX = 30
+	self.r870_shotgun.single.fire_rate = 1.0
 	self.r870_shotgun.spread.moving_steelsight = self.r870_shotgun.spread.steelsight
 	self.r870_shotgun.crosshair.standing.offset = 0.4
 	self.r870_shotgun.crosshair.standing.moving_offset = 0.4
