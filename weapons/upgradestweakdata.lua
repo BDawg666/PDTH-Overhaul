@@ -29,7 +29,7 @@ end)
 module:post_hook(UpgradesTweakData, "init_data_handguns_overhaul", function(self)
 	self.values.beretta92.clip_ammo_increase = { 0, 0 }
 	self.values.beretta92.recoil_multiplier = { 1, 1, 1, 1 }
-	self.values.beretta92.spread_multiplier = { 1.5, 1.5 }
+	self.values.beretta92.enter_steelsight_speed_multiplier = { 1.5, 1.5 }
 
 	self.values.c45.clip_ammo_increase = { 0, 0 }
 	self.values.c45.recoil_multiplier = { 1, 1, 1, 1 }
