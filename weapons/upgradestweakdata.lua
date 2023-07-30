@@ -52,7 +52,7 @@ module:post_hook(UpgradesTweakData, "init_data_primary_overhaul", function(self)
 
 	self.values.hk21.clip_ammo_increase = { 0, 0, 0, 0 }
 	self.values.hk21.recoil_multiplier = { 1, 1 }
-	self.values.hk21.damage_multiplier = { 1, 1, 1, 1 }
+	self.values.hk21.enter_steelsight_speed_multiplier = { 0.5, 0.5, 0.5, 0.5 }
 
 	self.values.m14.clip_ammo_increase = { 0, 0 }
 	self.values.m14.recoil_multiplier = { 1, 1, 1, 1 }
@@ -188,6 +188,100 @@ function UpgradesTweakData:_remington_definitions()
 			upgrade = {
 				category = "r870_shotgun",
 				upgrade = "fire_rate_multiplier",
+				value = i
+			}
+		}
+	end
+end
+
+function UpgradesTweakData:_hk21_definitions()
+	self.definitions.hk21 = {
+		tree = 1,
+		step = 22,
+		category = "weapon",
+		weapon_id = "hk21",
+		unit_name = Idstring("units/weapons/hk21/hk21"),
+		name_id = "debug_hk21",
+		title_id = "debug_upgrade_new_weapon",
+		subtitle_id = "debug_hk21_short",
+		icon = "hk21",
+		image = "upgrades_hk21",
+		image_slice = "upgrades_hk21_slice",
+		unlock_lvl = 140,
+		prio = "high",
+		description_text_id = "des_hk21"
+	}
+	for i, _ in ipairs(self.values.hk21.clip_ammo_increase) do
+		local depends_on = i - 1 > 0 and "hk21_mag" .. i - 1 or "hk21"
+		local unlock_lvl = 141
+		local prio = i == 1 and "high"
+		self.definitions["hk21_mag" .. i] = {
+			tree = 1,
+			step = self.steps.hk21.clip_ammo_increase[i],
+			category = "feature",
+			name_id = "debug_upgrade_hk21_mag" .. i,
+			title_id = "debug_hk21_short",
+			subtitle_id = "debug_upgrade_mag" .. i,
+			icon = "hk21",
+			image = "upgrades_hk21",
+			image_slice = "upgrades_hk21_slice",
+			description_text_id = "clip_ammo_increase",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "hk21",
+				upgrade = "clip_ammo_increase",
+				value = i
+			}
+		}
+	end
+	for i, _ in ipairs(self.values.hk21.recoil_multiplier) do
+		local depends_on = i - 1 > 0 and "hk21_recoil" .. i - 1 or "hk21"
+		local unlock_lvl = 141
+		local prio = i == 1 and "high"
+		self.definitions["hk21_recoil" .. i] = {
+			tree = 1,
+			step = self.steps.hk21.recoil_multiplier[i],
+			category = "feature",
+			name_id = "debug_upgrade_hk21_recoil" .. i,
+			title_id = "debug_hk21_short",
+			subtitle_id = "debug_upgrade_recoil" .. i,
+			icon = "hk21",
+			image = "upgrades_hk21",
+			image_slice = "upgrades_hk21_slice",
+			description_text_id = "recoil_multiplier",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "hk21",
+				upgrade = "recoil_multiplier",
+				value = i
+			}
+		}
+	end
+	for i, _ in ipairs(self.values.hk21.damage_multiplier) do
+		local depends_on = i - 1 > 0 and "hk21_enter_steelsight_speed" .. i - 1 or "hk21"
+		local unlock_lvl = 141
+		local prio = i == 1 and "high"
+		self.definitions["hk21_enter_steelsight_speed" .. i] = {
+			tree = 1,
+			step = self.steps.hk21.damage_multiplier[i],
+			category = "feature",
+			name_id = "debug_upgrade_hk21_damage" .. i,
+			title_id = "debug_hk21_short",
+			subtitle_id = "debug_upgrade_enter_steelsight_speed" .. i,
+			icon = "hk21",
+			image = "upgrades_hk21",
+			image_slice = "upgrades_hk21_slice",
+			description_text_id = "enter_steelsight_speed_multiplier",
+			depends_on = depends_on,
+			unlock_lvl = unlock_lvl,
+			prio = prio,
+			upgrade = {
+				category = "hk21",
+				upgrade = "enter_steelsight_speed_multiplier",
 				value = i
 			}
 		}

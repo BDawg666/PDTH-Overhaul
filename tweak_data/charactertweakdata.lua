@@ -90,6 +90,15 @@ module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
 	self.heavy_swat.dodge = presets.dodge.good
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_civilian", function(self, presets)
+	self.civilian.HEALTH_INIT = 2
+	self.civilian.scare_shot = 0
+end, false)
+
+module:post_hook(CharacterTweakData, "_init_bank_manager", function(self, presets)
+	self.bank_manager.HEALTH_INIT = 1
+end, false)
+
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
 
