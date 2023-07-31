@@ -184,7 +184,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		},
 		{
 			r = 3000,
-			dmg_mul = 1,
+			dmg_mul = 1.5,
 			recoil = {0.25, 0.35},
 			mode = { 1, 3, 1, 0 }
 		},
@@ -211,7 +211,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		},
 		{
 			r = 3000,
-			dmg_mul = 1,
+			dmg_mul = 1.5,
 			recoil = {0.25, 0.45},
 			mode = { 0.2, 2, 4, 10 }
 		},
@@ -238,7 +238,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		},
 		{
 			r = 3000,
-			dmg_mul = 1,
+			dmg_mul = 1.5,
 			recoil = {0.35, 0.55},
 			mode = { 0.2, 2, 4, 10 }
 		},
