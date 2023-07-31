@@ -108,7 +108,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
 
-	-- presets for glock
+	-- custom weapon presets dont seem to do anything, enemies only use the original weapon's preset?
 	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
 	presets.weapon.good.glock = deep_clone(presets.weapon.good.mp5)
 	presets.weapon.expert.glock = deep_clone(presets.weapon.expert.mp5)
@@ -119,11 +119,9 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.ak47 = deep_clone(presets.weapon.expert.m4)
 	presets.weapon.gang_member.ak47 = deep_clone(presets.weapon.gang_member.m4)
 
-	-- presets for bronco
 	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
 	
-	-- custom loco preset
 	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
 	presets.weapon.good.mossberg.FALLOFF = {
 		{
@@ -158,13 +156,13 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		}
 	}
 	
-	-- presets for AI heisters
+	-- presets for AI heisters, these do work
 	presets.gang_member_damage.HEALTH_INIT = 50
 	presets.gang_member_damage.REGENERATE_TIME = 3
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 	
-	presets.weapon.gang_member.bronco = deep_clone(presets.weapon.expert.c45)
-	presets.weapon.gang_member.bronco.FALLOFF = {
+	presets.weapon.gang_member.beretta92 = deep_clone(presets.weapon.expert.c45)
+	presets.weapon.gang_member.beretta92.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
