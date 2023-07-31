@@ -23,22 +23,26 @@ function GroupAITweakData:_set_easy()
 		shield = { 0, 0.2, 0.2 },
 		spooc = { 0, 0.1, 0.1 },
 		taser = { 0, 0.05, 0.1 },
+		fbi = { 0.1, 0.1, 0.1 },
 	}
 	self.street.blockade.units = {
 		defend = {
 			swat = { 1, 1, 0.5 },
 			swat_kevlar = { 0.4, 0.7, 0.7 },
 			shield = { 0.1, 0.2, 0.3 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		frontal = {
 			swat = { 1, 0.2, 0.3 },
 			swat_kevlar = { 0.2, 0.5, 0.7 },
 			shield = { 0, 0.1, 0.3 },
 			spooc = { 0, 0.1, 0.2 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		flank = {
 			spooc = { 1, 1, 1 },
 			taser = { 1, 1, 1 },
+			fbi_special = { 0.25, 0.25, 0.25 },
 		},
 	}
 end
@@ -68,22 +72,26 @@ function GroupAITweakData:_set_normal()
 		tank = { 0, 0, 0.1 },
 		spooc = { 0.2, 0.5, 1 },
 		taser = { 0.05, 0.2, 0.3 },
+		fbi = { 0.1, 0.1, 0.1 },
 	}
 	self.street.blockade.units = {
 		defend = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.4, 1, 1 },
 			shield = { 0.1, 0.2, 0.3 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		frontal = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.2, 0.5, 1 },
 			shield = { 0, 0.1, 0.5 },
 			spooc = { 0.1, 0.3, 0.4 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		flank = {
 			spooc = { 1, 1, 1 },
 			taser = { 1, 1, 1 },
+			fbi_special = { 0.25, 0.25, 0.25 },
 		},
 	}
 end
@@ -113,22 +121,26 @@ function GroupAITweakData:_set_hard()
 		tank = { 0, 0, 0.1 },
 		spooc = { 0.2, 0.5, 1 },
 		taser = { 0.05, 0.2, 0.3 },
+		fbi = { 0.1, 0.1, 0.1 },
 	}
 	self.street.blockade.units = {
 		defend = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.4, 1, 1 },
 			shield = { 0.1, 0.2, 0.3 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		frontal = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.2, 0.5, 1 },
 			shield = { 0, 0.1, 0.5 },
 			spooc = { 0.1, 0.3, 0.4 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		flank = {
 			spooc = { 1, 1, 1 },
 			taser = { 1, 1, 1 },
+			fbi_special = { 0.25, 0.25, 0.25 },
 		},
 	}
 end
@@ -154,6 +166,8 @@ function GroupAITweakData:_set_overkill()
 	self.besiege.recon.group_size = is_singleplayer and { 2, 2, 2 } or { 4, 4, 4 }
 	self.besiege.recon.interval_variation = 7
 	self.besiege.recon.interval = { 1, 1, 1 }
+	self.besiege.recon.group_size = { 6, 6, 6 }
+	self.besiege.rescue.group_size = { 4, 4, 4 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 60, 120, 160 }
 	self.street.assault.sustain_duration_max = { 60, 120, 160 }
@@ -165,22 +179,26 @@ function GroupAITweakData:_set_overkill()
 		tank = { 0, 0.1, 0.2 },
 		spooc = { 0.2, 0.7, 1 },
 		taser = { 0.05, 0.35, 0.45 },
+		fbi = { 0.1, 0.1, 0.1 },
 	}
 	self.street.blockade.units = {
 		defend = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.4, 1, 1 },
 			shield = { 0.1, 0.2, 0.3 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		frontal = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.2, 0.5, 1 },
 			shield = { 0, 0.1, 0.5 },
 			spooc = { 0.1, 0.3, 0.4 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		flank = {
 			spooc = { 1, 1, 1 },
 			taser = { 1, 1, 1 },
+			fbi_special = { 0.25, 0.25, 0.25 },
 		},
 	}
 end
@@ -206,6 +224,8 @@ function GroupAITweakData:_set_overkill_145()
 	self.besiege.recon.group_size = is_singleplayer and { 2, 2, 2 } or { 4, 4, 4 }
 	self.besiege.recon.interval_variation = 7
 	self.besiege.recon.interval = { 1, 1, 1 }
+	self.besiege.recon.group_size = { 6, 6, 6 }
+	self.besiege.rescue.group_size = { 4, 4, 4 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 60, 120, 160 }
 	self.street.assault.sustain_duration_max = { 60, 120, 160 }
@@ -217,22 +237,26 @@ function GroupAITweakData:_set_overkill_145()
 		tank = { 0, 0.1, 0.2 },
 		spooc = { 0.2, 0.7, 1 },
 		taser = { 0.05, 0.35, 0.45 },
+		fbi = { 0.1, 0.1, 0.1 },
 	}
 	self.street.blockade.units = {
 		defend = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.4, 1, 1 },
 			shield = { 0.1, 0.2, 0.3 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		frontal = {
 			swat = { 1, 0.5, 0.5 },
 			swat_kevlar = { 0.2, 0.5, 1 },
 			shield = { 0, 0.1, 0.5 },
 			spooc = { 0.1, 0.3, 0.4 },
+			fbi = { 0.1, 0.1, 0.1 },
 		},
 		flank = {
 			spooc = { 1, 1, 1 },
 			taser = { 1, 1, 1 },
+			fbi_special = { 0.25, 0.25, 0.25 },
 		},
 	}
 end
@@ -253,4 +277,5 @@ module:post_hook(GroupAITweakData, "init", function(self)
 		fbi = { 0.5, 0.5, 0.25 },
 		fbi_special = { 0, 0.5, 0.75 },
 	}
+	--capture units aren't even setup in groupaistatestreet manager apparently
 end, false)
