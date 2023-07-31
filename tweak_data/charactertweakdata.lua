@@ -77,6 +77,12 @@ module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
 	self.fbi.HEALTH_INIT = 4
 	self.fbi.headshot_dmg_mul = 3
 	self.fbi.dodge = presets.dodge.ninja
+	self.fbi.weapon.m4.FALLOFF[1].dmg_mul = 1.5
+	self.fbi.weapon.m4.FALLOFF[2].dmg_mul = 1.5
+	self.fbi.weapon.m4.FALLOFF[3].dmg_mul = 1.5
+	self.fbi.weapon.mp5.FALLOFF[1].dmg_mul = 1.5
+	self.fbi.weapon.mp5.FALLOFF[2].dmg_mul = 1.5
+	self.fbi.weapon.mp5.FALLOFF[3].dmg_mul = 1.5
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
@@ -108,7 +114,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
 
-	-- custom weapon presets dont seem to do anything, enemies only use the original weapon's preset?
+	-- custom weapon presets dont seem to do anything, enemies only use the original unit's weapon preset? loco does act like a reinbeck
 	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
 	presets.weapon.good.glock = deep_clone(presets.weapon.good.mp5)
 	presets.weapon.expert.glock = deep_clone(presets.weapon.expert.mp5)
@@ -162,6 +168,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 	
 	presets.weapon.gang_member.beretta92 = deep_clone(presets.weapon.expert.c45)
+	presets.weapon.gang_member.beretta92.RELOAD_SPEED = 1
 	presets.weapon.gang_member.beretta92.FALLOFF = {
 		{
 			r = 0,
@@ -257,3 +264,9 @@ module:post_hook(CharacterTweakData, "_create_table_structure", function(self)
 		table.insert(self.weap_unit_names, Idstring(string.format("units/weapons/%s/%s", data.folder, data.unit)))
 	end
 end, false)
+
+--module:post_hook(CharacterTweakData, "_init_gangster", function(self, presets)
+--	self.gangster.weapon.r870.FALLOFF[1].dmg_mul = 6
+--	self.gangster.weapon.mossberg.FALLOFF[1].dmg_mul = 6
+--end, false)
+-- they dont do anything
