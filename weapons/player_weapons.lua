@@ -259,7 +259,7 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	--self.mossberg.single.fire_rate = 0.5
 	self.mossberg.DAMAGE = 8.4
 	self.mossberg.CLIP_AMMO_MAX = 6
-	self.mossberg.AMMO_MAX = 12
+	self.mossberg.AMMO_MAX = 22
 	self.mossberg.AMMO_PICKUP = { 1, 2 }
 	self.mossberg.spread.moving_steelsight = self.mossberg.spread.steelsight
 	self.mossberg.crosshair.standing.offset = 0.5
