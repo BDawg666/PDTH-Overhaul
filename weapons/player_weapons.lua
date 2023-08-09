@@ -187,6 +187,7 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.damage_melee = 3
 	self.r870_shotgun.CLIP_AMMO_MAX = 10
 	self.r870_shotgun.AMMO_MAX = 30
+	self.r870_shotgun.AMMO_PICKUP = { 1, 1 }
 	self.r870_shotgun.single.fire_rate = 1.0
 	self.r870_shotgun.spread.moving_steelsight = self.r870_shotgun.spread.steelsight
 	self.r870_shotgun.crosshair.standing.offset = 0.4
@@ -258,9 +259,11 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	--Does not affect animation speed like the upgrade
 	--self.mossberg.single.fire_rate = 0.5
 	self.mossberg.DAMAGE = 8.4
+	self.mossberg.damage_near = 300
+	self.mossberg.damage_far = 2100
 	self.mossberg.CLIP_AMMO_MAX = 6
 	self.mossberg.AMMO_MAX = 22
-	self.mossberg.AMMO_PICKUP = { 1, 2 }
+	self.mossberg.AMMO_PICKUP = { 1, 1 }
 	self.mossberg.spread.moving_steelsight = self.mossberg.spread.steelsight
 	self.mossberg.crosshair.standing.offset = 0.5
 	self.mossberg.crosshair.standing.moving_offset = 0.5
