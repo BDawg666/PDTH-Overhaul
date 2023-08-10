@@ -263,19 +263,19 @@ end
 
 module:post_hook(GroupAITweakData, "init", function(self)
 	self.besiege.recon.units = {
-		cop = { 0.5, 0, 0 },
+		cop = { 0.25, 0, 0 },
 		fbi = { 0.5, 0.5, 0.25 },
-		fbi_special = { 0, 0.5, 0.75 },
+		fbi_special = { 0.25, 0.5, 0.75 },
 	}
 	self.besiege.rescue.units = {
-		cop = { 0.5, 0, 0 },
+		cop = { 0.25, 0, 0 },
 		fbi = { 0.5, 0.5, 0.25 },
-		fbi_special = { 0, 0.5, 0.75 },
+		fbi_special = { 0.25, 0.5, 0.75 },
 	}
 	self.street.capture.units = {
-		cop = { 0.5, 0, 0 },
+		cop = { 0.25, 0, 0 },
 		fbi = { 0.5, 0.5, 0.25 },
-		fbi_special = { 0, 0.5, 0.75 },
+		fbi_special = { 0.25, 0.5, 0.75 },
 	}
 	--capture units aren't even setup in groupaistatestreet manager apparently
 end, false)
