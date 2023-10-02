@@ -54,22 +54,22 @@ end
 
 module:post_hook(CharacterTweakData, "_init_spanish", function(self, presets)
 	self.spanish.SPEED_WALK = 215
-	self.spanish.SPEED_RUN = 340
+	self.spanish.SPEED_RUN = 400
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_german", function(self, presets)
 	self.german.SPEED_WALK = 215
-	self.german.SPEED_RUN = 340
+	self.german.SPEED_RUN = 400
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_russian", function(self, presets)
 	self.russian.SPEED_WALK = 215
-	self.russian.SPEED_RUN = 340
+	self.russian.SPEED_RUN = 400
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
 	self.american.SPEED_WALK = 215
-	self.american.SPEED_RUN = 340
+	self.american.SPEED_RUN = 400
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
@@ -163,7 +163,8 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	}
 	
 	-- presets for AI heisters, these do work
-	presets.gang_member_damage.HEALTH_INIT = 50
+	-- beretta92 still applies even if their actual pistol is switched to Bronco
+	presets.gang_member_damage.HEALTH_INIT = 55
 	presets.gang_member_damage.REGENERATE_TIME = 3
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 	
