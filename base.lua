@@ -70,7 +70,7 @@ module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/e
 
 -- localization
 module:add_localization_string("des_beretta92", {
-	english = "stats : 9mm : semiautomatic : low recoil \nthe b9-s is one of the most used law-enforcement pistols todayn \nthe relatively light damage is compensated by its big clipsn \nloaded with shield piercing rounds.",
+	english = "stats : 9mm : semiautomatic : low recoil \nthe b9-s is one of the most used law-enforcement pistols todayn \nthe relatively light damage is compensated by its big clips \nloaded with shield piercing rounds.",
 })
 module:add_localization_string("des_glock", {
 	english = "stats : 9mm : full auto : medium recoil \nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute.",
