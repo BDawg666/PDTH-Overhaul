@@ -1,11 +1,20 @@
 local module = DMod:new("fgo", {
-	version = "0.6.2",
+	version = "0.6.3",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
-	dependencies = { "ummlib", "[ovk_193]", "[nwpab]", "[static_recoil]", "[bwr]", "[Alleviations Weapon Rework]", "[1° A.W.U. Rebalance]", "[yet_another_weapon_rebalance]" },
-	description = {
-		english = "WIP",
+	dependencies = {
+		"ummlib",
+		"[ovk_193]",
+		"[nwpab]",
+		"[static_recoil]",
+		"[bwr]",
+		"[Alleviations Weapon Rework]",
+		"[1° A.W.U. Rebalance]",
+		"[yet_another_weapon_rebalance]",
 	},
+	description = { english = "WIP" },
+	includes = { { "mod_localization", { type = "localization" } } },
+	update = { id = "42754", platform = "modworkshop" },
 })
 
 module:hook("OnModuleRegistered", "load_fgo", function()
@@ -46,7 +55,7 @@ module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "ene
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 
 -- player overrides
-module:hook_post_require("lib/units/beings/player/states/playertased", "player/playertased")
+module:hook_post_require("lib/units/beings/player/states/playertased", "player/states/playertased")
 module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_recoil")
 module:hook_post_require("lib/managers/playermanager", "player/playermanager")
 
@@ -68,29 +77,13 @@ module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deploy
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
 module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
 
--- localization
-module:add_localization_string("des_beretta92", {
-	english = "stats : 9mm : semiautomatic : low recoil \nthe b9-s is one of the most used law-enforcement pistols todayn \nthe relatively light damage is compensated by its big clips \nloaded with shield piercing rounds.",
-})
-module:add_localization_string("des_glock", {
-	english = "stats : 9mm : full auto : medium recoil \nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute.",
-})
-module:add_localization_string("des_m4", {
-	english = "stats : 5.56 : semiautomatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there isn \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
-})
-module:add_localization_string("des_thick_skin", {
-	english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",
-})
-module:add_localization_string("des_extra_start_out_ammo", {
-	english = "extra start out ammo allows the owner to carry more ammo. you carry 25% more ammo per weapon.",
-})
-module:add_localization_string("des_toolset", {
-	english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces interaction times by 40%.",
-})
-module:add_localization_string("des_extra_cable_tie", {
-	english = "extra cable ties give you 18 more cable ties to start with.",
-})
+-- mutators
+module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
+	local mutator_availability = { all = true }
 
-module:set_update({ id = "42754", platform = "modworkshop" })
+	if MutatorHelper.setup_mutator(module, "overcharged_tasers", mutator_availability, nil, true) then
+		module:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
+	end
+end)
 
 return module
