@@ -73,6 +73,9 @@ module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deploy
 -- module:hook_post_require("lib/units/interactions/interactionext", "player/block_interaction")
 -- module:hook_post_require("lib/managers/objectinteractionmanager", "player/block_interaction")
 
+-- gui scripts
+module:hook_post_require("lib/managers/menumanager", "gui/menu/difficulties")
+
 -- mission scripts
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
 module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
