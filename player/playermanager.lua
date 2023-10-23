@@ -1,40 +1,75 @@
-function PlayerManager:aquire_default_upgrades()
-	managers.upgrades:aquire_default("beretta92")
-	managers.upgrades:aquire_default("c45")
-	managers.upgrades:aquire_default("raging_bull")
-	managers.upgrades:aquire_default("m4")
-	managers.upgrades:aquire_default("hk21")
-	managers.upgrades:aquire_default("m14")
-	managers.upgrades:aquire_default("r870_shotgun")
-	managers.upgrades:aquire_default("mac11")
-	managers.upgrades:aquire_default("mossberg")
-	managers.upgrades:aquire_default("mp5")
-	managers.upgrades:aquire_default("cable_tie")
-	managers.upgrades:aquire_default("thick_skin")
-	managers.upgrades:aquire_default("extra_ammo_multiplier")
-	managers.upgrades:aquire_default("extra_cable_tie")
-	managers.upgrades:aquire_default("ammo_bag")
-	managers.upgrades:aquire_default("doctor_bag")
-	managers.upgrades:aquire_default("trip_mine")
-	managers.upgrades:aquire_default("welcome_to_the_gang")
-	managers.upgrades:aquire_default("aggressor")
-	managers.upgrades:aquire_default("protector")
-	managers.upgrades:aquire_default("sharpshooters")
-	managers.upgrades:aquire_default("more_blood_to_bleed")
-	managers.upgrades:aquire_default("speed_reloaders")
-	managers.upgrades:aquire_default("mr_nice_guy")
+local PlayerManager = module:hook_class("PlayerManager")
+
+module:hook(PlayerManager, "_setup_rules", function(self)
+	self._rules = {
+		slow_walk = 0,
+		super_slow_walk = 0,
+		no_run = 0,
+		slow_run = 0,
+		super_slow_run = 0,
+		no_jump = 0,
+		heavy_jump = 0,
+		super_heavy_jump = 0,
+	}
+end)
+
+module:hook(PlayerManager, "set_player_rule", function(self, name, value)
+	local rules = name
+	if type(rules) ~= "table" then
+		rules = { name }
+	end
+
+	for _, rule in pairs(rules) do
+		self._rules[rule] = self._rules[rule] + (value and 1 or -1)
+
+		if rule == "no_run" and self:get_player_rule(rule) then
+			local player = self:player_unit()
+			if player:movement():current_state()._interupt_action_running then
+				player:movement():current_state():_interupt_action_running(Application:time())
+			end
+		end
+	end
+end)
+
+module:hook(PlayerManager, "aquire_default_upgrades", function(self)
+	for _, item in pairs({
+		"beretta92",
+		"c45",
+		"raging_bull",
+		"m4",
+		"hk21",
+		"m14",
+		"r870_shotgun",
+		"mac11",
+		"mossberg",
+		"mp5",
+		"cable_tie",
+		"thick_skin",
+		"extra_ammo_multiplier",
+		"extra_cable_tie",
+		"ammo_bag",
+		"doctor_bag",
+		"trip_mine",
+		"welcome_to_the_gang",
+		"aggressor",
+		"protector",
+		"sharpshooters",
+		"more_blood_to_bleed",
+		"speed_reloaders",
+		"mr_nice_guy",
+	}) do
+		managers.upgrades:aquire_default(item)
+	end
+
 	for i = 1, PlayerManager.WEAPON_SLOTS do
 		if not managers.player:weapon_in_slot(i) then
 			self._global.kit.weapon_slots[i] = managers.player:availible_weapons(i)[1]
 		end
-
 	end
 
 	for i = 1, 3 do
 		if not managers.player:equipment_in_slot(i) then
 			self._global.kit.equipment_slots[i] = managers.player:availible_equipment(i)[1]
 		end
-
 	end
-
-end
+end)
