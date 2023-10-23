@@ -29,6 +29,15 @@ local strings = {
 	["mutator_overcharged_tasers_motd"] = {
 		english = 'The "Overcharged Tasers" mutator is enabled, tasers will have no mercy upon you.',
 	},
+	["mutator_heavy_bags"] = {
+		english = "Heavy Bags",
+	},
+	["mutator_heavy_bags_help"] = {
+		english = "Gold and Money bags will impact your mobility capabilities.",
+	},
+	["mutator_heavy_bags_motd"] = {
+		english = 'The "Heavy Bags" mutator is enabled, Gold and Money bags will reduce your movement speed and jump height.',
+	},
 }
 
 for string_id, translations in pairs(strings) do

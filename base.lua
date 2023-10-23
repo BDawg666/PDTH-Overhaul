@@ -79,6 +79,7 @@ module:hook_post_require("lib/managers/menumanager", "gui/menu/difficulties")
 -- mission scripts
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
 module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
+module:hook_post_require("lib/network/networkmember", "mission/networkmember")
 
 -- mutators
 module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
@@ -86,6 +87,11 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 
 	if MutatorHelper.setup_mutator(module, "overcharged_tasers", mutator_availability, nil, true) then
 		module:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
+	end
+
+	if MutatorHelper.setup_mutator(module, "heavy_bags", mutator_availability, nil, true) then
+		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
+		module:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
 end)
 
