@@ -24,4 +24,6 @@ module:post_hook(EquipmentsTweakData, "init", function(self)
 	}
 
 	self.specials.gold_bag_equip.player_rule = "no_run"
+	self.specials.money_bag.sync_possession = true
+	self.specials.gold.sync_possession = true
 end)
