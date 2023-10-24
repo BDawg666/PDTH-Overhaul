@@ -13,6 +13,10 @@ function GroupAITweakData:_set_easy()
 		spooc = { 0, 0.1, 0.2 },
 		taser = { 0, 0.05, 0.1 },
 	}
+	
+	local is_singleplayer = Global.game_settings.single_player
+	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
+	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 10, 15, 20 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 30, 50, 70 }
 	self.street.assault.sustain_duration_max = { 40, 60, 80 }
@@ -64,6 +68,7 @@ function GroupAITweakData:_set_normal()
 	
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
+	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 15, 20, 23 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 40, 60, 80 }
 	self.street.assault.sustain_duration_max = { 50, 80, 100 }
