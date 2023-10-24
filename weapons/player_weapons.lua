@@ -138,14 +138,14 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 2.5
 	self.hk21.CLIP_AMMO_MAX = 90
-	self.hk21.AMMO_MAX = 180
+	self.hk21.AMMO_MAX = 160
 	self.hk21.AMMO_PICKUP = { 1, 2 }
 	self.hk21.spread.standing = 4
 	self.hk21.spread.crouching = 3.2
 	self.hk21.spread.steelsight = 0.4
 	self.hk21.spread.moving_standing = 10
 	self.hk21.spread.moving_crouching = 7.5
-	self.hk21.spread.moving_steelsight = 5
+	self.hk21.spread.moving_steelsight = 1.5
 	self.hk21.crosshair.standing.offset = 0.4
 	self.hk21.crosshair.standing.moving_offset = 1.0
 	self.hk21.crosshair.standing.kick_offset = 0.0
@@ -212,7 +212,7 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.DAMAGE = 3.6
 	self.ak47.damage_melee = 2
 	self.ak47.CLIP_AMMO_MAX = 35
-	self.ak47.AMMO_MAX = 90
+	self.ak47.AMMO_MAX = 80
 	self.ak47.AMMO_PICKUP = { 1, 4 }
 	self.ak47.spread.standing = 1.38
 	self.ak47.spread.crouching = 1.03
