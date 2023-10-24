@@ -229,9 +229,9 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.kick.v.standing = 1.35
 	self.ak47.kick.v.crouching = 1.05
 	self.ak47.kick.v.steelsight = 0.75
-	self.ak47.kick.h.standing = 0.55
-	self.ak47.kick.h.crouching = 0.48
-	self.ak47.kick.h.steelsight = 0.36
+	self.ak47.kick.h.standing = 0.82
+	self.ak47.kick.h.crouching = 0.72
+	self.ak47.kick.h.steelsight = 0.54
 end)
 
 module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
