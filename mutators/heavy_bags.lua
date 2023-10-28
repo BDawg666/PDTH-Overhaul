@@ -76,7 +76,7 @@ end
 if RequiredScript == "lib/tweak_data/equipmentstweakdata" then
 	local EquipmentsTweakData = module:hook_class("EquipmentsTweakData")
 	module:post_hook(EquipmentsTweakData, "init", function(self)
-		self.specials.gold_bag_equip.player_rule = { "super_slow_walk", "no_run", "super_heavy_jump" }
-		self.specials.money_bag.player_rule = { "slow_walk", "slow_run", "no_jump" }
+		self.specials.gold_bag_equip.player_rule = { "super_slow_walk", "no_run", "no_jump" }
+		self.specials.money_bag.player_rule = { "slow_walk", "slow_run", "heavy_jump" }
 	end)
 end
