@@ -90,6 +90,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 		module:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
 	end
 
+	mutator_availability = { all = { levels = { bank = true, diamond_heist = true, slaughter_house = true } } }
 	if MutatorHelper.setup_mutator(module, "heavy_bags", mutator_availability, nil, true) then
 		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
 		module:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
