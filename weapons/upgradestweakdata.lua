@@ -1,5 +1,5 @@
 local UpgradesTweakData = module:hook_class("UpgradesTweakData")
-module:post_hook(UpgradesTweakData, "init_data_player_overhaul", function(self)
+module:hook(UpgradesTweakData, "init_data_player_overhaul", function(self)
 	self.values.player.body_armor = { 0, 0, 0, 0, 0 }
 
 	self.values.extra_cable_tie.quantity = { 18, 18, 18, 18 }
@@ -9,7 +9,7 @@ module:post_hook(UpgradesTweakData, "init_data_player_overhaul", function(self)
 	self.values.crew_bonus.more_ammo = { 1.1 }
 end)
 
-module:post_hook(UpgradesTweakData, "init_data_deployable_overhaul", function(self)
+module:hook(UpgradesTweakData, "init_data_deployable_overhaul", function(self)
 	self.ammo_bag_base = 5
 	self.values.ammo_bag.ammo_increase = { 0, 0, 0 }
 
@@ -26,7 +26,7 @@ module:post_hook(UpgradesTweakData, "init_data_deployable_overhaul", function(se
 end)
 
 -- there is not a lot of changes per weapon, will split by slot instead.
-module:post_hook(UpgradesTweakData, "init_data_handguns_overhaul", function(self)
+module:hook(UpgradesTweakData, "init_data_handguns_overhaul", function(self)
 	self.values.beretta92.clip_ammo_increase = { 0, 0 }
 	self.values.beretta92.recoil_multiplier = { 1, 1, 1, 1 }
 	self.values.beretta92.enter_steelsight_speed_multiplier = { 1.5, 1.5 }
@@ -45,7 +45,7 @@ module:post_hook(UpgradesTweakData, "init_data_handguns_overhaul", function(self
 	--self.values.glock.reload_speed_multiplier = {1, 1}
 end)
 
-module:post_hook(UpgradesTweakData, "init_data_primary_overhaul", function(self)
+module:hook(UpgradesTweakData, "init_data_primary_overhaul", function(self)
 	self.values.m4.clip_ammo_increase = { 0, 0 }
 	self.values.m4.spread_multiplier = { 1, 1, 1, 1 }
 	self.values.m4.damage_multiplier = { 1, 1 }
@@ -69,7 +69,7 @@ module:post_hook(UpgradesTweakData, "init_data_primary_overhaul", function(self)
 	self.values.ak47.clip_ammo_increase = { 0, 0 }
 end)
 
-module:post_hook(UpgradesTweakData, "init_data_secondary_overhaul", function(self)
+module:hook(UpgradesTweakData, "init_data_secondary_overhaul", function(self)
 	self.values.mac11.clip_ammo_increase = { 0, 0, 0, 0 }
 	self.values.mac11.recoil_multiplier = { 1, 1, 1, 1 }
 	--Remove steelsight multipliers for now, re-add later and to more weapons
@@ -100,7 +100,7 @@ module:post_hook(UpgradesTweakData, "init", function(self)
 	self:init_data_secondary_overhaul()
 end, false)
 
-function UpgradesTweakData:_remington_definitions()
+module:hook(UpgradesTweakData, "_remington_definitions", function(self)
 	self.definitions.r870_shotgun = {
 		tree = 3,
 		step = 13,
@@ -115,7 +115,7 @@ function UpgradesTweakData:_remington_definitions()
 		image_slice = "upgrades_remington_slice",
 		unlock_lvl = 1,
 		prio = "high",
-		description_text_id = "des_r870_shotgun"
+		description_text_id = "des_r870_shotgun",
 	}
 	for i, _ in ipairs(self.values.r870_shotgun.clip_ammo_increase) do
 		local depends_on = i - 1 > 0 and "remington_mag" .. i - 1 or "r870_shotgun"
@@ -138,8 +138,8 @@ function UpgradesTweakData:_remington_definitions()
 			upgrade = {
 				category = "r870_shotgun",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.r870_shotgun.recoil_multiplier) do
@@ -163,8 +163,8 @@ function UpgradesTweakData:_remington_definitions()
 			upgrade = {
 				category = "r870_shotgun",
 				upgrade = "recoil_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.r870_shotgun.damage_multiplier) do
@@ -188,13 +188,13 @@ function UpgradesTweakData:_remington_definitions()
 			upgrade = {
 				category = "r870_shotgun",
 				upgrade = "fire_rate_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_hk21_definitions()
+module:hook(UpgradesTweakData, "_hk21_definitions", function(self)
 	self.definitions.hk21 = {
 		tree = 1,
 		step = 22,
@@ -209,7 +209,7 @@ function UpgradesTweakData:_hk21_definitions()
 		image_slice = "upgrades_hk21_slice",
 		unlock_lvl = 140,
 		prio = "high",
-		description_text_id = "des_hk21"
+		description_text_id = "des_hk21",
 	}
 	for i, _ in ipairs(self.values.hk21.clip_ammo_increase) do
 		local depends_on = i - 1 > 0 and "hk21_mag" .. i - 1 or "hk21"
@@ -232,8 +232,8 @@ function UpgradesTweakData:_hk21_definitions()
 			upgrade = {
 				category = "hk21",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.hk21.recoil_multiplier) do
@@ -257,8 +257,8 @@ function UpgradesTweakData:_hk21_definitions()
 			upgrade = {
 				category = "hk21",
 				upgrade = "recoil_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.hk21.damage_multiplier) do
@@ -282,13 +282,13 @@ function UpgradesTweakData:_hk21_definitions()
 			upgrade = {
 				category = "hk21",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_raging_bull_definitions()
+module:hook(UpgradesTweakData, "_raging_bull_definitions", function(self)
 	self.definitions.raging_bull = {
 		tree = 3,
 		step = 6,
@@ -303,7 +303,7 @@ function UpgradesTweakData:_raging_bull_definitions()
 		image_slice = "upgrades_ragingbull_slice",
 		unlock_lvl = 60,
 		prio = "high",
-		description_text_id = "des_raging_bull"
+		description_text_id = "des_raging_bull",
 	}
 	for i, _ in ipairs(self.values.raging_bull.spread_multiplier) do
 		local depends_on = i - 1 > 0 and "raging_bull_spread" .. i - 1
@@ -326,8 +326,8 @@ function UpgradesTweakData:_raging_bull_definitions()
 			upgrade = {
 				category = "raging_bull",
 				upgrade = "spread_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.raging_bull.reload_speed_multiplier) do
@@ -351,8 +351,8 @@ function UpgradesTweakData:_raging_bull_definitions()
 			upgrade = {
 				category = "raging_bull",
 				upgrade = "reload_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.raging_bull.damage_multiplier) do
@@ -376,13 +376,13 @@ function UpgradesTweakData:_raging_bull_definitions()
 			upgrade = {
 				category = "raging_bull",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_c45_definitions()
+module:hook(UpgradesTweakData, "_c45_definitions", function(self)
 	self.definitions.c45 = {
 		tree = 1,
 		step = 13,
@@ -396,7 +396,7 @@ function UpgradesTweakData:_c45_definitions()
 		image_slice = "upgrades_45_slice",
 		unlock_lvl = 30,
 		prio = "high",
-		description_text_id = "des_c45"
+		description_text_id = "des_c45",
 	}
 	for i, _ in ipairs(self.values.c45.clip_ammo_increase) do
 		local depends_on = i - 1 > 0 and "c45_mag" .. i - 1 or "c45"
@@ -419,8 +419,8 @@ function UpgradesTweakData:_c45_definitions()
 			upgrade = {
 				category = "c45",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.c45.recoil_multiplier) do
@@ -444,8 +444,8 @@ function UpgradesTweakData:_c45_definitions()
 			upgrade = {
 				category = "c45",
 				upgrade = "recoil_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.c45.damage_multiplier) do
@@ -469,13 +469,13 @@ function UpgradesTweakData:_c45_definitions()
 			upgrade = {
 				category = "c45",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_glock_definitions()
+module:hook(UpgradesTweakData, "_glock_definitions", function(self)
 	self.definitions.glock = {
 		tree = 4,
 		step = 2,
@@ -490,7 +490,7 @@ function UpgradesTweakData:_glock_definitions()
 		image_slice = "upgrades_glock_slice",
 		unlock_lvl = 0,
 		prio = "high",
-		description_text_id = "des_glock"
+		description_text_id = "des_glock",
 	}
 	for i, _ in ipairs(self.values.glock.damage_multiplier) do
 		local depends_on = 0 < i - 1 and "glock_enter_steelsight_speed" .. i - 1 or "glock"
@@ -513,8 +513,8 @@ function UpgradesTweakData:_glock_definitions()
 			upgrade = {
 				category = "glock",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.glock.recoil_multiplier) do
@@ -538,8 +538,8 @@ function UpgradesTweakData:_glock_definitions()
 			upgrade = {
 				category = "glock",
 				upgrade = "recoil_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.glock.clip_ammo_increase) do
@@ -563,8 +563,8 @@ function UpgradesTweakData:_glock_definitions()
 			upgrade = {
 				category = "glock",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.glock.reload_speed_multiplier) do
@@ -588,13 +588,13 @@ function UpgradesTweakData:_glock_definitions()
 			upgrade = {
 				category = "glock",
 				upgrade = "reload_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_beretta92_definitions()
+module:hook(UpgradesTweakData, "_beretta92_definitions", function(self)
 	self.definitions.beretta92 = {
 		category = "weapon",
 		weapon_id = "beretta92",
@@ -607,7 +607,7 @@ function UpgradesTweakData:_beretta92_definitions()
 		image_slice = "upgrades_m9sd_slice",
 		unlock_lvl = 0,
 		prio = "high",
-		description_text_id = "des_beretta92"
+		description_text_id = "des_beretta92",
 	}
 	for i, _ in ipairs(self.values.beretta92.clip_ammo_increase) do
 		local depends_on = 0 < i - 1 and "beretta_mag" .. i - 1 or "beretta92"
@@ -630,8 +630,8 @@ function UpgradesTweakData:_beretta92_definitions()
 			upgrade = {
 				category = "beretta92",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.beretta92.recoil_multiplier) do
@@ -655,8 +655,8 @@ function UpgradesTweakData:_beretta92_definitions()
 			upgrade = {
 				category = "beretta92",
 				upgrade = "recoil_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.beretta92.spread_multiplier) do
@@ -680,13 +680,13 @@ function UpgradesTweakData:_beretta92_definitions()
 			upgrade = {
 				category = "beretta92",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
 
-function UpgradesTweakData:_mossberg_definitions()
+module:hook(UpgradesTweakData, "_mossberg_definitions", function(self)
 	self.definitions.mossberg = {
 		tree = 2,
 		step = 7,
@@ -701,7 +701,7 @@ function UpgradesTweakData:_mossberg_definitions()
 		image_slice = "upgrades_mossberg_slice",
 		unlock_lvl = 120,
 		prio = "high",
-		description_text_id = "des_mossberg"
+		description_text_id = "des_mossberg",
 	}
 	for i, _ in ipairs(self.values.mossberg.clip_ammo_increase) do
 		local depends_on = i - 1 > 0 and "mossberg_mag" .. i - 1 or "mossberg"
@@ -724,8 +724,8 @@ function UpgradesTweakData:_mossberg_definitions()
 			upgrade = {
 				category = "mossberg",
 				upgrade = "clip_ammo_increase",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.mossberg.reload_speed_multiplier) do
@@ -749,8 +749,8 @@ function UpgradesTweakData:_mossberg_definitions()
 			upgrade = {
 				category = "mossberg",
 				upgrade = "reload_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.mossberg.fire_rate_multiplier) do
@@ -774,8 +774,8 @@ function UpgradesTweakData:_mossberg_definitions()
 			upgrade = {
 				category = "mossberg",
 				upgrade = "fire_rate_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
 	for i, _ in ipairs(self.values.mossberg.recoil_multiplier) do
@@ -799,8 +799,8 @@ function UpgradesTweakData:_mossberg_definitions()
 			upgrade = {
 				category = "mossberg",
 				upgrade = "enter_steelsight_speed_multiplier",
-				value = i
-			}
+				value = i,
+			},
 		}
 	end
-end
+end)
