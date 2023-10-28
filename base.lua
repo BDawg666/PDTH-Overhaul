@@ -58,6 +58,7 @@ module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdama
 module:hook_post_require("lib/units/beings/player/states/playertased", "player/states/playertased")
 module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_recoil")
 module:hook_post_require("lib/managers/playermanager", "player/playermanager")
+module:hook_post_require("lib/units/beings/player/playerdamage", "player/playerdamage")
 
 -- weapon overrides
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/player_spread")

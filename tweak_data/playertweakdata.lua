@@ -25,10 +25,7 @@ function PlayerTweakData:_set_overkill()
 	self.damage.MIN_DAMAGE_INTERVAL = 0.2
 	self.damage.DOWNED_TIME_DEC = 10
 	self.damage.DOWNED_TIME_MIN = 1
-	self.damage.REVIVE_HEALTH_STEPS = {
-		0.5,
-		0.25
-	}
+	self.damage.REVIVE_HEALTH_STEPS = { 0.5, 0.25 }
 end
 
 function PlayerTweakData:_set_overkill_145()
@@ -36,9 +33,12 @@ function PlayerTweakData:_set_overkill_145()
 	self.damage.MIN_DAMAGE_INTERVAL = 0.15
 	self.damage.DOWNED_TIME_DEC = 15
 	self.damage.DOWNED_TIME_MIN = 1
-	self.damage.REVIVE_HEALTH_STEPS = {0.2}
+	self.damage.REVIVE_HEALTH_STEPS = { 0.2 }
 end
 
 module:post_hook(PlayerTweakData, "init", function(self)
+	self.fall_health_damage = 4
+	self.fall_damage_multiplier = 0.25
+
 	self.stances.glock.steelsight.zoom_fov = false
 end, false)
