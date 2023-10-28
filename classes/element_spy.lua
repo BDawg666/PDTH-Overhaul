@@ -1,35 +1,38 @@
+local give_equipment = function(self, equipment)
+	if Network:is_server() then
+		self._synced_equipment = equipment
+		managers.network:session():send_to_peers("give_equipment", equipment)
+	end
+
+	if managers.player:has_special_equipment(equipment) then
+		return
+	end
+
+	managers.player:add_special({ name = equipment })
+
+	local lpeer_id = managers.network:session():local_peer():id()
+	managers.network:session():send_to_peers("sync_add_equipment_possession", lpeer_id, equipment)
+	managers.player:add_equipment_possession(lpeer_id, equipment)
+end
+
+local remove_equipment = function(_, equipment)
+	if not managers.player:has_special_equipment(equipment) then
+		return
+	end
+
+	managers.player:remove_special(equipment)
+end
+
 ElementSpyClass = class()
 ElementSpyClass._filters = {
 	["bank"] = {
-		["101024"] = {
-			callback = function(self)
-				if Network:is_server() then
-					self._synced_equipment = "money_bag"
-					managers.network:session():send_to_peers("give_equipment", "money_bag")
-				end
-
-				if managers.player:has_special_equipment("money_bag") then
-					return
-				end
-
-				managers.player:add_special({ name = "money_bag" })
-				managers.network:session():send_to_peers(
-					"sync_add_equipment_possession",
-					managers.network:session():local_peer():id(),
-					"money_bag"
-				)
-				managers.player:add_equipment_possession(managers.network:session():local_peer():id(), "money_bag")
-			end,
-		},
+		["101024"] = { callback = give_equipment, args = "money_bag" },
+	},
+	["diamond_heist"] = {
+		["100790"] = { callback = give_equipment, args = "diamond_bag" },
 	},
 	["slaughter_house"] = {
-		["102253"] = {
-			callback = function()
-				if managers.player:has_special_equipment("gold_bag_equip") then
-					managers.player:remove_special("gold_bag_equip")
-				end
-			end,
-		},
+		["102253"] = { callback = remove_equipment, args = "gold_bag_equip" },
 	},
 }
 
@@ -54,7 +57,7 @@ function ElementSpyClass:on_executed(element)
 	end
 
 	if element_data.callback then
-		element_data.callback(self)
+		element_data.callback(self, element_data.args)
 	end
 end
 

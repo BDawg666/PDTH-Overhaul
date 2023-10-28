@@ -4,7 +4,8 @@ if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 		local movement_speed = self._tweak_data.movement.speed
 
 		local speed_multiplier = managers.player:get_player_rule("super_slow_walk") and 0.6
-			or managers.player:get_player_rule("slow_walk") and 0.75
+			or managers.player:get_player_rule("heavy_walk") and 0.75
+			or managers.player:get_player_rule("slow_walk") and 0.85
 			or 1
 
 		if self._in_steelsight then
@@ -21,7 +22,8 @@ if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 
 		if self._running then
 			speed_multiplier = managers.player:get_player_rule("super_slow_run") and 0.5
-				or managers.player:get_player_rule("slow_run") and 0.75
+				or managers.player:get_player_rule("heavy_run") and 0.75
+				or managers.player:get_player_rule("slow_run") and 0.85
 				or 1
 
 			return movement_speed.RUNNING_MAX * speed_multiplier
@@ -76,7 +78,8 @@ end
 if RequiredScript == "lib/tweak_data/equipmentstweakdata" then
 	local EquipmentsTweakData = module:hook_class("EquipmentsTweakData")
 	module:post_hook(EquipmentsTweakData, "init", function(self)
+		self.specials.diamond_bag.player_rule = { "slow_walk", "slow_run", "heavy_jump" }
+		self.specials.money_bag.player_rule = { "heavy_walk", "heavy_run", "heavy_jump" }
 		self.specials.gold_bag_equip.player_rule = { "super_slow_walk", "no_run", "no_jump" }
-		self.specials.money_bag.player_rule = { "slow_walk", "slow_run", "heavy_jump" }
 	end)
 end

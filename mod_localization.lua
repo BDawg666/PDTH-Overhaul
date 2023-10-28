@@ -38,6 +38,9 @@ local strings = {
 	["mutator_heavy_bags_motd"] = {
 		english = 'The "Heavy Bags" mutator is enabled, Gold and Money bags will reduce your movement speed and jump height.',
 	},
+	["debug_equipment_diamond_bag"] = {
+		english = 'Diamond Bag',
+	},
 }
 
 for string_id, translations in pairs(strings) do

@@ -23,6 +23,12 @@ module:post_hook(EquipmentsTweakData, "init", function(self)
 		description_id = "des_sentry_gun",
 	}
 
+	self.specials.diamond_bag = {
+		text_id = "debug_equipment_diamond_bag",
+		icon = "interaction_diamond",
+		sync_possession = true,
+	}
+
 	self.specials.gold_bag_equip.player_rule = "no_run"
 	self.specials.money_bag.sync_possession = true
 	self.specials.gold.sync_possession = true

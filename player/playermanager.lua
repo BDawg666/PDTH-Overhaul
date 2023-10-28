@@ -3,9 +3,11 @@ local PlayerManager = module:hook_class("PlayerManager")
 module:hook(PlayerManager, "_setup_rules", function(self)
 	self._rules = {
 		slow_walk = 0,
+		heavy_walk = 0,
 		super_slow_walk = 0,
 		no_run = 0,
 		slow_run = 0,
+		heavy_run = 0,
 		super_slow_run = 0,
 		no_jump = 0,
 		heavy_jump = 0,
