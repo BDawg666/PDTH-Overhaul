@@ -3,7 +3,7 @@ if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 	module:hook(PlayerStandard, "_get_max_walk_speed", function(self, t)
 		local movement_speed = self._tweak_data.movement.speed
 
-		local speed_multiplier = managers.player:get_player_rule("super_slow_walk") and 0.5
+		local speed_multiplier = managers.player:get_player_rule("super_slow_walk") and 0.6
 			or managers.player:get_player_rule("slow_walk") and 0.75
 			or 1
 
@@ -77,6 +77,6 @@ if RequiredScript == "lib/tweak_data/equipmentstweakdata" then
 	local EquipmentsTweakData = module:hook_class("EquipmentsTweakData")
 	module:post_hook(EquipmentsTweakData, "init", function(self)
 		self.specials.gold_bag_equip.player_rule = { "super_slow_walk", "no_run", "super_heavy_jump" }
-		self.specials.money_bag.player_rule = { "slow_walk", "slow_run", "heavy_jump" }
+		self.specials.money_bag.player_rule = { "slow_walk", "slow_run", "no_jump" }
 	end)
 end
