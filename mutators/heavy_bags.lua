@@ -4,8 +4,8 @@ if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 		local movement_speed = self._tweak_data.movement.speed
 
 		local speed_multiplier = managers.player:get_player_rule("super_slow_walk") and 0.6
-			or managers.player:get_player_rule("heavy_walk") and 0.75
-			or managers.player:get_player_rule("slow_walk") and 0.85
+			or managers.player:get_player_rule("heavy_walk") and 0.7
+			or managers.player:get_player_rule("slow_walk") and 0.8
 			or 1
 
 		if self._in_steelsight then
@@ -22,8 +22,8 @@ if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 
 		if self._running then
 			speed_multiplier = managers.player:get_player_rule("super_slow_run") and 0.5
-				or managers.player:get_player_rule("heavy_run") and 0.75
-				or managers.player:get_player_rule("slow_run") and 0.85
+				or managers.player:get_player_rule("heavy_run") and 0.7
+				or managers.player:get_player_rule("slow_run") and 0.8
 				or 1
 
 			return movement_speed.RUNNING_MAX * speed_multiplier
