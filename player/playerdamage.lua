@@ -1,4 +1,19 @@
 local PlayerDamage = module:hook_class("PlayerDamage")
+
+module:hook(PlayerDamage, "get_fall_damage_multiplier", function(self)
+	local multiplier = 1
+
+	local equipped_unit = self._unit:inventory():equipped_unit()
+	if alive(equipped_unit) then
+		local weapon_tdata = equipped_unit:base():weapon_tweak_data()
+		if weapon_tdata.fall_damage_multiplier then
+			multiplier = weapon_tdata.fall_damage_multiplier
+		end
+	end
+
+	return multiplier
+end)
+
 module:hook(50, PlayerDamage, "damage_fall", function(self, data)
 	local damage_info = { result = { type = "hurt", variant = "fall" } }
 
@@ -27,7 +42,8 @@ module:hook(50, PlayerDamage, "damage_fall", function(self, data)
 	if die then
 		self._health = 0
 	else
-		self._health = math.clamp(self._health - 4, 1, self:_max_health())
+		local damage = self._health - (tweak_data.player.fall_health_damage * self:get_fall_damage_multiplier())
+		self._health = math.clamp(damage, 1, self:_max_health())
 	end
 
 	self._armor = 0
