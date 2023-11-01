@@ -5,9 +5,10 @@ local overrides = {
 	murky = { "m4", "mp5", "r870" },
 	fbi = { "m4", "mp5" },
 	security = {
-		bank = { "bronco", "c45", "mp5" },
 		slaughter_house = { "bronco", "m4", "mp5", "r870" },
+		default = { "bronco", "c45", "mp5" }, -- bank, no mercy
 	},
+	patrol = { diamond_heist = { "m4", "mp5", "r870" }, default = { "mp5" } },
 }
 
 local current_level
@@ -18,6 +19,8 @@ local function get_weapon(data)
 	if type(data) == "table" then
 		if data[current_level] then
 			data = get_weapon(data[current_level])
+		elseif data.default then
+			data = get_weapon(data.default)
 		end
 
 		result = data[math.random(1, #data)]
