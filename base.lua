@@ -70,7 +70,7 @@ module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/player_weapo
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/npc_weapons")
 module:register_post_override("lib/units/weapons/grenades/m79grenadebase", "weapons/m79grenadebase")
 
-module:hook_post_require("lib/units/equipment/sentry_gun/sentrygunbase", "deployables/sentrygunbase")
+-- module:hook_post_require("lib/units/equipment/sentry_gun/sentrygunbase", "deployables/sentrygunbase")
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployables/bag_collision")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
 -- module:hook_post_require("lib/units/interactions/interactionext", "player/block_interaction")
