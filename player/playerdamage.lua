@@ -1,8 +1,6 @@
 local PlayerDamage = module:hook_class("PlayerDamage")
 module:hook(50, PlayerDamage, "damage_fall", function(self, data)
-	local damage_info = {
-		result = { variant = "fall", type = "hurt" },
-	}
+	local damage_info = { result = { type = "hurt", variant = "fall" } }
 
 	if self._god_mode or self._invulnerable then
 		self:_call_listeners(damage_info)
@@ -13,7 +11,7 @@ module:hook(50, PlayerDamage, "damage_fall", function(self, data)
 
 	local height_limit = 300
 	local death_limit = 631
-	if data.height < height_limit then
+	if height_limit > data.height then
 		return
 	end
 
@@ -21,43 +19,25 @@ module:hook(50, PlayerDamage, "damage_fall", function(self, data)
 
 	self._unit:sound():play("player_hit")
 	managers.environment_controller:hit_feedback_down()
+
 	if self._bleed_out then
 		return
 	end
 
 	if die then
-		self:set_health(0)
+		self._health = 0
 	else
-		self._health = math.clamp(
-			self._health - (tweak_data.player.fall_health_damage * tweak_data.player.fall_damage_multiplier),
-			0,
-			self:_max_health()
-		)
+		self._health = math.clamp(self._health - 4, 1, self:_max_health())
 	end
 
-	local max_armor = self:_max_armor()
+	self._armor = 0
 
-	if die then
-		self._armor = 0
-	else
-		self._armor = math.clamp(self._armor - (max_armor * tweak_data.player.fall_damage_multiplier), 0, max_armor)
-	end
-
-	managers.hud:set_player_armor({
-		current = self._armor,
-		total = max_armor,
-		no_hint = true,
-	})
-
+	managers.hud:set_player_armor({ current = self._armor, total = self:_max_armor(), no_hint = true })
 	SoundDevice:set_rtpc("shield_status", 0)
+
 	self:_send_set_armor()
 
-	self._bleed_out_blocked_by_movement_state = nil
-
-	managers.hud:set_player_health({
-		current = self._health,
-		total = self:_max_health(),
-	})
+	managers.hud:set_player_health({ current = self._health, total = self:_max_health() })
 
 	self:_send_set_health()
 	self:_set_health_effect()
