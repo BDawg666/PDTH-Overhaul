@@ -45,10 +45,6 @@ end)
 module:hook(PlayerStandard, "_get_max_walk_speed", function(self, t)
 	local movement_speed = self._tweak_data.movement.speed
 
-	if self._running then
-		return movement_speed.RUNNING_MAX * self:_get_run_speed_multiplier()
-	end
-
 	local multiplier = self:_get_walk_speed_multiplier()
 	if self._in_steelsight then
 		return movement_speed.STEELSIGHT_MAX * multiplier
@@ -60,6 +56,10 @@ module:hook(PlayerStandard, "_get_max_walk_speed", function(self, t)
 
 	if self._in_air then
 		return movement_speed.INAIR_MAX * multiplier
+	end
+
+	if self._running then
+		return movement_speed.RUNNING_MAX * self:_get_run_speed_multiplier()
 	end
 
 	return movement_speed.STANDARD_MAX * multiplier
