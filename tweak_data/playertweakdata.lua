@@ -38,7 +38,6 @@ end
 
 module:post_hook(PlayerTweakData, "init", function(self)
 	self.fall_health_damage = 4
-	self.fall_damage_multiplier = 0.25
 
 	self.stances.glock.steelsight.zoom_fov = false
 
