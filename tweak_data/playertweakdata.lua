@@ -41,4 +41,11 @@ module:post_hook(PlayerTweakData, "init", function(self)
 	self.fall_damage_multiplier = 0.25
 
 	self.stances.glock.steelsight.zoom_fov = false
+
+	self.movement_state.standard.movement.speed.multipliers = {
+		standard = { walk = 1, run = 1 },
+		slow = { walk = 0.8, run = 0.8 },
+		heavy = { walk = 0.7, run = 0.7 },
+		super_slow = { walk = 0.6, run = 0.5 },
+	}
 end, false)

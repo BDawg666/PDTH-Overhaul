@@ -158,6 +158,8 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.kick.h.standing = 1.44
 	self.hk21.kick.h.crouching = 1.2
 	self.hk21.kick.h.steelsight = 0.9
+
+	self.hk21.movement_speed_multiplier = 0.8 -- 80% movement speed
 end)
 
 module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)

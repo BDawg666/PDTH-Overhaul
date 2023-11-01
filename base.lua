@@ -55,6 +55,7 @@ module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "ene
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 
 -- player overrides
+module:hook_post_require("lib/units/beings/player/states/playerstandard", "player/states/playerstandard")
 module:hook_post_require("lib/units/beings/player/states/playertased", "player/states/playertased")
 module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "player/static_recoil")
 module:hook_post_require("lib/managers/playermanager", "player/playermanager")

@@ -1,37 +1,5 @@
 if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 	local PlayerStandard = module:hook_class("PlayerStandard")
-	module:hook(PlayerStandard, "_get_max_walk_speed", function(self, t)
-		local movement_speed = self._tweak_data.movement.speed
-
-		local speed_multiplier = managers.player:get_player_rule("super_slow_walk") and 0.6
-			or managers.player:get_player_rule("heavy_walk") and 0.7
-			or managers.player:get_player_rule("slow_walk") and 0.8
-			or 1
-
-		if self._in_steelsight then
-			return movement_speed.STEELSIGHT_MAX * speed_multiplier
-		end
-
-		if self._ducking then
-			return movement_speed.CROUCHING_MAX * speed_multiplier
-		end
-
-		if self._in_air then
-			return movement_speed.INAIR_MAX * speed_multiplier
-		end
-
-		if self._running then
-			speed_multiplier = managers.player:get_player_rule("super_slow_run") and 0.5
-				or managers.player:get_player_rule("heavy_run") and 0.7
-				or managers.player:get_player_rule("slow_run") and 0.8
-				or 1
-
-			return movement_speed.RUNNING_MAX * speed_multiplier
-		end
-
-		return movement_speed.STANDARD_MAX * speed_multiplier
-	end)
-
 	module:hook(PlayerStandard, "_check_action_jump", function(self, t, input)
 		local new_action
 		local action_wanted = input.btn_jump_press
