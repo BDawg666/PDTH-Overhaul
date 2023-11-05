@@ -113,7 +113,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 					attacker_unit = attacker_unit,
 					damage = data.damage,
 					variant = variant,
-					col_ray = data.ray and { ray = data.ray },
+					col_ray = data.ray and { position = player_unit:position(), ray = data.ray },
 					position = data.position,
 					push_vel = data.ray and data.ray:with_z(0.1):normalized() * 600,
 				}
