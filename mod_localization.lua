@@ -6,7 +6,10 @@ local strings = {
 		english = "stats : 9mm : full auto : medium recoil \nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute.",
 	},
 	["des_m4"] = {
-		english = "stats : 5.56 : semiautomatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there isn \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
+		english = "stats : 5.56mm : automatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there isn \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
+	},
+	["des_hk21"] = {
+		english = "stats : 7.62mm : high capacity magazine \neven though it was originally designed as a mounted machinegun, the brenner 21 is a powerhouse. with its huge capacity magazine, this is a given choice for the assault specialist. \nslows move speed by 20% while drawn and increases fall damage.",
 	},
 	["des_thick_skin"] = {
 		english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",
