@@ -91,6 +91,9 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 			if col_ray and col_ray.unit:in_slot(managers.slot:get_mask("enemies")) then
 				self._autohit_current = (self._autohit_current + weight) / (1 + weight)
 				hit_unit = InstantBulletBase:on_collision(col_ray, self._unit, user_unit, damage)
+			-- elseif col_ray and col_ray.unit:in_slot(managers.slot:get_mask("players")) then
+			-- 	self._autohit_current = (self._autohit_current + weight) / (1 + weight)
+			-- 	hit_unit = InstantBulletBase:on_collision(col_ray, self._unit, user_unit, damage)
 			elseif autoaim then
 				local autohit_chance = 1
 					- math.clamp(
@@ -130,56 +133,54 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 			result.rays = { col_ray }
 		end
 
-		if col_ray and col_ray.unit then
-			if true then
-				local kills = nil
-				if hit_unit then
-					if not self._can_shoot_through_enemy then
-						return result
-					end
-					local killed = hit_unit.type == "death"
-					kills = (shoot_through_data and shoot_through_data.kills or 0) + (killed and 1 or 0)
-				end
-				self._shoot_through_data.kills = kills
-				if col_ray.distance < 0.1 or ray_distance - col_ray.distance < 50 then
-					return result
-				end
-				local has_passed_shield = shoot_through_data and shoot_through_data.has_passed_shield
-				local is_shoot_through, is_shield = nil
-				if hit_unit then
-				else
-					local is_world_geometry = col_ray.unit:in_slot(managers.slot:get_mask("world_geometry"))
+		if not col_ray or col_ray and not col_ray.unit then
+			return result
+		end
 
-					if is_world_geometry then
-						is_shoot_through = not col_ray.body:has_ray_type(Idstring("ai_vision"))
-						if not is_shoot_through then
-						end
-					else
-						is_shield = col_ray.unit:in_slot(8) and alive(col_ray.unit:parent())
-					end
-				end
-				if not hit_unit and not is_shoot_through and not is_shield then
-					return result
-				end
-				local ray_from_unit = (hit_unit or is_shield) and col_ray.unit
-				self._shoot_through_data.has_passed_shield = has_passed_shield or is_shield
-				self._shoot_through_data.ray_from_unit = ray_from_unit
-				self._shoot_through_data.ray_distance = ray_distance - col_ray.distance
-				mvector3.set(self._shoot_through_data.from, mvec_spread_direction)
-				mvector3.multiply(self._shoot_through_data.from, is_shield and 5 or 40)
-				mvector3.add(self._shoot_through_data.from, col_ray.position)
-				managers.game_play_central:queue_fire_raycast(
-					Application:time() + 0.0125,
-					self._unit,
-					user_unit,
-					self._shoot_through_data.from,
-					mvector3.copy(direction),
-					dmg_mul,
-					shoot_player,
-					self._shoot_through_data
-				)
+		local kills = nil
+		if hit_unit then
+			if not self._can_shoot_through_enemy then
+				return result
+			end
+			local killed = hit_unit.type == "death"
+			kills = (shoot_through_data and shoot_through_data.kills or 0) + (killed and 1 or 0)
+		end
+
+		self._shoot_through_data.kills = kills
+		if col_ray.distance < 0.1 or ray_distance - col_ray.distance < 50 then
+			return result
+		end
+
+		local has_passed_shield = shoot_through_data and shoot_through_data.has_passed_shield
+		local is_shoot_through, is_shield = nil
+		if not hit_unit then
+			if col_ray.unit:in_slot(managers.slot:get_mask("world_geometry")) then
+				is_shoot_through = not col_ray.body:has_ray_type(Idstring("ai_vision"))
+			else
+				is_shield = col_ray.unit:in_slot(8) and alive(col_ray.unit:parent())
 			end
 		end
+
+		if not hit_unit and not is_shoot_through and not is_shield then
+			return result
+		end
+
+		self._shoot_through_data.has_passed_shield = has_passed_shield or is_shield
+		self._shoot_through_data.ray_from_unit = (hit_unit or is_shield) and col_ray.unit
+		self._shoot_through_data.ray_distance = ray_distance - col_ray.distance
+		mvector3.set(self._shoot_through_data.from, mvec_spread_direction)
+		mvector3.multiply(self._shoot_through_data.from, is_shield and 5 or 40)
+		mvector3.add(self._shoot_through_data.from, col_ray.position)
+		managers.game_play_central:queue_fire_raycast(
+			Application:time() + 0.0125,
+			self._unit,
+			user_unit,
+			self._shoot_through_data.from,
+			mvector3.copy(direction),
+			dmg_mul,
+			shoot_player,
+			self._shoot_through_data
+		)
 		return result
 	end
 end
