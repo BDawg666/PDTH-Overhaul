@@ -1,6 +1,7 @@
 local tmp_vec3 = Vector3()
+local M79GrenadeBase = module:hook_class(M79GrenadeBase)
 
-function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
+module:hook(M79GrenadeBase, "_detect_and_give_dmg", function(self, hit_pos)
 	local slotmask = self._collision_slotmask
 	local user_unit = self._user
 	local dmg = self._damage
@@ -10,7 +11,7 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		player:character_damage():damage_explosion({
 			position = hit_pos,
 			range = range,
-			damage = 9
+			damage = 9,
 		})
 	end
 
@@ -20,11 +21,11 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		"bulletfired",
 		hit_pos,
 		10000,
-		user_unit
+		user_unit,
 	})
 
 	local splinters = {
-		mvector3.copy(hit_pos)
+		mvector3.copy(hit_pos),
 	}
 	local dirs = {
 		Vector3(range, 0, 0),
@@ -32,7 +33,7 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		Vector3(0, range, 0),
 		Vector3(0, -range, 0),
 		Vector3(0, 0, range),
-		Vector3(0, 0, -range)
+		Vector3(0, 0, -range),
 	}
 
 	local pos = Vector3()
@@ -41,7 +42,8 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		mvector3.add(pos, hit_pos)
 
 		local splinter_ray = World:raycast("ray", hit_pos, pos, "slot_mask", slotmask)
-		pos = (splinter_ray and splinter_ray.position or pos) - dir:normalized() * math.min(splinter_ray and splinter_ray.distance or 0, 10)
+		pos = (splinter_ray and splinter_ray.position or pos)
+			- dir:normalized() * math.min(splinter_ray and splinter_ray.distance or 0, 10)
 
 		local near_splinter = false
 		for _, s_pos in ipairs(splinters) do
@@ -62,14 +64,25 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		local hit_unit = hit_body:unit()
 		local hit_unit_key = hit_unit:key()
 		local apply_dmg = hit_body:extension() and hit_body:extension().damage
-		local character = (not characters_hit[hit_unit_key] or apply_dmg) and hit_unit:character_damage() and hit_unit:character_damage().damage_explosion
+		local character = (not characters_hit[hit_unit_key] or apply_dmg)
+			and hit_unit:character_damage()
+			and hit_unit:character_damage().damage_explosion
 
 		units_to_push[hit_unit_key] = hit_unit
 
 		local dir, len, damage, ray_hit
 		if character then
 			for _, s_pos in ipairs(splinters) do
-				ray_hit = not World:raycast("ray", s_pos, hit_body:center_of_mass(), "slot_mask", slotmask, "ignore_unit", {hit_unit}, "report")
+				ray_hit = not World:raycast(
+					"ray",
+					s_pos,
+					hit_body:center_of_mass(),
+					"slot_mask",
+					slotmask,
+					"ignore_unit",
+					{ hit_unit },
+					"report"
+				)
 				if ray_hit then
 					break
 				end
@@ -90,7 +103,15 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 				hit_body:extension().damage:damage_damage(user_unit, normal, hit_body:position(), dir, damage)
 
 				if hit_unit:id() ~= -1 then
-					managers.network:session():send_to_peers_synched("sync_body_damage_explosion", hit_body, user_unit, normal, hit_body:position(), dir, damage)
+					managers.network:session():send_to_peers_synched(
+						"sync_body_damage_explosion",
+						hit_body,
+						user_unit,
+						normal,
+						hit_body:position(),
+						dir,
+						damage
+					)
 				end
 			end
 
@@ -102,7 +123,7 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 					damage = damage,
 					attacker_unit = user_unit,
 					weapon_unit = self._owner,
-					col_ray = self._col_ray or {position = hit_body:position(), ray = dir}
+					col_ray = self._col_ray or { position = hit_body:position(), ray = dir },
 				}
 
 				hit_unit:character_damage():damage_explosion(action_data)
@@ -114,7 +135,11 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 		if alive(unit) then
 			local is_character = unit:character_damage() and unit:character_damage().damage_explosion
 			if not is_character or unit:character_damage():dead() then
-				if is_character and unit:movement()._active_actions[1] and unit:movement()._active_actions[1]:type() == "hurt" then
+				if
+					is_character
+					and unit:movement()._active_actions[1]
+					and unit:movement()._active_actions[1]:type() == "hurt"
+				then
 					unit:movement()._active_actions[1]:force_ragdoll()
 				end
 
@@ -141,6 +166,6 @@ function M79GrenadeBase:_detect_and_give_dmg(hit_pos)
 	managers.challenges:reset_counter("m79_simultaneous_specials")
 	managers.statistics:shot_fired({
 		hit = next(characters_hit) and true or false,
-		weapon_unit = self._owner
+		weapon_unit = self._owner,
 	})
-end
+end)
