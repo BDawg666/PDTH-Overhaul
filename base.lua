@@ -131,7 +131,6 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/friendly_fire")
 		module:hook_post_require("lib/units/weapons/grenades/m79grenadebase", "mutators/friendly_fire")
 		module:hook_post_require("lib/units/weapons/trip_mine/tripminebase", "mutators/friendly_fire")
-		-- module:hook_post_require("lib/units/weapons/sentrygunweapon", "mutators/friendly_fire")
 		module:hook_post_require("lib/units/equipment/sentry_gun/sentrygundamage", "mutators/friendly_fire")
 		module:hook_post_require("lib/units/beings/player/playerdamage", "mutators/friendly_fire")
 		module:hook_post_require("lib/units/beings/player/playermovement", "mutators/friendly_fire")
@@ -144,7 +143,5 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 		module:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
 end)
-
-module:hook_post_require("lib/network/handlers/unitnetworkhandler", function(m) end)
 
 return module
