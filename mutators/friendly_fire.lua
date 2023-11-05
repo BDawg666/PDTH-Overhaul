@@ -24,7 +24,7 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 end
 
 if RequiredScript == "lib/units/weapons/grenades/m79grenadebase" then
-	local M79GrenadeBase = module:hook_class(M79GrenadeBase)
+	local M79GrenadeBase = module:hook_class("M79GrenadeBase")
 
 	module:post_hook(M79GrenadeBase, "_detect_and_give_dmg", function(self, hit_pos)
 		DNet:send_to_peers("FriendlyFire", {
