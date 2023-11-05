@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.7.1",
+	version = "0.7.2",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
@@ -92,11 +92,59 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 		module:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
 	end
 
+	if MutatorHelper.setup_mutator(module, "friendly_fire", mutator_availability, nil, true) then
+		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"
+		module:hook(hook, string.format("%s_%s", hook, filter), filter, function(peer, data_type, data)
+			local variant = data.variant
+
+			if type(data.ray) == "table" then
+				data.ray = Vector3(data.ray.x, data.ray.y, data.ray.z)
+			end
+
+			if type(data.position) == "table" then
+				data.position = Vector3(data.position.x, data.position.y, data.position.z)
+			end
+
+			local player_unit = managers.player:player_unit()
+			local attacker_unit = managers.network:game():unit_from_peer_id(peer:id())
+			if alive(player_unit) and alive(attacker_unit) then
+				local attack_info = {
+					range = data.range or 100,
+					attacker_unit = attacker_unit,
+					damage = data.damage,
+					variant = variant,
+					col_ray = data.ray and { ray = data.ray },
+					position = data.position,
+					push_vel = data.ray and data.ray:with_z(0.1):normalized() * 600,
+				}
+
+				if variant == "bullet" then
+					player_unit:character_damage():damage_bullet(attack_info)
+				elseif variant == "melee" then
+					player_unit:character_damage():damage_melee(attack_info)
+				elseif variant == "explosion" then
+					player_unit:character_damage():damage_explosion(attack_info)
+				end
+			end
+		end)
+
+		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/weapons/grenades/m79grenadebase", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/weapons/trip_mine/tripminebase", "mutators/friendly_fire")
+		-- module:hook_post_require("lib/units/weapons/sentrygunweapon", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/equipment/sentry_gun/sentrygundamage", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/beings/player/playerdamage", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/beings/player/playermovement", "mutators/friendly_fire")
+		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/friendly_fire")
+	end
+
 	mutator_availability = { all = { levels = { bank = true, diamond_heist = true, slaughter_house = true } } }
 	if MutatorHelper.setup_mutator(module, "heavy_bags", mutator_availability, nil, true) then
 		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
 		module:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
 end)
+
+module:hook_post_require("lib/network/handlers/unitnetworkhandler", function(m) end)
 
 return module

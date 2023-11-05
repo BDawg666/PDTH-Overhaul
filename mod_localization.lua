@@ -29,6 +29,15 @@ local strings = {
 	["mutator_overcharged_tasers_motd"] = {
 		english = 'The "Overcharged Tasers" mutator is enabled, tasers will have no mercy upon you.',
 	},
+	["mutator_friendly_fire"] = {
+		english = "Friendly Fire",
+	},
+	["mutator_friendly_fire_help"] = {
+		english = "Damage between players is enabled.",
+	},
+	["mutator_friendly_fire_motd"] = {
+		english = 'The "Friendly Fire" mutator is enabled, Players can Shoot, Melee and Explode each other.',
+	},
 	["mutator_heavy_bags"] = {
 		english = "Heavy Bags",
 	},
@@ -39,7 +48,7 @@ local strings = {
 		english = 'The "Heavy Bags" mutator is enabled, Gold and Money bags will reduce your movement speed and jump height.',
 	},
 	["debug_equipment_diamond_bag"] = {
-		english = 'Diamond Bag',
+		english = "Diamond Bag",
 	},
 }
 
