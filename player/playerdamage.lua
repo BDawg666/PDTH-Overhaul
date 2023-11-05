@@ -14,6 +14,10 @@ module:hook(PlayerDamage, "_regenerate_armor", function(self)
 
 	local max_armor = self:_max_armor()
 	self._armor = math.clamp(self._armor + (max_armor * 0.2), 0, max_armor)
+	managers.hud:set_player_armor({
+		current = self._hurt_value,
+		total = max_armor,
+	})
 
 	local new_t
 	local is_full = self._armor == max_armor
