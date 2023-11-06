@@ -86,6 +86,10 @@ module:hook_post_require("lib/network/networkmember", "mission/networkmember")
 
 -- mutators
 module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
+	if not D:module("ovk_193") then
+		return
+	end
+
 	local mutator_availability = { all = true }
 
 	if MutatorHelper.setup_mutator(module, "overcharged_tasers", mutator_availability, nil, true) then
