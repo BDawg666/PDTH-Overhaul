@@ -1,15 +1,14 @@
 local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
 
-function RaycastWeaponBase:_get_spread(user_unit)
+module:hook(RaycastWeaponBase, "_get_spread", function(self, user_unit)
 	local spread_multiplier = self:spread_multiplier()
 	local current_state = user_unit:movement()._current_state
-	if current_state._in_steelsight then
-		return tweak_data.weapon[self._name_id].spread[current_state._moving and "moving_steelsight" or "steelsight"] * spread_multiplier
-	end
+	local spread_data = tweak_data.weapon[self._name_id].spread
 
-	if current_state._ducking then
-		return tweak_data.weapon[self._name_id].spread[current_state._moving and "moving_crouching" or "crouching"] * spread_multiplier
-	end
+	local state = (current_state._in_steelsight and "steelsight")
+		or (current_state._ducking and "crouching")
+		or "standing"
 
-	return tweak_data.weapon[self._name_id].spread[current_state._moving and "moving_standing" or "standing"] * spread_multiplier
-end
+	local moving = (current_state._moving and "moving_") or ""
+	return spread_data[string.format("%s%s", moving, state)] * spread_multiplier
+end)
