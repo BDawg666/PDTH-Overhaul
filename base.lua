@@ -85,20 +85,21 @@ module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/e
 module:hook_post_require("lib/network/networkmember", "mission/networkmember")
 
 -- mutators
-module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
-	if not D:module("ovk_193") then
+module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
+	local ovk_193 = D:module("ovk_193")
+	if not ovk_193 or (ovk_193 and not ovk_193:enabled()) then
 		return
 	end
 
 	local mutator_availability = { all = true }
 
-	if MutatorHelper.setup_mutator(module, "overcharged_tasers", mutator_availability, nil, true) then
-		module:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
+	if MutatorHelper.setup_mutator(m, "overcharged_tasers", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
 	end
 
-	if MutatorHelper.setup_mutator(module, "friendly_fire", mutator_availability, nil, true) then
+	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"
-		module:hook(hook, string.format("%s_%s", hook, filter), filter, function(peer, data_type, data)
+		m:hook(hook, string.format("%s_%s", hook, filter), filter, function(peer, data_type, data)
 			local variant = data.variant
 
 			if type(data.ray) == "table" then
@@ -132,19 +133,19 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(module)
 			end
 		end)
 
-		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/weapons/grenades/m79grenadebase", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/weapons/trip_mine/tripminebase", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/equipment/sentry_gun/sentrygundamage", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/beings/player/playerdamage", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/beings/player/playermovement", "mutators/friendly_fire")
-		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/weapons/grenades/m79grenadebase", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/weapons/trip_mine/tripminebase", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/equipment/sentry_gun/sentrygundamage", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/beings/player/playerdamage", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/beings/player/playermovement", "mutators/friendly_fire")
+		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/friendly_fire")
 	end
 
 	mutator_availability = { all = { levels = { bank = true, diamond_heist = true, slaughter_house = true } } }
-	if MutatorHelper.setup_mutator(module, "heavy_bags", mutator_availability, nil, true) then
-		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
-		module:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
+	if MutatorHelper.setup_mutator(m, "heavy_bags", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
+		m:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
 end)
 
