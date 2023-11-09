@@ -52,6 +52,10 @@ module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/te
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
+module:hook_post_require(
+	"lib/units/enemies/spooc/actions/lower_body/actionspooc",
+	"enemies/spooc/actions/lower_body/actionspooc"
+)
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 
 -- player overrides
