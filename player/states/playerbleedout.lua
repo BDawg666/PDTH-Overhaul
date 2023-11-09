@@ -11,7 +11,6 @@ module:hook(PlayerBleedOut, "enter", function(self, enter_data)
 		self._old_selection = self._unit:inventory():equipped_selection()
 		self:_start_action_unequip_weapon(Application:time(), { selection_wanted = 1 })
 		-- self._unit:inventory():unit_by_selection(1):base():on_reload()
-		PrettyMenu:show_notification("call")
 	end
 
 	self._unit:camera():camera_unit():base():set_target_tilt(35) -- upcoming mutator? 👀
