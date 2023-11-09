@@ -6,7 +6,7 @@ module:hook(PlayerDamage, "_max_armor", function(self)
 end)
 
 -- function PlayerDamage:_regenerate_armor()
-module:hook(PlayerDamage, "_regenerate_armor", function(self)
+--[[module:hook(PlayerDamage, "_regenerate_armor", function(self)
 	if not self._armor then
 		module:call_orig(PlayerDamage, "_regenerate_armor", self)
 		return
@@ -32,7 +32,7 @@ module:hook(PlayerDamage, "_regenerate_armor", function(self)
 
 	self._regenerate_timer = new_t
 	self:_send_set_armor()
-end)
+end)--]]
 
 module:hook(PlayerDamage, "get_fall_damage_multiplier", function(self)
 	local multiplier = 1
