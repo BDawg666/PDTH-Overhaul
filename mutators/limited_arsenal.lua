@@ -13,7 +13,7 @@ if RequiredScript == "lib/tweak_data/weapontweakdata" then
 		for _, weapon_id in pairs(self.weapon_list) do
 			local weapon = self[weapon_id]
 			for i, v in pairs(weapon.AMMO_PICKUP) do
-				weapon.AMMO_PICKUP[i] = math.round(v * 1.25)
+				weapon.AMMO_PICKUP[i] = math.round(v * 1.5)
 			end
 		end
 	end)
