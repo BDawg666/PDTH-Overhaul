@@ -27,7 +27,7 @@ local strings = {
 		english = "Overcharged Tasers",
 	},
 	["mutator_overcharged_tasers_help"] = {
-		english = "Increases camera twitching while being tased to be incredibly difficult and unfair to counter.",
+		english = "- Camera twitching while being tased is massively increased.\n- Tasers will be merciless.\n- Tears will be dropped and desks may be slammed.",
 	},
 	["mutator_overcharged_tasers_motd"] = {
 		english = 'The "Overcharged Tasers" mutator is enabled, tasers will have no mercy upon you.',
@@ -36,16 +36,25 @@ local strings = {
 		english = "Meth Heads",
 	},
 	["mutator_meth_heads_help"] = {
-		english = "- Players can't aim down sights\n- Crosshairs are disabled\n- Weapons are 25% more accurate",
+		english = "- Players can't aim down sights.\n- Crosshairs are disabled.\n- Weapons are 25% more accurate.",
 	},
 	["mutator_meth_heads_motd"] = {
 		english = 'The "Meth Heads" mutator is enabled, Crosshairs are disabled, Players can\'t aim down sights and weapons are 25% more accurate.',
+	},
+	["mutator_limited_arsenal"] = {
+		english = "Limited Arsenal",
+	},
+	["mutator_limited_arsenal_help"] = {
+		english = "You idiots! The driver found some of your weapons at the back of the van!\n\n- Secondary weapon slot is disabled.\n- Ammo pickup is increased by 25%.",
+	},
+	["mutator_limited_arsenal_motd"] = {
+		english = 'The "Limited Arsenal" mutator is enabled, The secondary weapon slot is disabled and ammo pickup is increased by 25%.',
 	},
 	["mutator_friendly_fire"] = {
 		english = "Friendly Fire",
 	},
 	["mutator_friendly_fire_help"] = {
-		english = "Damage between players is enabled.",
+		english = "- Damage between players is enabled.\n- Your trip mines can be triggered by teammates.",
 	},
 	["mutator_friendly_fire_motd"] = {
 		english = 'The "Friendly Fire" mutator is enabled, Players can Shoot, Melee and Explode each other.',
@@ -54,7 +63,7 @@ local strings = {
 		english = "Heavy Bags",
 	},
 	["mutator_heavy_bags_help"] = {
-		english = "Gold and Money bags will impact your mobility capabilities.",
+		english = "- Gold, Money and Diamond bags will impact your mobility capabilities.",
 	},
 	["mutator_heavy_bags_motd"] = {
 		english = 'The "Heavy Bags" mutator is enabled, Gold and Money bags will reduce your movement speed and jump height.',

@@ -83,6 +83,7 @@ module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deploy
 
 -- gui scripts
 module:hook_post_require("lib/managers/menumanager", "gui/menu/difficulties")
+module:hook_post_require("lib/managers/menu/items/menuitemkitslot", "gui/menu/menuitemkitslot")
 
 -- mission scripts
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
@@ -106,6 +107,11 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		module:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/meth_heads")
 		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/meth_heads")
 		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/meth_heads")
+	end
+
+	if MutatorHelper.setup_mutator(m, "limited_arsenal", mutator_availability, nil, true) then
+		module:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/limited_arsenal")
+		module:hook_post_require("lib/managers/playermanager", "mutators/limited_arsenal")
 	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
