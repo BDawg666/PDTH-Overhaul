@@ -45,7 +45,7 @@ local strings = {
 		english = "Limited Arsenal",
 	},
 	["mutator_limited_arsenal_help"] = {
-		english = "You idiots! The driver found some of your weapons at the back of the van!\n\n- Secondary weapon slot is disabled.\n- Ammo pickup is increased by 50% as well as the max ammo of moved weapons.",
+		english = "You idiots! The driver found some of your weapons at the back of the van!\n\n- Secondary weapon slot is disabled.\n- Ammo pickup is increased by 50%. Max ammo of moved secondary weapons is increased by 75%.",
 	},
 	["mutator_limited_arsenal_motd"] = {
 		english = 'The "Limited Arsenal" mutator is enabled, The secondary weapon slot is disabled and ammo pickup is increased by 25%.',
