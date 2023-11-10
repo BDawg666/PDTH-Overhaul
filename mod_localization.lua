@@ -32,6 +32,15 @@ local strings = {
 	["mutator_overcharged_tasers_motd"] = {
 		english = 'The "Overcharged Tasers" mutator is enabled, tasers will have no mercy upon you.',
 	},
+	["mutator_meth_heads"] = {
+		english = "Meth Heads",
+	},
+	["mutator_meth_heads_help"] = {
+		english = "- Players can't aim down sights\n- Crosshairs are disabled\n- Weapons are 20% more accurate",
+	},
+	["mutator_meth_heads_motd"] = {
+		english = 'The "Meth Heads" mutator is enabled, Crosshairs are disabled, Players can\'t aim down sights and weapons are 20% more accurate.',
+	},
 	["mutator_friendly_fire"] = {
 		english = "Friendly Fire",
 	},

@@ -102,6 +102,12 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		m:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
 	end
 
+	if MutatorHelper.setup_mutator(m, "meth_heads", mutator_availability, nil, true) then
+		module:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/meth_heads")
+		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/meth_heads")
+		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/meth_heads")
+	end
+
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"
 		m:hook(hook, string.format("%s_%s", hook, filter), filter, function(peer, data_type, data)

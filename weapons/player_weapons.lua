@@ -1,5 +1,24 @@
 local WeaponTweakData = module:hook_class("WeaponTweakData")
 
+module:pre_hook(WeaponTweakData, "init", function(self)
+	-- ease looping through player weapons
+	self.weapon_list = {
+		"beretta92",
+		"c45",
+		"raging_bull",
+		"glock",
+		"r870_shotgun",
+		"m4",
+		"m14",
+		"hk21",
+		"ak47",
+		"mossberg",
+		"mp5",
+		"mac11",
+		"m79",
+	}
+end)
+
 module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.can_shoot_through_shield = true
 	self.beretta92.DAMAGE = 1.8
