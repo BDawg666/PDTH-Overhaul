@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.7.3",
+	version = "0.7.4",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
