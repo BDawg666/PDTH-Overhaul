@@ -6,9 +6,10 @@ module:pre_hook(60, MenuNodeGui, "_setup_panels", function(self, node)
 	self._bfgo_version = self.ws:panel():text({
 		name = "bfgo_version_str",
 		text = string.format(
-			"%s v%s - matchmaking is sandboxed.",
+			"%s v%s (using save file %03d) - matchmaking is sandboxed.",
 			module:info_attr("name") or module:id(),
-			module:version()
+			module:version(),
+			SavefileManager.PROGRESS_SLOT
 		),
 		font = tweak_data.menu.small_font,
 		font_size = tweak_data.menu.small_font_size,

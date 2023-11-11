@@ -18,7 +18,9 @@ local module = DMod:new("fgo", {
 })
 
 module:hook("OnModuleRegistered", "load_fgo", function()
-	D:unregister_module("anticheat")
+	for _, module_id in pairs({ "anticheat", "save_slot_selector" }) do
+		D:unregister_module(module_id)
+	end
 end)
 
 -- init classes
@@ -32,6 +34,7 @@ module:hook_post_require("lib/states/ingamewaitingforplayers", function(m)
 end)
 
 -- sandbox overrides
+module:hook_post_require("lib/managers/savefilemanager", "sandbox/savefilemanager")
 module:hook_post_require("lib/managers/achievmentmanager.", "sandbox/achievmentmanager")
 module:hook_post_require("lib/network/matchmaking/networkaccountsteam", "sandbox/NetworkAccountSTEAM")
 module:hook_post_require("lib/network/matchmaking/networkmatchmakingsteam", "sandbox/NetworkMatchMakingSTEAM")
