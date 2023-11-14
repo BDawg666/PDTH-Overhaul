@@ -23,6 +23,7 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.can_shoot_through_shield = true
 	self.beretta92.DAMAGE = 1.8
 	self.beretta92.damage_melee = 1
+	self.beretta92.damage_melee_effect_mul = 1
 	self.beretta92.CLIP_AMMO_MAX = 20
 	self.beretta92.AMMO_MAX = 40
 	self.beretta92.AMMO_PICKUP = { 1, 3 }
@@ -46,6 +47,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 	self.c45.DAMAGE = 2.4
 	self.c45.damage_melee = 1
+	self.c45.damage_melee_effect_mul = 1
 	self.c45.CLIP_AMMO_MAX = 14
 	self.c45.AMMO_MAX = 60
 	self.c45.AMMO_PICKUP = { 2, 4 }
@@ -74,6 +76,7 @@ module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
 	--self.raging_bull.timers.reload_empty = 3.68
 	self.raging_bull.DAMAGE = 4.8
 	self.raging_bull.damage_melee = 1
+	self.raging_bull.damage_melee_effect_mul = 1
 	self.raging_bull.AMMO_MAX = 30
 	self.raging_bull.AMMO_PICKUP = { 1, 3 }
 	self.raging_bull.spread.standing = 1.05
@@ -100,6 +103,7 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.muzzleflash = "effects/particles/weapons/c45/muzzleflash"
 	self.glock.DAMAGE = 1.8
 	self.glock.damage_melee = 1
+	self.glock.damage_melee_effect_mul = 1
 	self.glock.CLIP_AMMO_MAX = 40
 	self.glock.AMMO_MAX = 80
 	self.glock.AMMO_PICKUP = { 3, 5 }
@@ -128,6 +132,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 	self.test_raycast_weapon.DAMAGE = 2.4
 	self.test_raycast_weapon.damage_melee = 2
+	self.test_raycast_weapon.damage_melee_effect_mul = 2
 	self.test_raycast_weapon.CLIP_AMMO_MAX = 30
 	self.test_raycast_weapon.AMMO_MAX = 120
 	self.test_raycast_weapon.AMMO_PICKUP = { 2, 4 }
@@ -156,6 +161,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 2.5
+	self.hk21.damage_melee_effect_mul = 2.5
 	self.hk21.CLIP_AMMO_MAX = 90
 	self.hk21.AMMO_MAX = 160
 	self.hk21.AMMO_PICKUP = { 1, 4 }
@@ -185,6 +191,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 	self.m14.DAMAGE = 4.8
 	self.m14.damage_melee = 2
+	self.m14.damage_melee_effect_mul = 2
 	self.m14.CLIP_AMMO_MAX = 16
 	self.m14.AMMO_MAX = 60
 	self.m14.AMMO_PICKUP = { 1, 3 }
@@ -211,6 +218,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.DAMAGE = 8.4
 	self.r870_shotgun.damage_melee = 2
+	self.r870_shotgun.damage_melee_effect_mul = 2
 	self.r870_shotgun.CLIP_AMMO_MAX = 10
 	self.r870_shotgun.AMMO_MAX = 30
 	self.r870_shotgun.AMMO_PICKUP = { 1, 1 }
@@ -233,6 +241,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.DAMAGE = 3.6
 	self.ak47.damage_melee = 2
+	self.ak47.damage_melee_effect_mul = 2
 	self.ak47.CLIP_AMMO_MAX = 35
 	self.ak47.AMMO_MAX = 80
 	self.ak47.AMMO_PICKUP = { 1, 4 }
@@ -259,6 +268,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
 	self.mac11.DAMAGE = 2.4
 	self.mac11.damage_melee = 1
+	self.mac11.damage_melee_effect_mul = 1
 	self.mac11.CLIP_AMMO_MAX = 54
 	self.mac11.AMMO_MAX = 90
 	self.mac11.AMMO_PICKUP = { 2, 4 }
@@ -286,6 +296,7 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	--Does not affect animation speed like the upgrade
 	--self.mossberg.single.fire_rate = 0.5
 	self.mossberg.DAMAGE = 8.4
+	self.mossberg.damage_melee_effect_mul = 1.5
 	self.mossberg.damage_near = 300
 	self.mossberg.damage_far = 2100
 	self.mossberg.CLIP_AMMO_MAX = 6
@@ -308,6 +319,7 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
 	self.mp5.DAMAGE = 1.8
+	self.mp5.damage_melee_effect_mul = 1.5
 	self.mp5.AMMO_MAX = 120
 	self.mp5.AMMO_PICKUP = { 3, 5 }
 	self.mp5.spread.standing = 0.945
@@ -333,6 +345,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.DAMAGE = 56
 	self.m79.damage_melee = 2
+	self.m79.damage_melee_effect_mul = 2
 	self.m79.AMMO_MAX = 6
 	self.m79.spread.moving_steelsight = 0.2
 	self.m79.kick.v.standing = 5.25
