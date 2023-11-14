@@ -3,7 +3,7 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 	module:hook(50, RaycastWeaponBase, "spread_multiplier", function(self)
 		local multiplier = managers.player:upgrade_value(self._name_id, "spread_multiplier", 1)
 		multiplier = multiplier * managers.player:synced_crew_bonus_upgrade_value("sharpshooters", 1)
-		return multiplier * 1.25
+		return multiplier * 0.8
 	end, true)
 end
 
