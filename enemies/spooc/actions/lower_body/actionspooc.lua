@@ -29,7 +29,10 @@ module:hook(ActionSpooc, "_upd_strike_first_frame", function(self, t)
 	local detonate_pos, attacker_pos = self._ext_movement._m_pos + math.UP * 10, self._ext_movement:m_head_pos()
 	local duration = math.lerp(15, 30, math.random())
 	managers.network:session():send_to_peers("sync_smoke_grenade", detonate_pos, attacker_pos, duration)
-	managers.groupai:state():sync_smoke_grenade(detonate_pos, attacker_pos, duration)
+
+	if Network:is_server() then
+		managers.groupai:state():sync_smoke_grenade(detonate_pos, attacker_pos, duration)
+	end
 
 	self:_set_updator("_upd_striking")
 	self._common_data.unit:base():chk_freeze_anims()
