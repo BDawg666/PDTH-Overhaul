@@ -18,6 +18,7 @@ function CharacterTweakData:_set_normal()
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.3
+	self.tank.damage.visor_health = 55
 end
 
 function CharacterTweakData:_set_hard()
@@ -28,6 +29,7 @@ function CharacterTweakData:_set_hard()
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.25
+	self.tank.damage.visor_health = 55
 end
 
 function CharacterTweakData:_set_overkill()
@@ -40,7 +42,6 @@ function CharacterTweakData:_set_overkill()
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.25)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.2
 	self.tank.damage.visor_health = 69
-	self.tank.headshot_dmg_mul = 40
 end
 
 function CharacterTweakData:_set_overkill_145()
@@ -53,7 +54,6 @@ function CharacterTweakData:_set_overkill_145()
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.25)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.15
 	self.tank.damage.visor_health = 69
-	self.tank.headshot_dmg_mul = 40
 end
 
 module:post_hook(CharacterTweakData, "_init_spanish", function(self, presets)
@@ -101,8 +101,8 @@ module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
-	self.tank.damage.visor_health = 20
-	self.tank.headshot_dmg_mul = 2
+	self.tank.damage.visor_health = 53
+	self.tank.headshot_dmg_mul = 23
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_civilian", function(self, presets)
