@@ -245,6 +245,7 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.CLIP_AMMO_MAX = 35
 	self.ak47.AMMO_MAX = 80
 	self.ak47.AMMO_PICKUP = { 1, 4 }
+	self.ak47.auto.fire_rate = 0.08
 	self.ak47.spread.standing = 1.38
 	self.ak47.spread.crouching = 1.03
 	self.ak47.spread.steelsight = 0.3
