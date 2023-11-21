@@ -117,6 +117,11 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		module:hook_post_require("lib/managers/playermanager", "mutators/limited_arsenal")
 	end
 
+	if MutatorHelper.setup_mutator(m, "bad_trip", mutator_availability, nil, true) then
+		module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "mutators/bad_trip")
+		module:hook_post_require("core/lib/managers/coreenvironmentcontrollermanager", "mutators/bad_trip")
+	end
+
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"
 		m:hook(hook, string.format("%s_%s", hook, filter), filter, function(peer, data_type, data)

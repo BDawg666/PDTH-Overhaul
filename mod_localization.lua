@@ -50,6 +50,15 @@ local strings = {
 	["mutator_limited_arsenal_motd"] = {
 		english = 'The "Limited Arsenal" mutator is enabled, The secondary weapon slot is disabled, overall ammo pickup for is increased by 50%, secondary weapons have been moved to the primary slot and their max ammo capacity is increased by 75%.',
 	},
+	["mutator_bad_trip"] = {
+		english = "Bad Trip",
+	},
+	["mutator_bad_trip_help"] = {
+		english = "Are you Okay?\nMan, I told you not to smoke that shit!\n\n- Players will struggle to focus their sight.\n- Players will have trouble keeping balance (FOV and camera roll changes).\n- Players will suffer from motion sickness.",
+	},
+	["mutator_bad_trip_motd"] = {
+		english = 'The mutator "Bad Trip" is enabled, Players will experience motion sickness to its finest.',
+	},
 	["mutator_friendly_fire"] = {
 		english = "Friendly Fire",
 	},
