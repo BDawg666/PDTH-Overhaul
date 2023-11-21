@@ -96,6 +96,10 @@ module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
 	self.heavy_swat.dodge = presets.dodge.good
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
+	self.tank.damage.visor_health = 20
+end, false)
+
 module:post_hook(CharacterTweakData, "_init_civilian", function(self, presets)
 	self.civilian.HEALTH_INIT = 2
 	self.civilian.scare_shot = 0
@@ -127,128 +131,128 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 
 	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
-	
+
 	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
 	presets.weapon.good.mossberg.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
-			recoil = {2, 2},
-			mode = { 1, 1, 0, 0 }
+			recoil = { 2, 2 },
+			mode = { 1, 1, 0, 0 },
 		},
 		{
 			r = 700,
 			dmg_mul = 1,
-			recoil = {2, 2},
-			mode = { 1, 1, 0, 0 }
+			recoil = { 2, 2 },
+			mode = { 1, 1, 0, 0 },
 		},
 		{
 			r = 1000,
 			dmg_mul = 0.5,
-			recoil = {2, 3},
-			mode = { 1, 1, 0, 0 }
+			recoil = { 2, 3 },
+			mode = { 1, 1, 0, 0 },
 		},
 		{
 			r = 4000,
 			dmg_mul = 0.3,
-			recoil = {2, 4},
-			mode = { 1, 0, 0, 0 }
+			recoil = { 2, 4 },
+			mode = { 1, 0, 0, 0 },
 		},
 		{
 			r = 10000,
 			dmg_mul = 0.1,
-			recoil = {2, 4},
-			mode = { 1, 0, 0, 0 }
-		}
+			recoil = { 2, 4 },
+			mode = { 1, 0, 0, 0 },
+		},
 	}
-	
+
 	-- presets for AI heisters, these do work
 	-- beretta92 still applies even if their actual pistol is switched to Bronco
 	presets.gang_member_damage.HEALTH_INIT = 55
 	presets.gang_member_damage.REGENERATE_TIME = 3
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
-	
+
 	presets.weapon.gang_member.beretta92 = deep_clone(presets.weapon.expert.c45)
 	presets.weapon.gang_member.beretta92.RELOAD_SPEED = 1
 	presets.weapon.gang_member.beretta92.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
-			recoil = {0.25, 0.35},
-			mode = { 1, 3, 1, 0 }
+			recoil = { 0.25, 0.35 },
+			mode = { 1, 3, 1, 0 },
 		},
 		{
 			r = 700,
 			dmg_mul = 2,
-			recoil = {0.25, 0.35},
-			mode = { 1, 3, 1, 0 }
+			recoil = { 0.25, 0.35 },
+			mode = { 1, 3, 1, 0 },
 		},
 		{
 			r = 3000,
 			dmg_mul = 1.5,
-			recoil = {0.25, 0.35},
-			mode = { 1, 3, 1, 0 }
+			recoil = { 0.25, 0.35 },
+			mode = { 1, 3, 1, 0 },
 		},
 		{
 			r = 10000,
 			dmg_mul = 1,
-			recoil = {1.5, 3},
-			mode = { 1, 0, 0, 0 }
-		}
+			recoil = { 1.5, 3 },
+			mode = { 1, 0, 0, 0 },
+		},
 	}
 	presets.weapon.gang_member.m4 = deep_clone(presets.weapon.expert.m4)
 	presets.weapon.gang_member.m4.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
-			recoil = {0.25, 0.45},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.25, 0.45 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 700,
 			dmg_mul = 2,
-			recoil = {0.25, 0.45},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.25, 0.45 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 3000,
 			dmg_mul = 1.5,
-			recoil = {0.25, 0.45},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.25, 0.45 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 10000,
 			dmg_mul = 1,
-			recoil = {1.1, 2.2},
-			mode = { 2, 1, 0, 0 }
-		}
+			recoil = { 1.1, 2.2 },
+			mode = { 2, 1, 0, 0 },
+		},
 	}
 	presets.weapon.gang_member.mp5 = deep_clone(presets.weapon.expert.mp5)
 	presets.weapon.gang_member.mp5.FALLOFF = {
 		{
 			r = 0,
 			dmg_mul = 4,
-			recoil = {0.35, 0.55},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.35, 0.55 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 700,
 			dmg_mul = 2,
-			recoil = {0.35, 0.55},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.35, 0.55 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 3000,
 			dmg_mul = 1.5,
-			recoil = {0.35, 0.55},
-			mode = { 0.2, 2, 4, 10 }
+			recoil = { 0.35, 0.55 },
+			mode = { 0.2, 2, 4, 10 },
 		},
 		{
 			r = 10000,
 			dmg_mul = 1,
-			recoil = {1.5, 3.1},
-			mode = { 3, 1, 0, 0 }
-		}
+			recoil = { 1.5, 3.1 },
+			mode = { 3, 1, 0, 0 },
+		},
 	}
 
 	return presets

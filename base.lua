@@ -60,6 +60,7 @@ module:hook_post_require(
 	"enemies/spooc/actions/lower_body/actionspooc"
 )
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
+module:hook_post_require("core/lib/units/coreunitdamage", "enemies/coreunitdamage")
 
 -- player overrides
 module:hook_post_require("lib/units/beings/player/states/playerstandard", "player/states/playerstandard")
