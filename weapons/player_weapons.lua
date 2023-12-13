@@ -44,6 +44,7 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 	self.beretta92.kick.v.standing = 0.72
 	self.beretta92.kick.v.crouching = 0.54
 	self.beretta92.kick.v.steelsight = 0.36
+	self.beretta92.ads_speed = 1.5
 end)
 
 module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
@@ -73,6 +74,7 @@ module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 	self.c45.kick.h.standing = 0.9
 	self.c45.kick.h.crouching = 0.6
 	self.c45.kick.h.steelsight = 0.3
+	self.c45.ads_speed = 1.5
 end)
 
 module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
@@ -101,6 +103,7 @@ module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
 	self.raging_bull.kick.h.standing = 0.8
 	self.raging_bull.kick.h.crouching = 0.75
 	self.raging_bull.kick.h.steelsight = 0.5
+	self.raging_bull.ads_speed = 1.5
 end)
 
 module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
@@ -131,6 +134,7 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.kick.h.standing = 0.81
 	self.glock.kick.h.crouching = 0.72
 	self.glock.kick.h.steelsight = 0.63
+	self.glock.ads_speed = 1.5
 end)
 
 module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
@@ -160,6 +164,7 @@ module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 	self.test_raycast_weapon.kick.h.standing = 0.45
 	self.test_raycast_weapon.kick.h.crouching = 0.3
 	self.test_raycast_weapon.kick.h.steelsight = 0.15
+	self.test_raycast_weapon.ads_speed = 1
 
 	self.m4 = deep_clone(self.test_raycast_weapon)
 end)
@@ -191,6 +196,7 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.kick.h.standing = 1.08
 	self.hk21.kick.h.crouching = 0.9
 	self.hk21.kick.h.steelsight = 0.675
+	self.hk21.ads_speed = 0.5
 
 	self.hk21.movement_speed_multiplier = 0.8 -- 80% movement speed
 	self.hk21.fall_damage_multiplier = 1.5 -- 50% extra fall damage
@@ -223,6 +229,7 @@ module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 	self.m14.kick.h.standing = 0.27
 	self.m14.kick.h.crouching = 0.21
 	self.m14.kick.h.steelsight = 0.15
+	self.m14.ads_speed = 1
 end)
 
 module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
@@ -248,6 +255,7 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 	self.r870_shotgun.kick.h.standing = 0.42
 	self.r870_shotgun.kick.h.crouching = 0.36
 	self.r870_shotgun.kick.h.steelsight = 0.3
+	self.r870_shotgun.ads_speed = 1
 end)
 
 module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
@@ -278,6 +286,7 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 	self.ak47.kick.h.standing = 0.82
 	self.ak47.kick.h.crouching = 0.72
 	self.ak47.kick.h.steelsight = 0.54
+	self.ak47.ads_speed = 1
 end)
 
 module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
@@ -307,6 +316,7 @@ module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
 	self.mac11.kick.h.standing = 0.81
 	self.mac11.kick.h.crouching = 0.675
 	self.mac11.kick.h.steelsight = 0.54
+	self.mac11.ads_speed = 1.25
 end)
 
 module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
@@ -332,6 +342,7 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 	self.mossberg.kick.h.standing = 0.5
 	self.mossberg.kick.h.crouching = 0.44
 	self.mossberg.kick.h.steelsight = 0.38
+	self.mossberg.ads_speed = 1.25
 end)
 
 module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
@@ -359,6 +370,7 @@ module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
 	self.mp5.kick.h.standing = 0.367
 	self.mp5.kick.h.crouching = 0.315
 	self.mp5.kick.h.steelsight = 0.21
+	self.mp5.ads_speed = 1.25
 end)
 
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
@@ -374,6 +386,7 @@ module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.kick.v.steelsight = 4.8
 	self.m79.kick.h.steelsight = 0.35
 	self.m79.EXPLOSION_RANGE = 600
+	self.m79.ads_speed = 1
 end)
 
 module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
