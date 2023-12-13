@@ -170,8 +170,8 @@ module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
-	self.hk21.firerate_mult = 1
-	self.hk21.reload_speed = 1
+	self.hk21.firerate_mult = 1 -- higher = faster, only for shotguns
+	self.hk21.reload_speed = 1 -- higher = faster
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 2.5
 	self.hk21.damage_melee_effect_mul = 2.5
