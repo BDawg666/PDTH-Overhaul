@@ -37,7 +37,7 @@ module:hook(UpgradesTweakData, "init_data_handguns_overhaul", function(self)
 
 	self.values.raging_bull.spread_multiplier = { 1, 1, 1, 1 }
 	self.values.raging_bull.enter_steelsight_speed_multiplier = { 1.5, 1.5, 1.5, 1.5 }
-	--self.values.raging_bull.reload_speed_multiplier = {1, 1}
+	self.values.raging_bull.reload_speed_multiplier = {2, 2}
 
 	self.values.glock.recoil_multiplier = { 1, 1 }
 	self.values.glock.clip_ammo_increase = { 0, 0, 0, 0 }

@@ -12,3 +12,9 @@ module:hook(RaycastWeaponBase, "_get_spread", function(self, user_unit)
 	local moving = (current_state._moving and "moving_") or ""
 	return spread_data[string.format("%s%s", moving, state)] * spread_multiplier
 end)
+
+function RaycastWeaponBase:reload_speed_multiplier()
+	local multiplier = tweak_data.weapon[self._name_id].reload_speed
+	multiplier = multiplier * managers.player:synced_crew_bonus_upgrade_value("speed_reloaders", 1)
+	return multiplier
+end

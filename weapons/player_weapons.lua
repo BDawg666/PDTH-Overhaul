@@ -74,6 +74,7 @@ end)
 module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
 	--self.raging_bull.timers.reload_not_empty = 3.68
 	--self.raging_bull.timers.reload_empty = 3.68
+	self.raging_bull.reload_speed = 1.2
 	self.raging_bull.DAMAGE = 4.8
 	self.raging_bull.damage_melee = 1
 	self.raging_bull.damage_melee_effect_mul = 1
