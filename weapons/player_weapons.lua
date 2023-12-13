@@ -20,6 +20,8 @@ module:pre_hook(WeaponTweakData, "init", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
+	self.beretta92.firerate_mult = 1
+	self.beretta92.reload_speed = 1
 	self.beretta92.can_shoot_through_shield = true
 	self.beretta92.DAMAGE = 1.8
 	self.beretta92.damage_melee = 1
@@ -45,6 +47,8 @@ module:hook(WeaponTweakData, "_init_data_b9s_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
+	self.c45.firerate_mult = 1
+	self.c45.reload_speed = 1
 	self.c45.DAMAGE = 2.4
 	self.c45.damage_melee = 1
 	self.c45.damage_melee_effect_mul = 1
@@ -72,8 +76,7 @@ module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
-	--self.raging_bull.timers.reload_not_empty = 3.68
-	--self.raging_bull.timers.reload_empty = 3.68
+	self.raging_bull.firerate_mult = 1
 	self.raging_bull.reload_speed = 1.2
 	self.raging_bull.DAMAGE = 4.8
 	self.raging_bull.damage_melee = 1
@@ -102,6 +105,8 @@ end)
 
 module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.muzzleflash = "effects/particles/weapons/c45/muzzleflash"
+	self.glock.firerate_mult = 1
+	self.glock.reload_speed = 1.2
 	self.glock.DAMAGE = 1.8
 	self.glock.damage_melee = 1
 	self.glock.damage_melee_effect_mul = 1
@@ -120,8 +125,6 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 	self.glock.crosshair.crouching.offset = 0.112
 	self.glock.crosshair.crouching.moving_offset = 0.28
 	self.glock.crosshair.crouching.kick_offset = 0.0
-	--self.glock.timers.reload_not_empty = 2
-	--self.glock.timers.reload_empty = 2.16
 	self.glock.kick.v.standing = 1.35
 	self.glock.kick.v.crouching = 1.2
 	self.glock.kick.v.steelsight = 1.05
@@ -131,6 +134,8 @@ module:hook(WeaponTweakData, "_init_data_glock_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
+	self.test_raycast_weapon.firerate_mult = 1
+	self.test_raycast_weapon.reload_speed = 1
 	self.test_raycast_weapon.DAMAGE = 2.4
 	self.test_raycast_weapon.damage_melee = 2
 	self.test_raycast_weapon.damage_melee_effect_mul = 2
@@ -160,6 +165,8 @@ module:hook(WeaponTweakData, "_init_data_amcar_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
+	self.hk21.firerate_mult = 1
+	self.hk21.reload_speed = 1
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 2.5
 	self.hk21.damage_melee_effect_mul = 2.5
@@ -190,6 +197,8 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
+	self.m14.firerate_mult = 1
+	self.m14.reload_speed = 1
 	self.m14.DAMAGE = 4.8
 	self.m14.damage_melee = 2
 	self.m14.damage_melee_effect_mul = 2
@@ -217,6 +226,8 @@ module:hook(WeaponTweakData, "_init_data_m308_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
+	self.r870_shotgun.firerate_mult = 1.25
+	self.r870_shotgun.reload_speed = 1
 	self.r870_shotgun.DAMAGE = 8.4
 	self.r870_shotgun.damage_melee = 2
 	self.r870_shotgun.damage_melee_effect_mul = 2
@@ -240,6 +251,8 @@ module:hook(WeaponTweakData, "_init_data_reinbeck_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
+	self.ak47.firerate_mult = 1
+	self.ak47.reload_speed = 1
 	self.ak47.DAMAGE = 3.6
 	self.ak47.damage_melee = 2
 	self.ak47.damage_melee_effect_mul = 2
@@ -268,6 +281,8 @@ module:hook(WeaponTweakData, "_init_data_ak47_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
+	self.mac11.firerate_mult = 1
+	self.mac11.reload_speed = 1
 	self.mac11.DAMAGE = 2.4
 	self.mac11.damage_melee = 1
 	self.mac11.damage_melee_effect_mul = 1
@@ -295,8 +310,8 @@ module:hook(WeaponTweakData, "_init_data_mark11_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
-	--Does not affect animation speed like the upgrade
-	--self.mossberg.single.fire_rate = 0.5
+	self.mossberg.firerate_mult = 1.6
+	self.mossberg.reload_speed = 1.2
 	self.mossberg.DAMAGE = 8.4
 	self.mossberg.damage_melee_effect_mul = 1.5
 	self.mossberg.damage_near = 300
@@ -320,6 +335,8 @@ module:hook(WeaponTweakData, "_init_data_locomotive_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
+	self.mp5.firerate_mult = 1
+	self.mp5.reload_speed = 1.4
 	self.mp5.DAMAGE = 1.8
 	self.mp5.damage_melee_effect_mul = 1.5
 	self.mp5.AMMO_MAX = 120
@@ -345,6 +362,8 @@ module:hook(WeaponTweakData, "_init_data_mp5_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
+	self.m79.firerate_mult = 1
+	self.m79.reload_speed = 1
 	self.m79.DAMAGE = 56
 	self.m79.damage_melee = 2
 	self.m79.damage_melee_effect_mul = 2

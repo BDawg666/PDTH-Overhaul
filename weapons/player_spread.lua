@@ -18,3 +18,7 @@ function RaycastWeaponBase:reload_speed_multiplier()
 	multiplier = multiplier * managers.player:synced_crew_bonus_upgrade_value("speed_reloaders", 1)
 	return multiplier
 end
+
+function RaycastWeaponBase:fire_rate_multiplier()
+	return tweak_data.weapon[self._name_id].firerate_mult
+end
