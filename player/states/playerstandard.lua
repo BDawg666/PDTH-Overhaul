@@ -77,9 +77,8 @@ function PlayerStandard:_stance_entered(unequipped)
 		or self._ducking and stances.crouched
 		or stances.standard
 	local duration_multiplier = 1
-	if weapon_id then
-		duration_multiplier = self._in_steelsight
-			and 1 / (tablex.get(tweak_data, "weapon", weapon_id, "ads_speed") or 1)
+	if self._in_steelsight and weapon_id then
+		duration_multiplier = 1 / (tablex.get(tweak_data, "weapon", weapon_id, "ads_speed") or 1)
 	end
 
 	local new_fov = self._in_steelsight and stances.steelsight.zoom_fov and managers.user:get_setting("fov_zoom")
