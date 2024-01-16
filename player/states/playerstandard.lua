@@ -65,7 +65,7 @@ module:hook(PlayerStandard, "_get_max_walk_speed", function(self, t)
 	return movement_speed.STANDARD_MAX * multiplier
 end)
 
-function PlayerStandard:_stance_entered(unequipped)
+module:hook(PlayerStandard, "_stance_entered", function(self, unequipped)
 	local head_stance = self._ducking and tweak_data.player.stances.default.crouched.head
 		or tweak_data.player.stances.default.standard.head
 	local weapon_id
@@ -92,4 +92,4 @@ function PlayerStandard:_stance_entered(unequipped)
 		duration_multiplier
 	)
 	managers.menu:set_mouse_sensitivity(self._in_steelsight and stances.steelsight.zoom_fov)
-end
+end)
