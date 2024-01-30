@@ -80,6 +80,12 @@ local strings = {
 	["debug_equipment_diamond_bag"] = {
 		english = "Diamond Bag",
 	},
+	["mutator_no_outlines"] = {
+		english = "No Outlines",
+	},
+	["mutator_no_outlines_help"] = {
+		english = "Also disables name labels above your teammates.",
+	},
 }
 
 for string_id, translations in pairs(strings) do
