@@ -103,6 +103,11 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 
 	local mutator_availability = { all = true }
+	
+	if MutatorHelper.setup_mutator(m, "no_outlines", mutator_availability, nil, true) then
+		m:hook_post_require("lib/tweak_data/tweakdata", "mutators/no_outlines")
+		m:hook_post_require("lib/managers/hudmanager", "mutators/no_outlines")
+	end
 
 	if MutatorHelper.setup_mutator(m, "overcharged_tasers", mutator_availability, nil, true) then
 		m:hook_post_require("lib/units/beings/player/states/playertased", "mutators/overcharged_tasers")
