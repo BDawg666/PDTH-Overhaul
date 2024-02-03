@@ -86,6 +86,23 @@ local strings = {
 	["mutator_no_outlines_help"] = {
 		english = "Also disables name labels above your teammates.",
 	},
+	["mutator_no_outlines_motd"] = {
+		english = "The 'No Outlines' mutator is enabled, Contours and player labels are disabled.",
+	},
+	["mutator_wasteful_premature_reload"] = { english = "Wasteful premature reloads" },
+	["mutator_wasteful_premature_reload_help"] = {
+		english = "When reloading, any ammo remaining in your magazine will be permanently lost.",
+	},
+	["mutator_wasteful_premature_reload_motd"] = {
+		english = "The 'Wasteful Premature Reloads' mutator is enabled, any ammo remaining in the magazines will be lost when reloading your weapons.",
+	},
+	["mutator_disable_auto_reload"] = { english = "Disable auto reload" },
+	["mutator_disable_auto_reload_help"] = {
+		english = "Pressing the fire button with an empty magazine will not make your character reload your weapon.",
+	},
+	["mutator_disable_auto_reload_motd"] = {
+		english = "The 'Disable Auto Reload' mutator is enabled, reloading your weapons by pressing the fire button is no longer possible.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

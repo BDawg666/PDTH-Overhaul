@@ -103,7 +103,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 
 	local mutator_availability = { all = true }
-	
+
 	if MutatorHelper.setup_mutator(m, "no_outlines", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/tweakdata", "mutators/no_outlines")
 		m:hook_post_require("lib/managers/hudmanager", "mutators/no_outlines")
@@ -114,19 +114,27 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 
 	if MutatorHelper.setup_mutator(m, "meth_heads", mutator_availability, nil, true) then
-		module:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/meth_heads")
-		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/meth_heads")
-		module:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/meth_heads")
+		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/meth_heads")
+		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/meth_heads")
+		m:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/meth_heads")
 	end
 
 	if MutatorHelper.setup_mutator(m, "limited_arsenal", mutator_availability, nil, true) then
-		module:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/limited_arsenal")
-		module:hook_post_require("lib/managers/playermanager", "mutators/limited_arsenal")
+		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/limited_arsenal")
+		m:hook_post_require("lib/managers/playermanager", "mutators/limited_arsenal")
+	end
+
+	if MutatorHelper.setup_mutator(m, "wasteful_premature_reload", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/weapons/raycastweaponbase", "mutators/wasteful_premature_reload")
+	end
+
+	if MutatorHelper.setup_mutator(m, "disable_auto_reload", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/disable_auto_reload")
 	end
 
 	if MutatorHelper.setup_mutator(m, "bad_trip", mutator_availability, nil, true) then
-		module:hook_post_require("lib/units/cameras/fpcameraplayerbase", "mutators/bad_trip")
-		module:hook_post_require("core/lib/managers/coreenvironmentcontrollermanager", "mutators/bad_trip")
+		m:hook_post_require("lib/units/cameras/fpcameraplayerbase", "mutators/bad_trip")
+		m:hook_post_require("core/lib/managers/coreenvironmentcontrollermanager", "mutators/bad_trip")
 	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
