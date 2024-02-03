@@ -1,6 +1,8 @@
 if RequiredScript == "lib/tweak_data/tweakdata" then
 	local TweakData = module:hook_class("TweakData")
 	module:post_hook(TweakData, "init", function(self)
+		self.contours_disabled = true
+
 		self.contour.character.standard_color = Vector3(0, 0, 0)
 		self.contour.character.downed_color = Vector3(0, 0, 0)
 		self.contour.character.dead_color = Vector3(0, 0, 0)
