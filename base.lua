@@ -5,6 +5,8 @@ local module = DMod:new("fgo", {
 	dependencies = {
 		"ummlib",
 		"[ovk_193]",
+		"[hud]",
+		"[_hud]",
 		"[nwpab]",
 		"[static_recoil]",
 		"[bwr]",
