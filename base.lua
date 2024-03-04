@@ -78,6 +78,7 @@ module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/player_
 module:hook_post_require("lib/units/weapons/raycastweaponbase", "weapons/bullet_penetration")
 module:hook_post_require("lib/managers/gameplaycentralmanager", "weapons/bullet_penetration")
 module:hook_post_require("lib/tweak_data/upgradestweakdata", "weapons/upgradestweakdata")
+module:hook_post_require("lib/tweak_data/upgradesvisualtweakdata", "weapons/upgradesvisualtweakdata")
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/player_weapons")
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/npc_weapons")
 module:register_post_override("lib/units/weapons/grenades/m79grenadebase", "weapons/m79grenadebase")
