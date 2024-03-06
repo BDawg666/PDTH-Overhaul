@@ -8,6 +8,8 @@ function CharacterTweakData:_set_easy()
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 3)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 1.5)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.35
+	self.presets.gang_member_damage.REGENERATE_TIME = 2.5
+	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.75
 end
 
 function CharacterTweakData:_set_normal()
@@ -18,6 +20,8 @@ function CharacterTweakData:_set_normal()
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.3
+	self.presets.gang_member_damage.REGENERATE_TIME = 2.75
+	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.9
 	self.tank.damage.visor_health = 55
 end
 
@@ -29,6 +33,8 @@ function CharacterTweakData:_set_hard()
 	self:_multiply_weapon_delay(self.presets.weapon.sniper, 2)
 	self:_multiply_weapon_delay(self.presets.weapon.gang_member, 0.5)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.25
+	self.presets.gang_member_damage.REGENERATE_TIME = 2.75
+	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.9
 	self.tank.damage.visor_health = 55
 end
 
