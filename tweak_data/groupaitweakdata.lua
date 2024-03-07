@@ -228,7 +228,7 @@ function GroupAITweakData:_set_overkill_145()
 	}
 
 	local is_singleplayer = Global.game_settings.single_player
-	self.besiege.assault.force = is_singleplayer and { 25, 30, 30 } or { 25, 35, 35 }
+	self.besiege.assault.force = is_singleplayer and { 20, 25, 30 } or { 25, 35, 35 }
 	self.besiege.recon.group_size = is_singleplayer and { 2, 2, 2 } or { 4, 4, 4 }
 	self.besiege.recon.interval_variation = 7
 	self.besiege.recon.interval = { 1, 1, 1 }
