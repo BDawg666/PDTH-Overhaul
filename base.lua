@@ -25,7 +25,7 @@ module:hook("OnModuleRegistered", "load_fgo", function()
 	end
 end)
 
--- init classes
+-- init classess
 module:hook_post_require("lib/states/ingamewaitingforplayers", function(m)
 	m:post_hook(m:hook_class("IngameWaitingForPlayersState"), "at_enter", function()
 		local scripts = { "element_spy" }
