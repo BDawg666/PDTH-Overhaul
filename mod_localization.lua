@@ -103,6 +103,15 @@ local strings = {
 	["mutator_disable_auto_reload_motd"] = {
 		english = "The 'Disable Auto Reload' mutator is enabled, reloading your weapons by pressing the fire button is no longer possible.",
 	},
+	["mutator_halfpay_gang"] = {
+		english = "HALFPAY Gang",
+	},
+	["mutator_halfpay_gang_help"] = {
+		english = "It seems Bain's recruitment list has fallen short...",
+	},
+	["mutator_halfpay_gang_motd"] = {
+		english = "The 'HALFPAY Gang' mutator is enabled, all players will be visually crouching and able to sprint and jump.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

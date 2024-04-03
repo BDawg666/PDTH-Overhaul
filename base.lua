@@ -107,6 +107,10 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 
 	local mutator_availability = { all = true }
 
+	if MutatorHelper.setup_mutator(m, "heavy_bags", mutator_availability, nil, true) then
+		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/halfpay_gang")
+	end
+
 	if MutatorHelper.setup_mutator(m, "no_outlines", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/tweakdata", "mutators/no_outlines")
 		m:hook_post_require("lib/managers/hudmanager", "mutators/no_outlines")
