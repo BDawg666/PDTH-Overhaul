@@ -152,7 +152,7 @@ if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 		end
 
 		local has_passed_shield = shoot_through_data and shoot_through_data.has_passed_shield
-		local is_shoot_through, is_shield = nil
+		local is_shoot_through, is_shield = nil, nil
 		if not hit_unit then
 			if col_ray.unit:in_slot(managers.slot:get_mask("world_geometry")) then
 				is_shoot_through = not col_ray.body:has_ray_type(Idstring("ai_vision"))
