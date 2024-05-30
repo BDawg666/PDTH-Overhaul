@@ -112,6 +112,15 @@ local strings = {
 	["mutator_halfpay_gang_motd"] = {
 		english = "The 'HALFPAY Gang' mutator is enabled, all players will be visually crouching and able to sprint and jump.",
 	},
+	["mutator_no_antishield"] = {
+		english = "No Shield Counters",
+	},
+	["mutator_no_antishield_help"] = {
+		english = "Some of your weapons have gone missing...",
+	},
+	["mutator_no_antishield_motd"] = {
+		english = "The 'No Shield Counters' mutator is enabled, the B9-S and GL40 cannot be equipped.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

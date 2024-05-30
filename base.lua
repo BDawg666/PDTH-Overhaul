@@ -107,7 +107,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 
 	local mutator_availability = { all = true }
 
-	if MutatorHelper.setup_mutator(m, "heavy_bags", mutator_availability, nil, true) then
+	if MutatorHelper.setup_mutator(m, "halfpay_gang", mutator_availability, nil, true) then
 		module:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/halfpay_gang")
 	end
 
@@ -142,6 +142,10 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	if MutatorHelper.setup_mutator(m, "bad_trip", mutator_availability, nil, true) then
 		m:hook_post_require("lib/units/cameras/fpcameraplayerbase", "mutators/bad_trip")
 		m:hook_post_require("core/lib/managers/coreenvironmentcontrollermanager", "mutators/bad_trip")
+	end
+	
+	if MutatorHelper.setup_mutator(m, "no_antishield", mutator_availability, nil, true) then
+		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/no_antishield")
 	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
