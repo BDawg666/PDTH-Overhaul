@@ -7,6 +7,7 @@ local module = DMod:new("fgo", {
 		"[ovk_193]",
 		"[hud]",
 		"[_hud]",
+		"[wtfbm]",
 		"[nwpab]",
 		"[static_recoil]",
 		"[bwr]",
@@ -15,7 +16,7 @@ local module = DMod:new("fgo", {
 		"[yet_another_weapon_rebalance]",
 	},
 	description = { english = "WIP" },
-	includes = { { "mod_localization", { type = "localization" } } },
+	includes = { {"classes/element_spy"}, { "mod_localization", { type = "localization" } } },
 	update = { id = "42754", platform = "modworkshop" },
 })
 
@@ -41,6 +42,8 @@ module:hook_post_require("lib/tweak_data/groupaitweakdata", "tweak_data/groupait
 module:hook_post_require("lib/tweak_data/playertweakdata", "tweak_data/playertweakdata")
 
 -- enemy overrides
+module:hook_post_require("lib/managers/group_ai_states/groupaistatebesiege", "enemies/groupaistatebesiege")
+module:hook_post_require("lib/managers/group_ai_states/groupaistatestreet", "enemies/groupaistatestreet")
 module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
 module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/teamaibase")
@@ -73,7 +76,6 @@ module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/player_weapo
 module:hook_post_require("lib/tweak_data/weapontweakdata", "weapons/npc_weapons")
 module:register_post_override("lib/units/weapons/grenades/m79grenadebase", "weapons/m79grenadebase")
 
--- module:hook_post_require("lib/units/equipment/sentry_gun/sentrygunbase", "deployables/sentrygunbase")
 module:hook_post_require("lib/units/equipment/ammo_bag/ammobagbase", "deployables/bag_collision")
 module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deployables/bag_collision")
 -- module:hook_post_require("lib/units/interactions/interactionext", "player/block_interaction")
@@ -133,7 +135,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		m:hook_post_require("lib/units/cameras/fpcameraplayerbase", "mutators/bad_trip")
 		m:hook_post_require("core/lib/managers/coreenvironmentcontrollermanager", "mutators/bad_trip")
 	end
-	
+
 	if MutatorHelper.setup_mutator(m, "no_antishield", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/no_antishield")
 	end
