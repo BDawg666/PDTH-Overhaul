@@ -1,64 +1,57 @@
-local give_equipment = function(self, equipment)
-	if Network:is_server() then
-		self._synced_equipment = equipment
-		managers.network:session():send_to_peers("give_equipment", equipment)
-	end
+_M.ElementSpy = { _ENV = _M }
 
-	if managers.player:has_special_equipment(equipment) then
+local ElementSpy = _M.ElementSpy
+function ElementSpy:setup()
+	if self._initialized then
 		return
 	end
 
-	managers.player:add_special({ name = equipment })
+	self._initialized = true
 
-	local lpeer_id = managers.network:session():local_peer():id()
-	managers.network:session():send_to_peers("sync_add_equipment_possession", lpeer_id, equipment)
-	managers.player:add_equipment_possession(lpeer_id, equipment)
-end
-
-local remove_equipment = function(_, equipment)
-	if not managers.player:has_special_equipment(equipment) then
-		return
-	end
-
-	managers.player:remove_special(equipment)
-end
-
-ElementSpyClass = class()
-ElementSpyClass._filters = {
-	["bank"] = {
-		["101024"] = { callback = give_equipment, args = "money_bag" },
-	},
-	["diamond_heist"] = {
-		["100790"] = { callback = give_equipment, args = "diamond_bag" },
-	},
-	["slaughter_house"] = {
-		["102253"] = { callback = remove_equipment, args = "gold_bag_equip" },
-	},
-}
-
-function ElementSpyClass:init()
-	self.level = Global.level_data.level_id
+	self.filters = loadfile(module:path() .. "data/elements.lua")()[Global.level_data.level_id] or {}
+	self.queue = {}
 	self._synced_equipment = "none"
+
+	self._toolbox = _M.ToolBox
+	self._updator = _M.Updator
 end
 
-function ElementSpyClass:on_executed(element)
-	local level_data = self._filters[self.level]
-	if not element or not level_data then
-		return
-	end
-
-	if not element._values.enabled then
-		return
-	end
-
-	local element_data = level_data[tostring(element._id)]
-	if not element_data then
-		return
-	end
-
-	if element_data.callback then
-		element_data.callback(self, element_data.args)
-	end
+function ElementSpy:get_filter(id)
+	return self.filters[id]
 end
 
-ElementSpy = ElementSpy or ElementSpyClass:new()
+function ElementSpy:add(element)
+	self:setup()
+
+	local filter = self:get_filter(element._id)
+	if not filter then
+		return
+	end
+
+	element:add_execute_callback(function()
+		return self:execute(filter)
+	end)
+end
+
+function ElementSpy:run_as_client(element)
+	self:setup()
+
+	local filter = self:get_filter(element._id)
+	if not filter then
+		return
+	end
+
+	return self:execute(filter)
+end
+
+function ElementSpy:execute(filter)
+	if type(filter) == "function" then
+		return filter(self)
+	end
+
+	return self:output(filter)
+end
+
+function ElementSpy:output(text)
+	Util:chat_message(tostring(text), false, "-")
+end

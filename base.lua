@@ -25,16 +25,6 @@ module:hook("OnModuleRegistered", "load_fgo", function()
 	end
 end)
 
--- init ass
-module:hook_post_require("lib/states/ingamewaitingforplayers", function(m)
-	m:post_hook(m:hook_class("IngameWaitingForPlayersState"), "at_enter", function()
-		local scripts = { "element_spy" }
-		for i = 1, #scripts do
-			dofile(string.format("%s/classes/%s.lua", m:path(), scripts[i]))
-		end
-	end)
-end)
-
 -- sandbox overrides
 module:hook_post_require("lib/managers/savefilemanager", "sandbox/savefilemanager")
 module:hook_post_require("lib/managers/achievmentmanager.", "sandbox/achievmentmanager")
