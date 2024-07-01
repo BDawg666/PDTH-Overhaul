@@ -11,9 +11,6 @@ function ElementSpy:setup()
 	self.filters = loadfile(module:path() .. "data/elements.lua")()[Global.level_data.level_id] or {}
 	self.queue = {}
 	self._synced_equipment = "none"
-
-	self._toolbox = _M.ToolBox
-	self._updator = _M.Updator
 end
 
 function ElementSpy:get_filter(id)
