@@ -121,6 +121,15 @@ local strings = {
 	["mutator_no_antishield_motd"] = {
 		english = "The 'No Shield Counters' mutator is enabled, the B9-S and GL40 cannot be equipped.",
 	},
+	["mutator_no_crosshairs"] = {
+		english = "No Crosshairs",
+	},
+	["mutator_no_crosshairs_help"] = {
+		english = "How do I aim?",
+	},
+	["mutator_no_crosshairs_motd"] = {
+		english = "The 'No Crosshairs' mutator is enabled, crosshairs on all weapons are disabled.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

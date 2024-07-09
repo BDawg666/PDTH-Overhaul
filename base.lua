@@ -139,6 +139,9 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	if MutatorHelper.setup_mutator(m, "no_antishield", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/no_antishield")
 	end
+	if MutatorHelper.setup_mutator(m, "no_crosshairs", mutator_availability, nil, true) then
+		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/no_crosshairs")
+	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"
