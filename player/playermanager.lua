@@ -47,7 +47,7 @@ module:hook(PlayerManager, "aquire_default_upgrades", function(self)
 		"mp5",
 		"cable_tie",
 		"thick_skin",
-		"extra_ammo_multiplier",
+		"extra_start_out_ammo",
 		"extra_cable_tie",
 		"ammo_bag",
 		"doctor_bag",
@@ -61,6 +61,19 @@ module:hook(PlayerManager, "aquire_default_upgrades", function(self)
 		"mr_nice_guy",
 	}) do
 		managers.upgrades:aquire_default(item)
+	end
+	
+	if managers.dlc:has_dlc1() then
+	for _, item in pairs({
+		"ak47",
+		"glock",
+		"m79",
+		"sentry_gun",
+		"toolset",
+		"more_ammo",
+	}) do
+		managers.upgrades:aquire_default(item)
+	end
 	end
 
 	for i = 1, PlayerManager.WEAPON_SLOTS do
