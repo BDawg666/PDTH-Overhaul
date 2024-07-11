@@ -20,8 +20,14 @@ local strings = {
 	["des_toolset"] = {
 		english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces interaction times by 40%.",
 	},
+	["menu_mask_hockey_com"] = {
+		english = "OVK Bomb White",
+	},
+	["menu_mask_developer"] = {
+		english = "OVK Bomb Red",
+	},
 	["des_extra_cable_tie"] = {
-		english = "extra cable ties give you 18 more cable ties to start with.",
+		english = "Extra cable ties give you 18 more cable ties to start with.",
 	},
 	["mutator_overcharged_tasers"] = {
 		english = "Overcharged Tasers",
