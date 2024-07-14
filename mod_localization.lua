@@ -154,6 +154,27 @@ local strings = {
 	["mutator_murky_assault_motd"] = {
 		english = "The 'Murkywater Assault' mutator is enabled, all SWAT units have been replaced by Murkywater.",
 	},
+	["menu_difficulty_help"] = {
+		english = "To change the mutators, press [ENTER].$NL;Modified Task Scheduler is always recommended.",
+	},
+	["menu_difficulty_easy_help"] = {
+		english = "Easy difficulty is for new players.",
+	},
+	["menu_difficulty_normal_help"] = {
+		english = "Normal difficulty is for most players.",
+	},
+	["menu_difficulty_hard_help"] = {
+		english = "Hard difficulty is for the real hardcore players.",
+	},
+	["menu_difficulty_overkill_help"] = {
+		english = "Overkill difficulty is for the insane hardcore players.",
+	},
+	["menu_difficulty_overkill_145_help"] = {
+		english = "For you, action is the juice.",
+	},
+	["menu_difficulty_overkill_193_help"] = { --can't override this xd
+		english = "193+? On the overhaul mod? You're crazy! I don't even know how that works, you'll probably die anyway.",
+	},
 }
 
 for string_id, translations in pairs(strings) do
