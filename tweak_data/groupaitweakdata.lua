@@ -294,5 +294,12 @@ module:post_hook(GroupAITweakData, "init", function(self)
 			},
 			access = access_type_all
 		},
+		murky = {
+			units = {
+				Idstring("units/characters/enemies/murky_water1/murky_water1"),
+				Idstring("units/characters/enemies/murky_water2/murky_water2")
+			},
+			access = access_type_all
+		},
 	})
 end, false)

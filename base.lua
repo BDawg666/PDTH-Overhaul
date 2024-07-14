@@ -196,6 +196,11 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
 		m:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
+	
+	mutator_availability = { all = { levels = { slaughter_house = true } } }
+	if MutatorHelper.setup_mutator(m, "murky_assault", mutator_availability, nil, true) then
+		m:hook_post_require("lib/tweak_data/groupaitweakdata", "mutators/murky_assault")
+	end
 end)
 
 return module

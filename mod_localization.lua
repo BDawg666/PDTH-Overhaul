@@ -145,6 +145,15 @@ local strings = {
 	["mutator_fbi_mostwanted_motd"] = {
 		english = "The 'FBI's Most Wanted' mutator is enabled, all SWAT units have been replaced by FBI.",
 	},
+	["mutator_murky_assault"] = {
+		english = "Murkywater Assault",
+	},
+	["mutator_murky_assault_help"] = {
+		english = "You're dealing with Mercenaries now.",
+	},
+	["mutator_murky_assault_motd"] = {
+		english = "The 'Murkywater Assault' mutator is enabled, all SWAT units have been replaced by Murkywater.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

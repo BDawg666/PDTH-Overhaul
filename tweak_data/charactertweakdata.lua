@@ -93,6 +93,9 @@ module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
 	self.fbi.weapon.mp5.FALLOFF[1].dmg_mul = 1.5
 	self.fbi.weapon.mp5.FALLOFF[2].dmg_mul = 1.5
 	self.fbi.weapon.mp5.FALLOFF[3].dmg_mul = 1.5
+	self.fbi.weapon.r870.FALLOFF[1].dmg_mul = 2
+	self.fbi.weapon.r870.FALLOFF[2].dmg_mul = 1.5
+	self.fbi.weapon.r870.FALLOFF[3].dmg_mul = 0.75
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
@@ -104,6 +107,10 @@ end, false)
 module:post_hook(CharacterTweakData, "_init_heavy_swat", function(self, presets)
 	self.heavy_swat.rescue_hostages = false
 	self.heavy_swat.dodge = presets.dodge.good
+end, false)
+
+module:post_hook(CharacterTweakData, "_init_murky", function(self, presets)
+	self.murky.weapon_voice = "1" --hk21 sfx fix
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
@@ -142,6 +149,8 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 
 	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
+	
+	presets.weapon.expert.hk21 = deep_clone(presets.weapon.expert.m4)
 
 	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
 	presets.weapon.good.mossberg.FALLOFF = {
@@ -275,6 +284,7 @@ module:post_hook(CharacterTweakData, "_create_table_structure", function(self)
 		bronco = { folder = "raging_bull_npc", unit = "raging_bull_npc" },
 		mossberg = { folder = "mossberg_npc", unit = "mossberg_npc" },
 		ak47 = { folder = "ak47_npc", unit = "ak47_npc" },
+		hk21 = { folder = "hk21_npc", unit = "hk21_npc" },
 	}) do
 		table.insert(self.weap_ids, id)
 		table.insert(self.weap_unit_names, Idstring(string.format("units/weapons/%s/%s", data.folder, data.unit)))

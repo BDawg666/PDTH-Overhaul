@@ -8,3 +8,8 @@ end)
 module:post_hook(WeaponTweakData, "_init_data_raging_bull_npc", function(self)
 	self.raging_bull_npc.DAMAGE = 2
 end)
+
+module:post_hook(WeaponTweakData, "_init_data_hk21_npc", function(self)
+	self.hk21_npc.DAMAGE = 2
+	self.hk21_npc.auto.fire_rate = 0.25
+end)

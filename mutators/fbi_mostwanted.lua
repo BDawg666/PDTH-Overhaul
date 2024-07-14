@@ -6,7 +6,8 @@ function GroupAITweakData:_set_easy()
 	self.besiege.assault.sustain_duration_max = { 40, 120, 200 }
 	self.besiege.assault.delay = { 80, 50, 40 }
 	self.besiege.assault.units = {
-		fbi = { 1, 1.5, 1.5 },
+		cop = { 1, 0, 0 },
+		fbi = { 0, 1.5, 1.5 },
 		shield = { 0, 0.1, 0.2 },
 		spooc = { 0, 0.1, 0.2 },
 		taser = { 0, 0.05, 0.1 },
