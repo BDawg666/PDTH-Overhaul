@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.8.5",
+	version = "0.8.6",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
@@ -43,7 +43,7 @@ module:hook_post_require("lib/tweak_data/playertweakdata", "tweak_data/playertwe
 
 -- enemy overrides
 module:hook_post_require("lib/managers/group_ai_states/groupaistatebesiege", "enemies/groupaistatebesiege")
-module:hook_post_require("lib/managers/group_ai_states/groupaistatestreet", "enemies/groupaistatestreet")
+--module:hook_post_require("lib/managers/group_ai_states/groupaistatestreet", "enemies/groupaistatestreet")
 module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
 module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/teamaibase")
@@ -141,6 +141,9 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 	if MutatorHelper.setup_mutator(m, "no_crosshairs", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/no_crosshairs")
+	end
+	if MutatorHelper.setup_mutator(m, "fbi_mostwanted", mutator_availability, nil, true) then
+		m:hook_post_require("lib/tweak_data/groupaitweakdata", "mutators/fbi_mostwanted")
 	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then

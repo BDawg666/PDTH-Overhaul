@@ -1,15 +1,15 @@
 local strings = {
 	["des_beretta92"] = {
-		english = "stats : 9mm : semiautomatic : low recoil \nthe b9-s is one of the most used law-enforcement pistols today \nthe relatively light damage is compensated by its big clips \nloaded with shield piercing rounds.",
+		english = "stats : 9mm : semiautomatic : low recoil\nthe b9-s is one of the most used law-enforcement pistols today\nthe relatively light damage is compensated by its big clips\nloaded with shield piercing rounds.",
 	},
 	["des_glock"] = {
-		english = "stats : 9mm : full auto : medium recoil \nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute...",
+		english = "stats : 9mm : full auto : medium recoil\nthe military has it. the police have it. and now you have it. the stryk is an easy to use fully automatic pistol. specifically designed to fight crime. wait a minute...",
 	},
 	["des_m4"] = {
-		english = "stats : 5.56mm : automatic : low recoil \nthe amcar-4 is one of the most versatile assault rifles there is \nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
+		english = "stats : 5.56mm : automatic : low recoil\nthe amcar-4 is one of the most versatile assault rifles there is\nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
 	},
 	["des_hk21"] = {
-		english = "stats : 7.62mm : high capacity magazine \neven though it was originally designed as a mounted machinegun, the brenner 21 is a powerhouse. with its huge capacity magazine, this is a given choice for the assault specialist. \nslows move speed by 20% while drawn and increases fall damage.",
+		english = "stats : 7.62mm : high capacity magazine\neven though it was originally designed as a mounted machinegun, the brenner 21 is a powerhouse. with its huge capacity magazine, this is a given choice for the assault specialist.\nslows move speed by 20% while drawn and increases fall damage.",
 	},
 	["des_thick_skin"] = {
 		english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",
@@ -135,6 +135,15 @@ local strings = {
 	},
 	["mutator_no_crosshairs_motd"] = {
 		english = "The 'No Crosshairs' mutator is enabled, crosshairs on all weapons are disabled.",
+	},
+	["mutator_fbi_mostwanted"] = {
+		english = "FBI's Most Wanted",
+	},
+	["mutator_fbi_mostwanted_help"] = {
+		english = "?\nCheck.\nBullet wounds?\nCheck.\nRich as a motherfucker?\nBig fucking check.",
+	},
+	["mutator_fbi_mostwanted_motd"] = {
+		english = "The 'FBI's Most Wanted' mutator is enabled, all SWAT units have been replaced by FBI.",
 	},
 }
 
