@@ -127,6 +127,18 @@ module:post_hook(CharacterTweakData, "_init_bank_manager", function(self, preset
 	self.bank_manager.HEALTH_INIT = 1
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_gangster", function(self, presets)
+	self.gangster.weapon.r870.FALLOFF[2].dmg_mul = 0.5 -- affects mossberg
+	self.gangster.weapon.r870.FALLOFF[3].dmg_mul = 0.3
+	self.gangster.weapon.r870.FALLOFF[4].dmg_mul = 0.1
+end, false)
+
+module:post_hook(CharacterTweakData, "_init_dealer", function(self, presets)
+	self.dealer.weapon.r870.FALLOFF[2].dmg_mul = 0.5
+	self.dealer.weapon.r870.FALLOFF[3].dmg_mul = 0.3
+	self.dealer.weapon.r870.FALLOFF[4].dmg_mul = 0.1
+end, false)
+
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
 
@@ -136,7 +148,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.r870.aim_delay = { 0, 0.2 }
 	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
 
-	-- custom weapon presets dont seem to do anything, enemies only use the original unit's weapon preset? loco does act like a reinbeck
+	-- not sure if these actually do anything but whatever
 	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
 	presets.weapon.good.glock = deep_clone(presets.weapon.good.mp5)
 	presets.weapon.expert.glock = deep_clone(presets.weapon.expert.mp5)
@@ -153,38 +165,6 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.expert.hk21 = deep_clone(presets.weapon.expert.m4)
 
 	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
-	presets.weapon.good.mossberg.FALLOFF = {
-		{
-			r = 0,
-			dmg_mul = 4,
-			recoil = { 2, 2 },
-			mode = { 1, 1, 0, 0 },
-		},
-		{
-			r = 700,
-			dmg_mul = 1,
-			recoil = { 2, 2 },
-			mode = { 1, 1, 0, 0 },
-		},
-		{
-			r = 1000,
-			dmg_mul = 0.5,
-			recoil = { 2, 3 },
-			mode = { 1, 1, 0, 0 },
-		},
-		{
-			r = 4000,
-			dmg_mul = 0.3,
-			recoil = { 2, 4 },
-			mode = { 1, 0, 0, 0 },
-		},
-		{
-			r = 10000,
-			dmg_mul = 0.1,
-			recoil = { 2, 4 },
-			mode = { 1, 0, 0, 0 },
-		},
-	}
 
 	-- presets for AI heisters, these do work
 	-- beretta92 still applies even if their actual pistol is switched to Bronco
@@ -290,9 +270,3 @@ module:post_hook(CharacterTweakData, "_create_table_structure", function(self)
 		table.insert(self.weap_unit_names, Idstring(string.format("units/weapons/%s/%s", data.folder, data.unit)))
 	end
 end, false)
-
---module:post_hook(CharacterTweakData, "_init_gangster", function(self, presets)
---	self.gangster.weapon.r870.FALLOFF[1].dmg_mul = 6
---	self.gangster.weapon.mossberg.FALLOFF[1].dmg_mul = 6
---end, false)
--- they dont do anything
