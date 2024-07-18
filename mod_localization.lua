@@ -154,6 +154,15 @@ local strings = {
 	["mutator_murky_assault_motd"] = {
 		english = "The 'Murkywater Assault' mutator is enabled, all SWAT units have been replaced by Murkywater.",
 	},
+	["mutator_lmg_dozer"] = {
+		english = "LMG Dozers",
+	},
+	["mutator_lmg_dozer_help"] = {
+		english = "Bulldozers are trying out new equipment. They have a 50% chance of spawning with a Brenner instead.",
+	},
+	["mutator_lmg_dozer_motd"] = {
+		english = "The 'LMG Dozers' mutator is enabled, Bulldozers have a 50% chance of spawning with Brenners instead.",
+	},
 	["menu_difficulty_help"] = {
 		english = "To change the mutators, press [ENTER].$NL;Modified Task Scheduler is always recommended.",
 	},

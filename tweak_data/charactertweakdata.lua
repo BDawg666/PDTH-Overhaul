@@ -119,6 +119,10 @@ end, false)
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
 	self.tank.damage.visor_health = 53
 	self.tank.headshot_dmg_mul = 23
+	self.tank.weapon.m4.FALLOFF[1].dmg_mul = 1.5
+	self.tank.weapon.m4.FALLOFF[2].dmg_mul = 1.5
+	self.tank.weapon.m4.FALLOFF[3].dmg_mul = 1.5
+	self.tank.weapon_voice = "1"
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_civilian", function(self, presets)

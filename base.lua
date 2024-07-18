@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.8.6",
+	version = "0.9",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
@@ -144,6 +144,9 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 	if MutatorHelper.setup_mutator(m, "fbi_mostwanted", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/groupaitweakdata", "mutators/fbi_mostwanted")
+	end
+	if MutatorHelper.setup_mutator(m, "lmg_dozer", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/enemies/cop/copbase", "mutators/lmg_dozer")
 	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
