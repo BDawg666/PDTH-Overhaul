@@ -87,6 +87,9 @@ module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
 	self.fbi.HEALTH_INIT = 4
 	self.fbi.headshot_dmg_mul = 3
 	self.fbi.dodge = presets.dodge.ninja
+	self.fbi.weapon.c45.FALLOFF[1].dmg_mul = 1.5
+	self.fbi.weapon.c45.FALLOFF[2].dmg_mul = 1.5
+	self.fbi.weapon.c45.FALLOFF[3].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[1].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[2].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[3].dmg_mul = 1.5
