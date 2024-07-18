@@ -83,22 +83,25 @@ module:post_hook(CharacterTweakData, "_init_american", function(self, presets)
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_fbi", function(self, presets)
-	self.fbi.weapon = presets.weapon.expert
+	self.fbi.weapon = presets.weapon.fbi
 	self.fbi.HEALTH_INIT = 4
 	self.fbi.headshot_dmg_mul = 3
 	self.fbi.dodge = presets.dodge.ninja
 	self.fbi.weapon.c45.FALLOFF[1].dmg_mul = 1.5
 	self.fbi.weapon.c45.FALLOFF[2].dmg_mul = 1.5
 	self.fbi.weapon.c45.FALLOFF[3].dmg_mul = 1.5
+	self.fbi.weapon.c45.FALLOFF[4].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[1].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[2].dmg_mul = 1.5
 	self.fbi.weapon.m4.FALLOFF[3].dmg_mul = 1.5
+	self.fbi.weapon.m4.FALLOFF[4].dmg_mul = 1.5
 	self.fbi.weapon.mp5.FALLOFF[1].dmg_mul = 1.5
 	self.fbi.weapon.mp5.FALLOFF[2].dmg_mul = 1.5
 	self.fbi.weapon.mp5.FALLOFF[3].dmg_mul = 1.5
-	self.fbi.weapon.r870.FALLOFF[1].dmg_mul = 2
-	self.fbi.weapon.r870.FALLOFF[2].dmg_mul = 1.5
-	self.fbi.weapon.r870.FALLOFF[3].dmg_mul = 0.75
+	self.fbi.weapon.mp5.FALLOFF[4].dmg_mul = 1.5
+	self.fbi.weapon.r870.FALLOFF[2].dmg_mul = 2
+	self.fbi.weapon.r870.FALLOFF[3].dmg_mul = 1.5
+	self.fbi.weapon.r870.FALLOFF[4].dmg_mul = 0.75
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_swat", function(self, presets)
@@ -114,6 +117,7 @@ end, false)
 
 module:post_hook(CharacterTweakData, "_init_murky", function(self, presets)
 	self.murky.weapon_voice = "1" --hk21 sfx fix
+	self.murky.surrender_easy = false
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
@@ -135,19 +139,24 @@ module:post_hook(CharacterTweakData, "_init_bank_manager", function(self, preset
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_gangster", function(self, presets)
-	self.gangster.weapon.r870.FALLOFF[2].dmg_mul = 0.5 -- affects mossberg
-	self.gangster.weapon.r870.FALLOFF[3].dmg_mul = 0.3
-	self.gangster.weapon.r870.FALLOFF[4].dmg_mul = 0.1
+	self.gangster.weapon = presets.weapon.gangster
+	self.gangster.weapon.r870.FALLOFF[3].dmg_mul = 0.5 -- affects mossberg
+	self.gangster.weapon.r870.FALLOFF[4].dmg_mul = 0.3
+	self.gangster.weapon.r870.FALLOFF[5].dmg_mul = 0.1
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_dealer", function(self, presets)
-	self.dealer.weapon.r870.FALLOFF[2].dmg_mul = 0.5
-	self.dealer.weapon.r870.FALLOFF[3].dmg_mul = 0.3
-	self.dealer.weapon.r870.FALLOFF[4].dmg_mul = 0.1
+	self.dealer.weapon = presets.weapon.gangster
+	self.dealer.weapon.r870.FALLOFF[3].dmg_mul = 0.5
+	self.dealer.weapon.r870.FALLOFF[4].dmg_mul = 0.3
+	self.dealer.weapon.r870.FALLOFF[5].dmg_mul = 0.1
 end, false)
 
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
+	
+	presets.weapon.fbi = deep_clone(presets.weapon.expert)
+	presets.weapon.gangster = deep_clone(presets.weapon.good)
 
 	-- nerf shotgun reaction times
 	presets.weapon.normal.r870.aim_delay = { 0, 0.2 }
