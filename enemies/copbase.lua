@@ -3,10 +3,10 @@ local overrides = {
 	gangster = { "glock", "ak47", "mac11", "mossberg", "bronco" },
 	dealer = { "glock", "ak47", "mac11", "mossberg", "bronco" },
 	murky = { "m4", "mp5", "r870", "hk21" },
-	fbi = { "m4", "mp5", "r870" },
+	fbi = { "c45", "m4", "mp5", "r870" },
 	security = {
 		slaughter_house = { "bronco", "m4", "mp5", "r870" },
-		default = { "bronco", "c45", "mp5" }, -- bank, no mercy
+		default = { "c45" }, -- bank, no mercy
 	},
 	patrol = { diamond_heist = { "m4", "mp5", "r870" }, default = { "mp5" } },
 }
