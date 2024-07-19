@@ -122,10 +122,10 @@ local strings = {
 		english = "No Shield Counters",
 	},
 	["mutator_no_antishield_help"] = {
-		english = "Some of your weapons have gone missing...",
+		english = "You hit your head pretty hard there. Grenade launcher? Shield piercing pistol? What are you talking about? Get up, we're almost at the escape point!",
 	},
 	["mutator_no_antishield_motd"] = {
-		english = "The 'No Shield Counters' mutator is enabled, the B9-S and GL40 cannot be equipped.",
+		english = "The 'No Shield Counters' mutator is enabled, the GL40 cannot be equipped and the B9-S no longer pierces shields.",
 	},
 	["mutator_no_crosshairs"] = {
 		english = "No Crosshairs",
@@ -161,7 +161,7 @@ local strings = {
 		english = "Bulldozers are trying out new equipment. They have a 50% chance of spawning with a Brenner instead.",
 	},
 	["mutator_lmg_dozer_motd"] = {
-		english = "The 'LMG Dozers' mutator is enabled, Bulldozers have a 50% chance of spawning with Brenners instead.",
+		english = "The 'LMG Dozers' mutator is enabled, Bulldozers have a 50% chance of spawning with a Brenner instead.",
 	},
 	["menu_difficulty_help"] = {
 		english = "To change the mutators, press [ENTER].$NL;Modified Task Scheduler is always recommended.",

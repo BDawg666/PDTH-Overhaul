@@ -389,6 +389,15 @@ module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.ads_speed = 1
 end)
 
+module:hook(WeaponTweakData, "_init_data_no_antishield", function(self)
+end)
+
+module:hook(WeaponTweakData, "_init_data_no_crosshairs", function(self)
+end)
+
+module:hook(WeaponTweakData, "_init_data_limited_arsenal", function(self)
+end)
+
 module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self:_init_data_b9s_overhaul()
 	self:_init_data_crosskill_overhaul()
@@ -403,6 +412,10 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self:_init_data_locomotive_overhaul()
 	self:_init_data_mp5_overhaul()
 	self:_init_data_gl40_overhaul()
+
+	self:_init_data_no_crosshairs()
+	self:_init_data_limited_arsenal()
+	self:_init_data_no_antishield()
 
 	self.trip_mines.damage = 160
 end, false)

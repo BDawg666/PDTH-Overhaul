@@ -5,7 +5,7 @@ end
 
 if RequiredScript == "lib/tweak_data/weapontweakdata" then
 	local WeaponTweakData = module:hook_class("WeaponTweakData")
-	module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
+	module:post_hook(WeaponTweakData, "_init_data_limited_arsenal", function(self)
 		for _, weapon_id in pairs({ "mossberg", "mp5", "mac11", "m79" }) do
 			self[weapon_id].use_data.selection_index = 2
 			self[weapon_id].AMMO_MAX = self[weapon_id].AMMO_MAX * 1.75
