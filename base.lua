@@ -148,6 +148,10 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	if MutatorHelper.setup_mutator(m, "lmg_dozer", mutator_availability, nil, true) then
 		m:hook_post_require("lib/units/enemies/cop/copbase", "mutators/lmg_dozer")
 	end
+	if MutatorHelper.setup_mutator(m, "progressive_regen", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/beings/player/playerdamage", "mutators/progressive_regen")
+		m:hook_post_require("lib/tweak_data/playertweakdata", "mutators/progressive_regen")
+	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"

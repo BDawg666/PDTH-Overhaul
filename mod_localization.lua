@@ -184,6 +184,15 @@ local strings = {
 	["menu_difficulty_overkill_193_help"] = { --can't override this xd
 		english = "193+? On the overhaul mod? You're crazy! I don't even know how that works, you'll probably die anyway.",
 	},
+	["mutator_progressive_regen"] = {
+		english = "Progressive Armor Regen",
+	},
+	["mutator_progressive_regen_help"] = {
+		english = "- Armor regenerates in 5 steps, 20% each, instead of completely at once. The amount of armor you have has been doubled.",
+	},
+	["mutator_progressive_regen_motd"] = {
+		english = "The 'Progressive Armor Regen' mutator is enabled, Armor regenerates in 5 steps, 20% each, instead of completely at once. The amount of armor you have has been doubled.",
+	},
 }
 
 for string_id, translations in pairs(strings) do
