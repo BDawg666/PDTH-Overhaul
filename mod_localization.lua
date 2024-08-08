@@ -193,6 +193,15 @@ local strings = {
 	["mutator_progressive_regen_motd"] = {
 		english = "The 'Progressive Armor Regen' mutator is enabled, Armor regenerates in 5 steps, 20% each, instead of completely at once. The amount of armor you have has been doubled.",
 	},
+	["mutator_esa"] = {
+		english = "Expanded Specials Arsenal",
+	},
+	["mutator_esa_help"] = {
+		english = "Specials are trying out new equipment.",
+	},
+	["mutator_esa_motd"] = {
+		english = "The 'Expanded Specials Arsenal' mutator is enabled, Bulldozers, Cloakers and Tasers have a chance to use different weapons.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

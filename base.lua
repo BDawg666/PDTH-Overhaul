@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.9",
+	version = "0.9.1",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
@@ -147,6 +147,9 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 	end
 	if MutatorHelper.setup_mutator(m, "lmg_dozer", mutator_availability, nil, true) then
 		m:hook_post_require("lib/units/enemies/cop/copbase", "mutators/lmg_dozer")
+	end
+	if MutatorHelper.setup_mutator(m, "esa", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/enemies/cop/copbase", "mutators/esa")
 	end
 	if MutatorHelper.setup_mutator(m, "progressive_regen", mutator_availability, nil, true) then
 		m:hook_post_require("lib/units/beings/player/playerdamage", "mutators/progressive_regen")

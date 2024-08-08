@@ -120,6 +120,11 @@ module:post_hook(CharacterTweakData, "_init_murky", function(self, presets)
 	self.murky.surrender_easy = false
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_taser", function(self, presets)
+	self.taser.weapon.r870.tase_distance = 1400
+	self.taser.weapon.r870.aim_delay_tase = {0, 0.5}
+end, false)
+
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
 	self.tank.damage.visor_health = 53
 	self.tank.headshot_dmg_mul = 23
