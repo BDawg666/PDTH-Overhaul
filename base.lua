@@ -155,6 +155,10 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		m:hook_post_require("lib/units/beings/player/playerdamage", "mutators/progressive_regen")
 		m:hook_post_require("lib/tweak_data/playertweakdata", "mutators/progressive_regen")
 	end
+	if MutatorHelper.setup_mutator(m, "per_pellet", mutator_availability, nil, true) then
+		m:hook_post_require("lib/units/weapons/shotgun/shotgunbase", "mutators/per_pellet")
+		m:hook_post_require("lib/tweak_data/weapontweakdata", "mutators/per_pellet")
+	end
 
 	if MutatorHelper.setup_mutator(m, "friendly_fire", mutator_availability, nil, true) then
 		local hook, filter = "OnNetworkDataRecv", "FriendlyFire"

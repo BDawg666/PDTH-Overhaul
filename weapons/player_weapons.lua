@@ -398,6 +398,9 @@ end)
 module:hook(WeaponTweakData, "_init_data_limited_arsenal", function(self)
 end)
 
+module:hook(WeaponTweakData, "_init_data_per_pellet", function(self)
+end)
+
 module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self:_init_data_b9s_overhaul()
 	self:_init_data_crosskill_overhaul()
@@ -414,8 +417,9 @@ module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self:_init_data_gl40_overhaul()
 
 	self:_init_data_no_crosshairs()
-	self:_init_data_limited_arsenal()
+	self:_init_data_per_pellet()
 	self:_init_data_no_antishield()
+	self:_init_data_limited_arsenal()
 
 	self.trip_mines.damage = 160
 end, false)

@@ -5,5 +5,6 @@ if RequiredScript == "lib/tweak_data/weapontweakdata" then
 		self.beretta92.AMMO_MAX = 80
 		self.beretta92.AMMO_PICKUP = { 2, 6 }
 		self.m79.use_data.selection_index = 4
+		self.m79.EXPLOSION_RANGE = 1
 	end)
 end
