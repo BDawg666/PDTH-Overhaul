@@ -202,6 +202,15 @@ local strings = {
 	["mutator_esa_motd"] = {
 		english = "The 'Expanded Specials Arsenal' mutator is enabled, Bulldozers, Cloakers and Tasers have a chance to use different weapons.",
 	},
+	["mutator_per_pellet"] = {
+		english = "Per-Pellet Shotgun Damage",
+	},
+	["mutator_per_pellet_help"] = {
+		english = "Now requires actual aiming! Shotgun accuracy has been increased and ammo pickup reduced.",
+	},
+	["mutator_per_pellet_motd"] = {
+		english = "The 'Per-Pellet Shotgun Damage' mutator is enabled, Shotguns now do per-pellet damage. Additionally, shotgun accuracy has been increased and ammo pickup reduced.",
+	},
 }
 
 for string_id, translations in pairs(strings) do

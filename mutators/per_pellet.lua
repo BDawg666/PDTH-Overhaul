@@ -111,7 +111,27 @@ if RequiredScript == "lib/tweak_data/weapontweakdata" then
 	module:post_hook(WeaponTweakData, "_init_data_per_pellet", function(self)
 		self.r870_shotgun.DAMAGE = 2
 		self.r870_shotgun.AMMO_PICKUP = { 0, 1 }
+		self.r870_shotgun.spread.standing = 2
+		self.r870_shotgun.spread.crouching = 2
+		self.r870_shotgun.spread.steelsight = 1.5
+		self.r870_shotgun.spread.moving_standing = 2
+		self.r870_shotgun.spread.moving_crouching = 2
+		self.r870_shotgun.spread.moving_steelsight = 1.5
+		self.r870_shotgun.crosshair.standing.offset = 0.2
+		self.r870_shotgun.crosshair.standing.moving_offset = 0.2
+		self.r870_shotgun.crosshair.crouching.offset = 0.2
+		self.r870_shotgun.crosshair.crouching.moving_offset = 0.2
 		self.mossberg.DAMAGE = 2
 		self.mossberg.AMMO_PICKUP = { 0, 1 }
+		self.mossberg.spread.standing = 3
+		self.mossberg.spread.crouching = 3
+		self.mossberg.spread.steelsight = 2.5
+		self.mossberg.spread.moving_standing = 3
+		self.mossberg.spread.moving_crouching = 3
+		self.mossberg.spread.moving_steelsight = 2.5
+		self.mossberg.crosshair.standing.offset = 0.3
+		self.mossberg.crosshair.standing.moving_offset = 0.3
+		self.mossberg.crosshair.crouching.offset = 0.3
+		self.mossberg.crosshair.crouching.moving_offset = 0.3
 	end)
 end

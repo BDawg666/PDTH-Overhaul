@@ -32,40 +32,24 @@ end
 if RequiredScript == "lib/tweak_data/playertweakdata" then
 local PlayerTweakData = module:hook_class("PlayerTweakData")
 
-function PlayerTweakData:_set_easy()
+module:post_hook(PlayerTweakData, "_set_easy", function(self)
 	self.damage.ARMOR_INIT = 14
-	self.damage.MIN_DAMAGE_INTERVAL = 0.35
-	self.damage.automatic_respawn_time = 180
-end
+end)
 
-function PlayerTweakData:_set_normal()
+module:post_hook(PlayerTweakData, "_set_normal", function(self)
 	self.damage.ARMOR_INIT = 12
-	self.damage.MIN_DAMAGE_INTERVAL = 0.3
-	self.damage.DOWNED_TIME_DEC = 10
-	self.damage.automatic_respawn_time = 300
-end
+end)
 
-function PlayerTweakData:_set_hard()
+module:post_hook(PlayerTweakData, "_set_hard", function(self)
 	self.damage.ARMOR_INIT = 12
-	self.damage.MIN_DAMAGE_INTERVAL = 0.25
-	self.damage.DOWNED_TIME_DEC = 10
-	self.damage.DOWNED_TIME_MIN = 5
-end
+end)
 
-function PlayerTweakData:_set_overkill()
+module:post_hook(PlayerTweakData, "_set_overkill", function(self)
 	self.damage.ARMOR_INIT = 10
-	self.damage.MIN_DAMAGE_INTERVAL = 0.2
-	self.damage.DOWNED_TIME_DEC = 10
-	self.damage.DOWNED_TIME_MIN = 1
-	self.damage.REVIVE_HEALTH_STEPS = { 0.5, 0.25 }
-end
+end)
 
-function PlayerTweakData:_set_overkill_145()
+module:post_hook(PlayerTweakData, "_set_overkill_145", function(self)
 	self.damage.ARMOR_INIT = 10
-	self.damage.MIN_DAMAGE_INTERVAL = 0.15
-	self.damage.DOWNED_TIME_DEC = 15
-	self.damage.DOWNED_TIME_MIN = 1
-	self.damage.REVIVE_HEALTH_STEPS = { 0.2 }
-end
+end)
 
 end
