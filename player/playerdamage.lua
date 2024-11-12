@@ -68,3 +68,9 @@ module:hook(50, PlayerDamage, "damage_fall", function(self, data)
 
 	return true
 end)
+
+module:hook(PlayerDamage, "_chk_dmg_too_soon", function(self, damage)
+	if TimerManager:game():time() < self._next_allowed_dmg_t then
+		return true
+	end
+end)

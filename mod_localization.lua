@@ -211,6 +211,15 @@ local strings = {
 	["mutator_per_pellet_motd"] = {
 		english = "The 'Per-Pellet Shotgun Damage' mutator is enabled, Shotguns now do per-pellet damage. Additionally, shotgun accuracy has been increased and ammo pickup reduced.",
 	},
+	["mutator_grace_piercing"] = {
+		english = "Grace Piercing",
+	},
+	["mutator_grace_piercing_help"] = {
+		english = "Grace Piercing re-enabled. Shots that deal higher damage than the last will ignore the grace period.",
+	},
+	["mutator_grace_piercing_motd"] = {
+		english = "The 'Grace Piercing' mutator is enabled, Shots that deal higher damage than the last will ignore the grace period.",
+	},
 }
 
 for string_id, translations in pairs(strings) do
