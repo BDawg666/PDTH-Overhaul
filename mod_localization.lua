@@ -215,10 +215,10 @@ local strings = {
 		english = "Grace Piercing",
 	},
 	["mutator_grace_piercing_help"] = {
-		english = "Grace Piercing re-enabled. Shots that deal higher damage than the last will ignore the grace period.",
+		english = "Grace Piercing re-enabled. Shots that deal higher damage than the last will ignore the grace period. The grace period is increased by 0.05s for all difficulties.",
 	},
 	["mutator_grace_piercing_motd"] = {
-		english = "The 'Grace Piercing' mutator is enabled, Shots that deal higher damage than the last will ignore the grace period.",
+		english = "The 'Grace Piercing' mutator is enabled, Shots that deal higher damage than the last will ignore the grace period. The grace period is increased by 0.05s for all difficulties.",
 	},
 }
 
