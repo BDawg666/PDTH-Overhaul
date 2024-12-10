@@ -1,9 +1,10 @@
 local module = DMod:new("fgo", {
-	version = "0.9.2",
+	version = "0.9.3",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
 		"ummlib",
+		"scriman",
 		"[ovk_193]",
 		"[hud]",
 		"[_hud]",
@@ -48,13 +49,11 @@ module:hook_post_require("lib/units/enemies/cop/copbase", "enemies/copbase")
 module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enemies/escort/civilianlogicescort")
 module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/teamaibase")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
+module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/nobotrevive")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
-module:hook_post_require(
-	"lib/units/enemies/spooc/actions/lower_body/actionspooc",
-	"enemies/spooc/actions/lower_body/actionspooc"
-)
+module:hook_post_require("lib/units/enemies/spooc/actions/lower_body/actionspooc", "enemies/spooc/actions/lower_body/actionspooc")
 module:hook_post_require("lib/units/enemies/tank/tankcopdamage", "enemies/tank/tankcopdamage")
 module:hook_post_require("core/lib/units/coreunitdamage", "enemies/coreunitdamage")
 
@@ -89,6 +88,146 @@ module:hook_post_require("lib/managers/menu/items/menuitemkitslot", "gui/menu/me
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
 module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/element_spy")
 module:hook_post_require("lib/network/networkmember", "mission/networkmember")
+
+module:hook("OnModuleLoading", "dhfix", function(m)
+    local mutator_key = "dia_roof_SO_fix"
+
+    local script_type = "mission"
+    local path = "levels/diamondheist/world/world"
+    DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
+        DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
+            id = "dia_roof_SO_bugfix",
+            version = "0.1",
+            mission = {
+                update = {
+                    prefereds = {
+                        {
+                            id = 100470,
+                            class = "ElementSpecialObjective",
+                            editor_name = "point_special_objective_065",
+                            values = { SO_access = "262100" },
+                        },
+                        {
+                            id = 100473,
+                            class = "ElementSpecialObjective",
+                            editor_name = "point_special_objective_060",
+                            values = { SO_access = "262100" },
+                        },
+                    },
+                },
+            },
+        })
+    end)
+end)
+
+module:hook("OnModuleLoading", "ucfix", function(m)
+    local mutator_key = "sstash_windows"
+
+    local script_type = "mission"
+    local path = "levels/secret_stash/world/world"
+    DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
+        DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
+            id = "whurr_ssw",
+			version = "0.2",
+			mission = {
+				update = {
+					default = {
+                        {
+							id = 101130,
+							class = "ElementSpawnEnemyDummy",
+							editor_name = "ai_spawn_enemy_079",
+							values = {accessibility="any"}
+                        },
+                        {
+							id = 101137,
+							class = "ElementSpawnEnemyDummy",
+							editor_name = "ai_spawn_enemy_084",
+							values = {accessibility="any"}
+                        }
+					}
+				},
+				create = {
+					default = {
+                        {
+							id = 199999,
+							class = "ElementUnitSequenceTrigger",
+							editor_name = "trigger destroyed planks 200578 (ground floor right)",
+							module = "CoreElementUnitSequenceTrigger",
+							trigger_times = 0,
+							values = {
+								enabled = true,
+								rotation = Rotation(),
+								position = Vector3(665, -1060, -1080),
+								sequence_list = {
+									{ guis_id = 1, unit_id = 200578, sequence = "destroy_planks" }
+								},
+								on_executed = {
+									{ id = 199996, delay = 0 },
+									{ id = 101138, delay = 0 }
+								}
+							}
+						},
+                        {
+							id = 199998,
+							class = "ElementUnitSequenceTrigger",
+							editor_name = "trigger destroyed planks 200579 (ground floor left)",
+							module = "CoreElementUnitSequenceTrigger",
+							trigger_times = 0,
+							values = {
+								enabled = true,
+								rotation = Rotation(),
+								position = Vector3(665, -1060, -1080),
+								sequence_list = {
+									{ guis_id = 1, unit_id = 200579, sequence = "destroy_planks" }
+								},
+								on_executed = {
+									{ id = 199997, delay = 0 },
+									{ id = 101168, delay = 0 }
+								}
+							}
+						},
+                        {
+							id = 199997,
+							editor_name = "toggle on spawn point ground floor left",
+							class = "ElementToggle",
+							module = "CoreElementToggle",
+							values = {
+								toggle = "on",
+								elements = { 101168 },
+								on_executed = {},
+								base_delay = 0,
+								enabled = true,
+								execute_on_restart = false,
+								execute_on_startup = false,
+								rotation = Rotation(),
+								position = Vector3(665, -1060, -1080),
+								trigger_times = 0
+							}
+						},
+						{
+							id = 199996,
+							editor_name = "toggle on spawn point ground floor right",
+							class = "ElementToggle",
+							module = "CoreElementToggle",
+							values = {
+								toggle = "on",
+								elements = { 101138 },
+								on_executed = {},
+								base_delay = 0,
+								enabled = true,
+								execute_on_restart = false,
+								execute_on_startup = false,
+								rotation = Rotation(),
+								position = Vector3(665, -1060, -1080),
+								trigger_times = 0
+							}
+						}
+					}
+				}
+			}
+        })
+    end)
+end)
 
 -- mutators
 module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
