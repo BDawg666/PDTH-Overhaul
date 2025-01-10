@@ -78,7 +78,8 @@ module:hook(WeaponTweakData, "_init_data_crosskill_overhaul", function(self)
 end)
 
 module:hook(WeaponTweakData, "_init_data_raging_bull_overhaul", function(self)
-	self.raging_bull.firerate_mult = 1
+	self.raging_bull.firerate_mult = 1.5
+	self.raging_bull.single.fire_rate = 0.33
 	self.raging_bull.reload_speed = 1.2
 	self.raging_bull.DAMAGE = 4.8
 	self.raging_bull.damage_melee = 1
