@@ -14,8 +14,11 @@ local strings = {
 	["des_thick_skin"] = {
 		english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",
 	},
+	["debug_equipment_extra_start_out_ammo"] = {
+		english = "extra ammo",
+	},
 	["des_extra_start_out_ammo"] = {
-		english = "extra start out ammo allows the owner to carry more ammo. you carry 25% more ammo per weapon.",
+		english = "you carry 25% more ammo per weapon.",
 	},
 	["des_toolset"] = {
 		english = "the toolkit allows the owner to organize, carry and protect the tools, making them more effective. reduces interaction times by 40%.",

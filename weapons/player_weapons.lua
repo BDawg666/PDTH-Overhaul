@@ -176,7 +176,7 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.DAMAGE = 3.6
 	self.hk21.damage_melee = 2.5
 	self.hk21.damage_melee_effect_mul = 2.5
-	self.hk21.CLIP_AMMO_MAX = 90
+	self.hk21.CLIP_AMMO_MAX = 80
 	self.hk21.AMMO_MAX = 160
 	self.hk21.AMMO_PICKUP = { 1, 4 }
 	self.hk21.spread.standing = 3.2
