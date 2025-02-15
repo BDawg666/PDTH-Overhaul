@@ -1,7 +1,7 @@
 local WeaponTweakData = module:hook_class("WeaponTweakData")
 
 module:post_hook(WeaponTweakData, "_init_data_c45_npc", function(self)
-	self.c45_npc.DAMAGE = 1.3
+	self.c45_npc.DAMAGE = 1.7
 end)
 
 module:post_hook(WeaponTweakData, "_init_data_glock_18_npc", function(self)
@@ -24,4 +24,8 @@ end)
 
 module:post_hook(WeaponTweakData, "_init_data_mac11_npc", function(self)
 	self.mac11_npc.DAMAGE = 1.7
+end)
+
+module:post_hook(WeaponTweakData, "_init_data_mp5_npc", function(self)
+	self.mp5_npc.DAMAGE = 1.3
 end)
