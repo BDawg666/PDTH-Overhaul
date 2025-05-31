@@ -54,3 +54,4 @@ end)
 module:post_hook(CharacterTweakData, "_set_overkill_145", function(self)
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.2
 end)
+end
