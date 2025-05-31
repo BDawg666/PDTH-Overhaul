@@ -189,7 +189,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 
 	-- presets for AI heisters, these do work
 	-- beretta92 still applies even if their actual pistol is switched to Bronco
-	presets.gang_member_damage.HEALTH_INIT = 55
+	presets.gang_member_damage.HEALTH_INIT = 50
 	presets.gang_member_damage.REGENERATE_TIME = 3
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 
@@ -222,59 +222,8 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 		},
 	}
 	presets.weapon.gang_member.m4 = deep_clone(presets.weapon.expert.m4)
-	presets.weapon.gang_member.m4.FALLOFF = {
-		{
-			r = 0,
-			dmg_mul = 4,
-			recoil = { 0.25, 0.45 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 700,
-			dmg_mul = 2,
-			recoil = { 0.25, 0.45 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 3000,
-			dmg_mul = 1.5,
-			recoil = { 0.25, 0.45 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 10000,
-			dmg_mul = 1,
-			recoil = { 1.1, 2.2 },
-			mode = { 2, 1, 0, 0 },
-		},
-	}
 	presets.weapon.gang_member.mp5 = deep_clone(presets.weapon.expert.mp5)
-	presets.weapon.gang_member.mp5.FALLOFF = {
-		{
-			r = 0,
-			dmg_mul = 4,
-			recoil = { 0.35, 0.55 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 700,
-			dmg_mul = 2,
-			recoil = { 0.35, 0.55 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 3000,
-			dmg_mul = 1.5,
-			recoil = { 0.35, 0.55 },
-			mode = { 0.2, 2, 4, 10 },
-		},
-		{
-			r = 10000,
-			dmg_mul = 1,
-			recoil = { 1.5, 3.1 },
-			mode = { 3, 1, 0, 0 },
-		},
-	}
+	presets.weapon.gang_member.r870 = deep_clone(presets.weapon.expert.r870)
 
 	return presets
 end, false)

@@ -68,6 +68,8 @@ function GroupAITweakData:_set_normal()
 	
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
+	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 15, 20, 23 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 40, 60, 80 }
@@ -118,6 +120,9 @@ function GroupAITweakData:_set_hard()
 		spooc = { 0.2, 0.5, 1 },
 		taser = { 0.05, 0.2, 0.3 },
 	}
+	local is_singleplayer = Global.game_settings.single_player
+	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 50, 70, 90 }
 	self.street.assault.sustain_duration_max = { 60, 90, 120 }
@@ -176,6 +181,8 @@ function GroupAITweakData:_set_overkill()
 	self.besiege.recon.interval = { 1, 1, 1 }
 	self.besiege.recon.group_size = { 6, 6, 6 }
 	self.besiege.rescue.group_size = { 4, 4, 4 }
+	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 50, 90, 120 }
 	self.street.assault.sustain_duration_max = { 60, 120, 160 }
@@ -234,6 +241,8 @@ function GroupAITweakData:_set_overkill_145()
 	self.besiege.recon.interval = { 1, 1, 1 }
 	self.besiege.recon.group_size = { 6, 6, 6 }
 	self.besiege.rescue.group_size = { 4, 4, 4 }
+	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 60, 120, 160 }
 	self.street.assault.sustain_duration_max = { 60, 120, 160 }

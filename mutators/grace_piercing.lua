@@ -31,3 +31,26 @@ module:post_hook(PlayerTweakData, "_set_overkill_145", function(self)
 end)
 
 end
+
+if RequiredScript == "lib/tweak_data/charactertweakdata" then
+local CharacterTweakData = module:hook_class("CharacterTweakData")
+
+module:post_hook(CharacterrTweakData, "_set_easy", function(self)
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.4
+end)
+
+module:post_hook(CharacterTweakData, "_set_normal", function(self)
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.35
+end)
+
+module:post_hook(CharacterTweakData, "_set_hard", function(self)
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.3
+end)
+
+module:post_hook(CharacterTweakData, "_set_overkill", function(self)
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.25
+end)
+
+module:post_hook(CharacterTweakData, "_set_overkill_145", function(self)
+	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0.2
+end)

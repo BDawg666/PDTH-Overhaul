@@ -1,5 +1,5 @@
 local module = DMod:new("fgo", {
-	version = "0.9.5",
+	version = "0.9.6",
 	name = "PD:TH Full Game Overhaul",
 	author = "B Dawg",
 	dependencies = {
@@ -50,6 +50,7 @@ module:hook_post_require("lib/units/civilians/logics/civilianlogicescort", "enem
 module:hook_post_require("lib/units/player_team/teamaibase", "enemies/team_ai/teamaibase")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/player_team/teamaidamage", "enemies/team_ai/nobotrevive")
+module:hook_post_require("lib/units/player_team/logics/teamailogicassault", "enemies/team_ai/teamailogicassault")
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
