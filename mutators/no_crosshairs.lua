@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/tweak_data/weapontweakdata" then
 	local WeaponTweakData = module:hook_class("WeaponTweakData")
 	module:post_hook(WeaponTweakData, "_init_data_no_crosshairs", function(self)

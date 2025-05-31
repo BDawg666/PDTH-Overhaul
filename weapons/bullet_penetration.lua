@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/managers/gameplaycentralmanager" then
 	local GamePlayCentralManager = module:hook_class("GamePlayCentralManager")
 

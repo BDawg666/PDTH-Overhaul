@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/tweak_data/tweakdata" then
 	local TweakData = module:hook_class("TweakData")
 	module:post_hook(TweakData, "init", function(self)

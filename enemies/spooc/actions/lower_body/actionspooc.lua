@@ -1,5 +1,6 @@
-local ActionSpooc = module:hook_class("ActionSpooc")
+local module = ... or D:module("fgo")
 
+local ActionSpooc = module:hook_class("ActionSpooc")
 module:hook(ActionSpooc, "_upd_strike_first_frame", function(self, t)
 	if self._is_local and self:_chk_target_invalid() then
 		if Network:is_server() then

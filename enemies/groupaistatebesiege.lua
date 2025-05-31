@@ -1,3 +1,6 @@
+local module = ... or D:module("fgo")
+
+local GroupAIStateBesiege = module:hook_class("GroupAIStateBesiege")
 module:hook(GroupAIStateBesiege, "_begin_new_tasks", function(self)
 	local all_areas = self._area_data
 	local nav_manager = managers.navigation

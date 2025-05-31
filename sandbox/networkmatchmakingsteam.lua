@@ -1,3 +1,4 @@
-local NetworkMatchMakingSTEAM = module:hook_class("NetworkMatchMakingSTEAM")
+local module = ... or D:module("fgo")
 
+local NetworkMatchMakingSTEAM = module:hook_class("NetworkMatchMakingSTEAM")
 NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = string.format("%s-%s", module:id(), module:version())

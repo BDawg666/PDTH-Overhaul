@@ -1,5 +1,6 @@
-local PlayerDamage = module:hook_class("PlayerDamage")
+local module = ... or D:module("fgo")
 
+local PlayerDamage = module:hook_class("PlayerDamage")
 module:hook(PlayerDamage, "get_fall_damage_multiplier", function(self)
 	local multiplier = 1
 

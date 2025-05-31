@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local PlayerTased = module:hook_class("PlayerTased")
 module:hook(PlayerTased, "_update_check_actions", function(self, t, dt)
 	local input = self:_get_input()

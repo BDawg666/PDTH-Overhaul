@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/managers/playermanager" then
 	local PlayerManager = module:hook_class("PlayerManager")
     PlayerManager.WEAPON_SLOTS = 2

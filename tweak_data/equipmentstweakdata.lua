@@ -1,5 +1,6 @@
-local EquipmentsTweakData = module:hook_class("EquipmentsTweakData")
+local module = ... or D:module("fgo")
 
+local EquipmentsTweakData = module:hook_class("EquipmentsTweakData")
 module:post_hook(EquipmentsTweakData, "init", function(self)
 	self.ammo_bag = {
 		icon = "equipment_ammo_bag",

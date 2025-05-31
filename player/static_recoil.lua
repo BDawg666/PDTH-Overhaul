@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local FPCameraPlayerBase = module:hook_class("FPCameraPlayerBase")
 module:hook(FPCameraPlayerBase, "stop_shooting", function(self)
 	self._recoil_kick.to_reduce = 0

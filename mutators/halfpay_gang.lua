@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local PlayerStandard = module:hook_class("PlayerStandard")
 module:hook(PlayerStandard, "_stance_entered", function(self, unequipped)
 	local head_stance = tweak_data.player.stances.default.crouched.head

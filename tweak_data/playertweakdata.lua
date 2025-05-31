@@ -1,5 +1,6 @@
-local PlayerTweakData = module:hook_class("PlayerTweakData")
+local module = ... or D:module("fgo")
 
+local PlayerTweakData = module:hook_class("PlayerTweakData")
 function PlayerTweakData:_set_easy()
 	self.damage.ARMOR_INIT = 7
 	self.damage.MIN_DAMAGE_INTERVAL = 0.35

@@ -1,5 +1,6 @@
-local GroupAITweakData = module:hook_class("GroupAITweakData")
+local module = ... or D:module("fgo")
 
+local GroupAITweakData = module:hook_class("GroupAITweakData")
 function GroupAITweakData:_set_easy()
 	self.difficulty_curve_points = { 0.35 }
 	self.besiege.assault.sustain_duration_min = { 30, 70, 140 }
@@ -12,7 +13,7 @@ function GroupAITweakData:_set_easy()
 		spooc = { 0, 0.1, 0.2 },
 		taser = { 0, 0.05, 0.1 },
 	}
-	
+
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 10, 15, 20 }
@@ -57,7 +58,7 @@ function GroupAITweakData:_set_normal()
 		spooc = { 0.2, 0.5, 1 },
 		taser = { 0.05, 0.2, 0.3 },
 	}
-	
+
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 15, 20, 23 }

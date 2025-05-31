@@ -1,5 +1,6 @@
-local GroupAITweakData = module:hook_class("GroupAITweakData")
+local module = ... or D:module("fgo")
 
+local GroupAITweakData = module:hook_class("GroupAITweakData")
 function GroupAITweakData:_set_easy()
 	self.difficulty_curve_points = { 0.35 }
 	self.besiege.assault.sustain_duration_min = { 30, 70, 140 }

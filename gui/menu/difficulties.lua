@@ -1,3 +1,6 @@
+local module = ... or D:module("fgo")
+
+local MenuManager = module:hook_class("MenuManager")
 module:hook(MenuManager, "refresh_level_select", function(node, verify_dlc_owned)
 	if verify_dlc_owned and tweak_data.levels[Global.game_settings.level_id].dlc then
 		local dlcs = string.split(managers.dlc:dlcs_string(), " ")

@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local WeaponTweakData = module:hook_class("WeaponTweakData")
 module:post_hook(WeaponTweakData, "_init_data_no_antishield", function(self)
 	self.beretta92.can_shoot_through_shield = false

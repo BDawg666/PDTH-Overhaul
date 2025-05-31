@@ -1,5 +1,7 @@
-local PlayerManager = module:hook_class("PlayerManager")
+local module = ... or D:module("fgo")
 
+
+local PlayerManager = module:hook_class("PlayerManager")
 module:hook(PlayerManager, "_setup_rules", function(self)
 	self._rules = {
 		slow_walk = 0,

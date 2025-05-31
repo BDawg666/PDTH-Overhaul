@@ -1,5 +1,6 @@
-local SavefileManager = module:hook_class("SavefileManager")
+local module = ... or D:module("fgo")
 
+local SavefileManager = module:hook_class("SavefileManager")
 if Global._current_save_slot then
 	SavefileManager.PROGRESS_SLOT = Global._current_save_slot
 	return

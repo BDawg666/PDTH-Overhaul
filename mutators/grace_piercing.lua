@@ -1,4 +1,5 @@
-local module = ... or D:module("PlayerDamage")
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/units/beings/player/playerdamage" then
 	local PlayerDamage = module:hook_class("PlayerDamage")
 	module:hook(PlayerDamage, "_chk_dmg_too_soon", function(self, damage)

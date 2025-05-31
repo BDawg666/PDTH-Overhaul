@@ -1,5 +1,6 @@
-local PlayerStandard = module:hook_class("PlayerStandard")
+local module = ... or D:module("fgo")
 
+local PlayerStandard = module:hook_class("PlayerStandard")
 module:hook(PlayerStandard, "_get_walk_speed_multiplier", function(self)
 	local multiplier_data = self._tweak_data.movement.speed.multipliers
 
@@ -16,8 +17,9 @@ module:hook(PlayerStandard, "_get_walk_speed_multiplier", function(self)
 		local weapon_tdata = self._equipped_unit:base():weapon_tweak_data()
 		if weapon_tdata.movement_speed_multiplier then
 			multiplier = multiplier * weapon_tdata.movement_speed_multiplier
-			if weapon_tdata.movement_speed_multiplier and weapon_shooting then 
-				multiplier = multiplier * ( weapon_tdata.movement_speed_multiplier - ( 1 - weapon_tdata.movement_speed_multiplier ) )
+			if weapon_tdata.movement_speed_multiplier and weapon_shooting then
+				multiplier = multiplier
+					* (weapon_tdata.movement_speed_multiplier - (1 - weapon_tdata.movement_speed_multiplier))
 			end
 		end
 	end
@@ -41,8 +43,9 @@ module:hook(PlayerStandard, "_get_run_speed_multiplier", function(self)
 		local weapon_tdata = self._equipped_unit:base():weapon_tweak_data()
 		if weapon_tdata.movement_speed_multiplier then
 			multiplier = multiplier * weapon_tdata.movement_speed_multiplier
-			if weapon_tdata.movement_speed_multiplier and weapon_shooting then 
-				multiplier = multiplier * ( weapon_tdata.movement_speed_multiplier - ( 1 - weapon_tdata.movement_speed_multiplier ) )
+			if weapon_tdata.movement_speed_multiplier and weapon_shooting then
+				multiplier = multiplier
+					* (weapon_tdata.movement_speed_multiplier - (1 - weapon_tdata.movement_speed_multiplier))
 			end
 		end
 	end

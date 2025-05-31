@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local PlayerTased = module:hook_class("PlayerTased")
 module:hook(PlayerTased, "enter", function(self, enter_data)
 	PlayerTased.super.enter(self, enter_data)

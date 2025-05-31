@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
 module:hook(RaycastWeaponBase, "on_reload", function(self)
 	if self._setup.expend_ammo then

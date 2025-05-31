@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local overrides = {
 	tank = { "r870", "hk21" },
 	spooc = "mac11",

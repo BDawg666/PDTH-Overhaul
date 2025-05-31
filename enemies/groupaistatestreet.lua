@@ -1,3 +1,6 @@
+local module = ... or D:module("fgo")
+
+local GroupAIStateStreet = module:hook_class("GroupAIStateStreet")
 function GroupAIStateStreet:_upd_assault_task(t)
 	local task_data = self._task_data.assault
 	if not task_data.active then

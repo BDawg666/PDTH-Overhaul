@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local strings = {
 	["des_beretta92"] = {
 		english = "stats : 9mm : semiautomatic : low recoil\nthe b9-s is one of the most used law-enforcement pistols today\nthe relatively light damage is compensated by its big clips\nloaded with shield piercing rounds.",

@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local whitelist = {
 	["drill"] = true,
 	["s_drill_2h"] = true,

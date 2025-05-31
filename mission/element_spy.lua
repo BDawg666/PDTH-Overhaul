@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/managers/mission/missionscriptelement" then
 	local MissionScriptElement = module:hook_class("MissionScriptElement")
 

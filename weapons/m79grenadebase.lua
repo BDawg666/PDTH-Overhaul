@@ -1,6 +1,8 @@
-local tmp_vec3 = Vector3()
+local module = ... or D:module("fgo")
+
 local M79GrenadeBase = module:hook_class(M79GrenadeBase)
 
+local tmp_vec3 = Vector3()
 module:hook(M79GrenadeBase, "_detect_and_give_dmg", function(self, hit_pos)
 	local slotmask = self._collision_slotmask
 	local user_unit = self._user

@@ -1,5 +1,6 @@
-local WeaponTweakData = module:hook_class("WeaponTweakData")
+local module = ... or D:module("fgo")
 
+local WeaponTweakData = module:hook_class("WeaponTweakData")
 module:pre_hook(WeaponTweakData, "init", function(self)
 	-- ease looping through player weapons
 	self.weapon_list = {
@@ -390,17 +391,13 @@ module:hook(WeaponTweakData, "_init_data_gl40_overhaul", function(self)
 	self.m79.ads_speed = 1
 end)
 
-module:hook(WeaponTweakData, "_init_data_no_antishield", function(self)
-end)
+module:hook(WeaponTweakData, "_init_data_no_antishield", function(self) end)
 
-module:hook(WeaponTweakData, "_init_data_no_crosshairs", function(self)
-end)
+module:hook(WeaponTweakData, "_init_data_no_crosshairs", function(self) end)
 
-module:hook(WeaponTweakData, "_init_data_limited_arsenal", function(self)
-end)
+module:hook(WeaponTweakData, "_init_data_limited_arsenal", function(self) end)
 
-module:hook(WeaponTweakData, "_init_data_per_pellet", function(self)
-end)
+module:hook(WeaponTweakData, "_init_data_per_pellet", function(self) end)
 
 module:post_hook(WeaponTweakData, "_init_data_player_weapons", function(self)
 	self:_init_data_b9s_overhaul()

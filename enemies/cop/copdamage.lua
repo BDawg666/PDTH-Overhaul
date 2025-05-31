@@ -1,5 +1,6 @@
-local CopDamage = module:hook_class("CopDamage")
+local module = ... or D:module("fgo")
 
+local CopDamage = module:hook_class("CopDamage")
 module:hook(CopDamage, "damage_melee", function(self, attack_data)
 	if self._dead or self._invulnerable then
 		return

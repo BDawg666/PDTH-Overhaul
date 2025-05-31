@@ -1,5 +1,6 @@
-local SpoocLogicAttack = module:hook_class("SpoocLogicAttack")
+local module = ... or D:module("fgo")
 
+local SpoocLogicAttack = module:hook_class("SpoocLogicAttack")
 module:hook(SpoocLogicAttack, "_is_last_standing_criminal", function()
 	return table.size(managers.groupai:state():all_char_criminals()) <= 1
 end)

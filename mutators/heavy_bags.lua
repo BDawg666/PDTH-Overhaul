@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/units/beings/player/states/playerstandard" then
 	local PlayerStandard = module:hook_class("PlayerStandard")
 	module:hook(PlayerStandard, "_check_action_jump", function(self, t, input)

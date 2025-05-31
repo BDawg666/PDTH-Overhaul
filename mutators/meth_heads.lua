@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/units/weapons/raycastweaponbase" then
 	local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
 	module:hook(50, RaycastWeaponBase, "spread_multiplier", function(self)

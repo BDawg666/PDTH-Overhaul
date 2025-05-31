@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local PlayerBleedOut = module:hook_class("PlayerBleedOut")
 module:hook(PlayerBleedOut, "enter", function(self, enter_data)
 	PlayerBleedOut.super.enter(self, enter_data)

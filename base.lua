@@ -17,7 +17,7 @@ local module = DMod:new("fgo", {
 		"[yet_another_weapon_rebalance]",
 	},
 	description = { english = "WIP" },
-	includes = { {"classes/element_spy"}, { "mod_localization", { type = "localization" } } },
+	includes = { { "classes/element_spy" }, { "mod_localization", { type = "localization" } } },
 	update = { id = "42754", platform = "modworkshop" },
 })
 
@@ -54,7 +54,10 @@ module:hook_post_require("lib/units/player_team/logics/teamailogicassault", "ene
 module:hook_post_require("lib/managers/hudmanager", "enemies/team_ai/mugshot_health")
 module:hook_post_require("lib/units/enemies/cop/copdamage", "enemies/cop/copdamage")
 module:hook_post_require("lib/units/enemies/spooc/logics/spooclogicattack", "enemies/spooc/spooclogicattack")
-module:hook_post_require("lib/units/enemies/spooc/actions/lower_body/actionspooc", "enemies/spooc/actions/lower_body/actionspooc")
+module:hook_post_require(
+	"lib/units/enemies/spooc/actions/lower_body/actionspooc",
+	"enemies/spooc/actions/lower_body/actionspooc"
+)
 module:hook_post_require("lib/units/enemies/tank/tankcopdamage", "enemies/tank/tankcopdamage")
 module:hook_post_require("core/lib/units/coreunitdamage", "enemies/coreunitdamage")
 
@@ -83,7 +86,6 @@ module:hook_post_require("lib/units/equipment/doctor_bag/doctorbagbase", "deploy
 
 -- gui scripts
 module:hook_post_require("lib/managers/menumanager", "gui/menu/difficulties")
-module:hook_post_require("lib/managers/menu/items/menuitemkitslot", "gui/menu/menuitemkitslot")
 
 -- mission scripts
 module:hook_post_require("lib/managers/missionmanager", "mission/element_spy")
@@ -91,65 +93,65 @@ module:hook_post_require("lib/managers/mission/missionscriptelement", "mission/e
 module:hook_post_require("lib/network/networkmember", "mission/networkmember")
 
 module:hook("OnModuleLoading", "dhfix", function(m)
-    local mutator_key = "dia_roof_SO_fix"
+	local mutator_key = "dia_roof_SO_fix"
 
-    local script_type = "mission"
-    local path = "levels/diamondheist/world/world"
-    DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
-        DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
-            id = "dia_roof_SO_bugfix",
-            version = "0.1",
-            mission = {
-                update = {
-                    prefereds = {
-                        {
-                            id = 100470,
-                            class = "ElementSpecialObjective",
-                            editor_name = "point_special_objective_065",
-                            values = { SO_access = "262100" },
-                        },
-                        {
-                            id = 100473,
-                            class = "ElementSpecialObjective",
-                            editor_name = "point_special_objective_060",
-                            values = { SO_access = "262100" },
-                        },
-                    },
-                },
-            },
-        })
-    end)
+	local script_type = "mission"
+	local path = "levels/diamondheist/world/world"
+	DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
+		DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
+			id = "dia_roof_SO_bugfix",
+			version = "0.1",
+			mission = {
+				update = {
+					prefereds = {
+						{
+							id = 100470,
+							class = "ElementSpecialObjective",
+							editor_name = "point_special_objective_065",
+							values = { SO_access = "262100" },
+						},
+						{
+							id = 100473,
+							class = "ElementSpecialObjective",
+							editor_name = "point_special_objective_060",
+							values = { SO_access = "262100" },
+						},
+					},
+				},
+			},
+		})
+	end)
 end)
 
 module:hook("OnModuleLoading", "ucfix", function(m)
-    local mutator_key = "sstash_windows"
+	local mutator_key = "sstash_windows"
 
-    local script_type = "mission"
-    local path = "levels/secret_stash/world/world"
-    DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
-        DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
-            id = "whurr_ssw",
+	local script_type = "mission"
+	local path = "levels/secret_stash/world/world"
+	DPackageManager:register_processor(m, mutator_key, script_type, path, function(_, _, data)
+		DPackageManager:load_custom_script_data(mutator_key, data, script_type, {
+			id = "whurr_ssw",
 			version = "0.2",
 			mission = {
 				update = {
 					default = {
-                        {
+						{
 							id = 101130,
 							class = "ElementSpawnEnemyDummy",
 							editor_name = "ai_spawn_enemy_079",
-							values = {accessibility="any"}
-                        },
-                        {
+							values = { accessibility = "any" },
+						},
+						{
 							id = 101137,
 							class = "ElementSpawnEnemyDummy",
 							editor_name = "ai_spawn_enemy_084",
-							values = {accessibility="any"}
-                        }
-					}
+							values = { accessibility = "any" },
+						},
+					},
 				},
 				create = {
 					default = {
-                        {
+						{
 							id = 199999,
 							class = "ElementUnitSequenceTrigger",
 							editor_name = "trigger destroyed planks 200578 (ground floor right)",
@@ -160,15 +162,15 @@ module:hook("OnModuleLoading", "ucfix", function(m)
 								rotation = Rotation(),
 								position = Vector3(665, -1060, -1080),
 								sequence_list = {
-									{ guis_id = 1, unit_id = 200578, sequence = "destroy_planks" }
+									{ guis_id = 1, unit_id = 200578, sequence = "destroy_planks" },
 								},
 								on_executed = {
 									{ id = 199996, delay = 0 },
-									{ id = 101138, delay = 0 }
-								}
-							}
+									{ id = 101138, delay = 0 },
+								},
+							},
 						},
-                        {
+						{
 							id = 199998,
 							class = "ElementUnitSequenceTrigger",
 							editor_name = "trigger destroyed planks 200579 (ground floor left)",
@@ -179,15 +181,15 @@ module:hook("OnModuleLoading", "ucfix", function(m)
 								rotation = Rotation(),
 								position = Vector3(665, -1060, -1080),
 								sequence_list = {
-									{ guis_id = 1, unit_id = 200579, sequence = "destroy_planks" }
+									{ guis_id = 1, unit_id = 200579, sequence = "destroy_planks" },
 								},
 								on_executed = {
 									{ id = 199997, delay = 0 },
-									{ id = 101168, delay = 0 }
-								}
-							}
+									{ id = 101168, delay = 0 },
+								},
+							},
 						},
-                        {
+						{
 							id = 199997,
 							editor_name = "toggle on spawn point ground floor left",
 							class = "ElementToggle",
@@ -202,8 +204,8 @@ module:hook("OnModuleLoading", "ucfix", function(m)
 								execute_on_startup = false,
 								rotation = Rotation(),
 								position = Vector3(665, -1060, -1080),
-								trigger_times = 0
-							}
+								trigger_times = 0,
+							},
 						},
 						{
 							id = 199996,
@@ -220,14 +222,14 @@ module:hook("OnModuleLoading", "ucfix", function(m)
 								execute_on_startup = false,
 								rotation = Rotation(),
 								position = Vector3(665, -1060, -1080),
-								trigger_times = 0
-							}
-						}
-					}
-				}
-			}
-        })
-    end)
+								trigger_times = 0,
+							},
+						},
+					},
+				},
+			},
+		})
+	end)
 end)
 
 -- mutators
@@ -354,7 +356,7 @@ module:hook("OnModuleLoading", "load_fgo_mutators", function(m)
 		m:hook_post_require("lib/units/beings/player/states/playerstandard", "mutators/heavy_bags")
 		m:hook_post_require("lib/tweak_data/equipmentstweakdata", "mutators/heavy_bags")
 	end
-	
+
 	mutator_availability = { all = { levels = { slaughter_house = true } } }
 	if MutatorHelper.setup_mutator(m, "murky_assault", mutator_availability, nil, true) then
 		m:hook_post_require("lib/tweak_data/groupaitweakdata", "mutators/murky_assault")

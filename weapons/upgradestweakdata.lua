@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local UpgradesTweakData = module:hook_class("UpgradesTweakData")
 module:hook(UpgradesTweakData, "init_data_player_overhaul", function(self)
 	self.values.player.body_armor = { 0, 0, 0, 0, 0 }

@@ -1,5 +1,6 @@
-local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
+local module = ... or D:module("fgo")
 
+local RaycastWeaponBase = module:hook_class("RaycastWeaponBase")
 module:hook(RaycastWeaponBase, "_get_spread", function(self, user_unit)
 	local spread_multiplier = self:spread_multiplier()
 	local current_state = user_unit:movement()._current_state
@@ -25,4 +26,4 @@ end
 
 module:hook(RaycastWeaponBase, "_is_shooting", function(self)
 	return self._shooting
-end,true)
+end, true)

@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 module:pre_hook(60, MenuNodeGui, "_setup_panels", function(self, node)
 	if game_state_machine:current_state_name() ~= "menu_main" then
 		return

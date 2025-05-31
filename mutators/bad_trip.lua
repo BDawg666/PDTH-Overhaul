@@ -2,6 +2,8 @@ local ease_in_out_sine = function(time, start, final, delta)
 	return -final / 2 * (math.cos(math.pi * time / delta) - 1) + start
 end
 
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/units/cameras/fpcameraplayerbase" then
 	local FPCameraPlayerBase = module:hook_class("FPCameraPlayerBase")
 

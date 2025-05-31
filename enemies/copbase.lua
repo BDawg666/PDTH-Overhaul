@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 local overrides = {
 	spooc = "mac11",
 	gangster = { "glock", "ak47", "mac11", "mossberg", "bronco" },

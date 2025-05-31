@@ -1,5 +1,7 @@
-local CharacterTweakData = module:hook_class("CharacterTweakData")
+local module = ... or D:module("fgo")
 
+
+local CharacterTweakData = module:hook_class("CharacterTweakData")
 function CharacterTweakData:_set_easy()
 	self:_multiply_all_hp(1, 1)
 	self:_multiply_weapon_delay(self.presets.weapon.normal, 5)

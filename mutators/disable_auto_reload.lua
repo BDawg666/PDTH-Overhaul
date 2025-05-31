@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 module:hook(PlayerStandard, "_stop_shooting", function(self)
 	if not self._shooting then
 		return

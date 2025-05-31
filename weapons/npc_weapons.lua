@@ -1,5 +1,6 @@
-local WeaponTweakData = module:hook_class("WeaponTweakData")
+local module = ... or D:module("fgo")
 
+local WeaponTweakData = module:hook_class("WeaponTweakData")
 module:post_hook(WeaponTweakData, "_init_data_c45_npc", function(self)
 	self.c45_npc.DAMAGE = 1.7
 end)
