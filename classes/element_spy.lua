@@ -1,3 +1,6 @@
+local module = ... or D:module("fgo")
+local _M = module._ENV
+
 _M.ElementSpy = { _ENV = _M }
 
 local ElementSpy = _M.ElementSpy
