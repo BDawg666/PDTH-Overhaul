@@ -1,3 +1,5 @@
+local module = ... or D:module("fgo")
+
 if RequiredScript == "lib/managers/hudmanager" then
 	local colors = {
 		hp_low = Color(1, 0, 0),
