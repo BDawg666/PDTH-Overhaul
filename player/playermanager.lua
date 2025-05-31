@@ -1,6 +1,5 @@
 local module = ... or D:module("fgo")
 
-
 local PlayerManager = module:hook_class("PlayerManager")
 module:hook(PlayerManager, "_setup_rules", function(self)
 	self._rules = {
@@ -64,18 +63,18 @@ module:hook(PlayerManager, "aquire_default_upgrades", function(self)
 	}) do
 		managers.upgrades:aquire_default(item)
 	end
-	
+
 	if managers.dlc:has_dlc1() then
-	for _, item in pairs({
-		"ak47",
-		"glock",
-		"m79",
-		"sentry_gun",
-		"toolset",
-		"more_ammo",
-	}) do
-		managers.upgrades:aquire_default(item)
-	end
+		for _, item in pairs({
+			"ak47",
+			"glock",
+			"m79",
+			"sentry_gun",
+			"toolset",
+			"more_ammo",
+		}) do
+			managers.upgrades:aquire_default(item)
+		end
 	end
 
 	for i = 1, PlayerManager.WEAPON_SLOTS do

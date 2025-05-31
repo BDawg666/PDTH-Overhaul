@@ -1,5 +1,5 @@
 -- we are only hooking to this path, why are we even checking?
-if RequiredScript  ~= "core/lib/units/coreunitdamage" then
+if RequiredScript ~= "core/lib/units/coreunitdamage" then
 	return
 end
 

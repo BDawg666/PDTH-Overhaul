@@ -14,7 +14,7 @@ function GroupAITweakData:_set_easy()
 		spooc = { 0, 0.1, 0.2 },
 		taser = { 0, 0.05, 0.1 },
 	}
-	
+
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 10, 15, 20 }
@@ -66,10 +66,10 @@ function GroupAITweakData:_set_normal()
 		spooc = { 0.2, 0.5, 1 },
 		taser = { 0.05, 0.2, 0.3 },
 	}
-	
+
 	local is_singleplayer = Global.game_settings.single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
-	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
 	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 15, 20, 23 }
 	self.street.assault.build_duration = 35
@@ -122,7 +122,7 @@ function GroupAITweakData:_set_hard()
 		taser = { 0.05, 0.2, 0.3 },
 	}
 	local is_singleplayer = Global.game_settings.single_player
-	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
 	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 50, 70, 90 }
@@ -182,7 +182,7 @@ function GroupAITweakData:_set_overkill()
 	self.besiege.recon.interval = { 1, 1, 1 }
 	self.besiege.recon.group_size = { 6, 6, 6 }
 	self.besiege.rescue.group_size = { 4, 4, 4 }
-	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
 	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 50, 90, 120 }
@@ -242,7 +242,7 @@ function GroupAITweakData:_set_overkill_145()
 	self.besiege.recon.interval = { 1, 1, 1 }
 	self.besiege.recon.group_size = { 6, 6, 6 }
 	self.besiege.rescue.group_size = { 4, 4, 4 }
-	self.besiege.total_nr_followers =  is_singleplayer and 4 or 6
+	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
 	self.street.total_nr_followers = is_singleplayer and 3 or 4
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 60, 120, 160 }
@@ -293,23 +293,23 @@ module:post_hook(GroupAITweakData, "init", function(self)
 		fbi = { 0.75, 1, 0.1 },
 	}
 	--capture units aren't even setup in groupaistatestreet manager apparently
-	
-	local access_type_all = {"walk", "acrobatic"}
+
+	local access_type_all = { "walk", "acrobatic" }
 	table.merge(self.unit_categories, {
 		fbi = {
 			units = {
 				Idstring("units/characters/enemies/fbi1/fbi1"),
 				Idstring("units/characters/enemies/fbi2/fbi2"),
-				Idstring("units/characters/enemies/fbi3/fbi3")
+				Idstring("units/characters/enemies/fbi3/fbi3"),
 			},
-			access = access_type_all
+			access = access_type_all,
 		},
 		murky = {
 			units = {
 				Idstring("units/characters/enemies/murky_water1/murky_water1"),
-				Idstring("units/characters/enemies/murky_water2/murky_water2")
+				Idstring("units/characters/enemies/murky_water2/murky_water2"),
 			},
-			access = access_type_all
+			access = access_type_all,
 		},
 	})
 end, false)

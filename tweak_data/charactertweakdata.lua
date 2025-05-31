@@ -1,6 +1,5 @@
 local module = ... or D:module("fgo")
 
-
 local CharacterTweakData = module:hook_class("CharacterTweakData")
 function CharacterTweakData:_set_easy()
 	self:_multiply_all_hp(1, 1)
@@ -124,7 +123,7 @@ end, false)
 
 module:post_hook(CharacterTweakData, "_init_taser", function(self, presets)
 	self.taser.weapon.r870.tase_distance = 1400
-	self.taser.weapon.r870.aim_delay_tase = {0, 0.5}
+	self.taser.weapon.r870.aim_delay_tase = { 0, 0.5 }
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
@@ -161,7 +160,7 @@ end, false)
 
 module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	local presets = module:call_orig(CharacterTweakData, "_presets", self, tweak_data)
-	
+
 	presets.weapon.fbi = deep_clone(presets.weapon.expert)
 	presets.weapon.gangster = deep_clone(presets.weapon.good)
 
@@ -184,7 +183,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 
 	presets.weapon.normal.bronco = deep_clone(presets.weapon.normal.c45)
 	presets.weapon.good.bronco = deep_clone(presets.weapon.good.c45)
-	
+
 	presets.weapon.expert.hk21 = deep_clone(presets.weapon.expert.m4)
 
 	presets.weapon.good.mossberg = deep_clone(presets.weapon.good.r870)
