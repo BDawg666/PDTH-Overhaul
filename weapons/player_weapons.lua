@@ -199,7 +199,7 @@ module:hook(WeaponTweakData, "_init_data_brenner_overhaul", function(self)
 	self.hk21.kick.h.steelsight = 0.675
 	self.hk21.ads_speed = 0.5
 
-	self.hk21.movement_speed_multiplier = 0.8 -- 80% movement speed
+	self.hk21.movement_speed_multiplier = 0.9 -- 90% movement speed
 	self.hk21.fall_damage_multiplier = 1.5 -- 50% extra fall damage
 end)
 

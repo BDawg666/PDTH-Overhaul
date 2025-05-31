@@ -22,3 +22,7 @@ end
 function RaycastWeaponBase:fire_rate_multiplier()
 	return tweak_data.weapon[self._name_id].firerate_mult
 end
+
+module:hook(RaycastWeaponBase, "_is_shooting", function(self)
+	return self._shooting
+end,true)

@@ -9,7 +9,7 @@ local strings = {
 		english = "stats : 5.56mm : automatic : low recoil\nthe amcar-4 is one of the most versatile assault rifles there is\nthe good accuracy coupled with the high rate of fire prepares its owner for any situation.",
 	},
 	["des_hk21"] = {
-		english = "stats : 7.62mm : high capacity magazine\neven though it was originally designed as a mounted machinegun, the brenner 21 is a powerhouse. with its huge capacity magazine, this is a given choice for the assault specialist.\nslows move speed by 20% while drawn and increases fall damage.",
+		english = "stats : 7.62mm : high capacity magazine\neven though it was originally designed as a mounted machinegun, the brenner 21 is a powerhouse. with its huge capacity magazine, this is a given choice for the assault specialist.\nslows move speed by 10% while drawn (doubled when shooting) and increases fall damage.",
 	},
 	["des_thick_skin"] = {
 		english = "thick skin allows the wearer to receive more damage before going into bleed out. you get 10 extra health points (33% increase).",

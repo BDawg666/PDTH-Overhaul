@@ -12,9 +12,13 @@ module:hook(PlayerStandard, "_get_walk_speed_multiplier", function(self)
 	end
 
 	if alive(self._equipped_unit) then
+		local weapon_shooting = self._equipped_unit:base():_is_shooting()
 		local weapon_tdata = self._equipped_unit:base():weapon_tweak_data()
 		if weapon_tdata.movement_speed_multiplier then
 			multiplier = multiplier * weapon_tdata.movement_speed_multiplier
+			if weapon_tdata.movement_speed_multiplier and weapon_shooting then 
+				multiplier = multiplier * ( weapon_tdata.movement_speed_multiplier - ( 1 - weapon_tdata.movement_speed_multiplier ) )
+			end
 		end
 	end
 
@@ -33,9 +37,13 @@ module:hook(PlayerStandard, "_get_run_speed_multiplier", function(self)
 	end
 
 	if alive(self._equipped_unit) then
+		local weapon_shooting = self._equipped_unit:base():_is_shooting()
 		local weapon_tdata = self._equipped_unit:base():weapon_tweak_data()
 		if weapon_tdata.movement_speed_multiplier then
 			multiplier = multiplier * weapon_tdata.movement_speed_multiplier
+			if weapon_tdata.movement_speed_multiplier and weapon_shooting then 
+				multiplier = multiplier * ( weapon_tdata.movement_speed_multiplier - ( 1 - weapon_tdata.movement_speed_multiplier ) )
+			end
 		end
 	end
 
