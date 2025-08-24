@@ -194,12 +194,10 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.normal.c45.aim_delay = { 0.3, 0.3 }
 	presets.weapon.good.c45.aim_delay = { 0.2, 0.2 }
 	presets.weapon.expert.c45.aim_delay = { 0.15, 0.15 }
-	presets.weapon.gang_member.c45.aim_delay = { 0.15, 0.15 }
 	
 	presets.weapon.normal.mac11.aim_delay = { 0.3, 0.3 }
 	presets.weapon.good.mac11.aim_delay = { 0.2, 0.2 }
 	presets.weapon.expert.mac11.aim_delay = { 0.15, 0.15 }
-	presets.weapon.gang_member.mac11.aim_delay = { 0.15, 0.15 }
 
 	-- not sure if these actually do anything but whatever
 	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
