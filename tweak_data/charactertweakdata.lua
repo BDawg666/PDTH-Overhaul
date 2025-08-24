@@ -121,9 +121,14 @@ module:post_hook(CharacterTweakData, "_init_murky", function(self, presets)
 	self.murky.surrender_easy = false
 end, false)
 
+module:post_hook(CharacterTweakData, "_init_shield", function(self, presets)
+	self.shield.weapon.shield.aim_delay = { 0.3, 0.3 }
+end, false)
+
 module:post_hook(CharacterTweakData, "_init_taser", function(self, presets)
 	self.taser.weapon.r870.tase_distance = 1400
-	self.taser.weapon.r870.aim_delay_tase = { 0, 0.5 }
+	self.taser.weapon.r870.aim_delay_tase = { 0.5, 0.5 }
+	self.taser.weapon.m4.aim_delay_tase = { 0.5, 0.5 }
 end, false)
 
 module:post_hook(CharacterTweakData, "_init_tank", function(self, presets)
@@ -164,11 +169,37 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 	presets.weapon.fbi = deep_clone(presets.weapon.expert)
 	presets.weapon.gangster = deep_clone(presets.weapon.good)
 
-	-- nerf shotgun reaction times
-	presets.weapon.normal.r870.aim_delay = { 0, 0.2 }
-	presets.weapon.good.r870.aim_delay = { 0, 0.2 }
-	presets.weapon.expert.r870.aim_delay = { 0, 0.2 }
-	presets.weapon.gang_member.r870.aim_delay = { 0, 0.2 }
+	-- reaction time tweaks (add a proper minimum value)
+	presets.weapon.normal.r870.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.r870.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.r870.aim_delay = { 0.15, 0.15 }
+	presets.weapon.gang_member.r870.aim_delay = { 0.15, 0.15 }
+	
+	presets.weapon.normal.m4.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.m4.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.m4.aim_delay = { 0.15, 0.15 }
+	presets.weapon.gang_member.m4.aim_delay = { 0.15, 0.15 }
+	presets.weapon.sniper.m4.aim_delay = { 0.15, 0.15 }
+	
+	presets.weapon.normal.mp5.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.mp5.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.mp5.aim_delay = { 0.2, 0.2 }
+	presets.weapon.gang_member.mp5.aim_delay = { 0.15, 0.15 }
+	
+	presets.weapon.normal.beretta92.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.beretta92.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.beretta92.aim_delay = { 0.15, 0.15 }
+	presets.weapon.gang_member.beretta92.aim_delay = { 0.15, 0.15 }
+	
+	presets.weapon.normal.c45.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.c45.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.c45.aim_delay = { 0.15, 0.15 }
+	presets.weapon.gang_member.c45.aim_delay = { 0.15, 0.15 }
+	
+	presets.weapon.normal.mac11.aim_delay = { 0.3, 0.3 }
+	presets.weapon.good.mac11.aim_delay = { 0.2, 0.2 }
+	presets.weapon.expert.mac11.aim_delay = { 0.15, 0.15 }
+	presets.weapon.gang_member.mac11.aim_delay = { 0.15, 0.15 }
 
 	-- not sure if these actually do anything but whatever
 	presets.weapon.normal.glock = deep_clone(presets.weapon.normal.mp5)
