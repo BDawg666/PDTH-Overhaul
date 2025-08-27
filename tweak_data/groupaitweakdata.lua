@@ -68,9 +68,10 @@ function GroupAITweakData:_set_normal()
 	}
 
 	local is_singleplayer = Global.game_settings.single_player
+	local is_multiplayer = not is_single_player
 	self.besiege.assault.force = is_singleplayer and { 15, 15, 15 } or { 20, 20, 20 }
-	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
-	self.street.total_nr_followers = is_singleplayer and 3 or 4
+	self.besiege.total_nr_followers = is_multiplayer and 4
+	self.street.total_nr_followers = is_multiplayer and 3
 	self.street.assault.force.aggressive = is_singleplayer and { 10, 13, 15 } or { 15, 20, 23 }
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 40, 60, 80 }
@@ -122,8 +123,9 @@ function GroupAITweakData:_set_hard()
 		taser = { 0.05, 0.2, 0.3 },
 	}
 	local is_singleplayer = Global.game_settings.single_player
-	self.besiege.total_nr_followers = is_singleplayer and 4 or 6
-	self.street.total_nr_followers = is_singleplayer and 3 or 4
+	local is_multiplayer = not is_single_player
+	self.besiege.total_nr_followers = is_multiplayer and 4
+	self.street.total_nr_followers = is_multiplayer and 3
 	self.street.assault.build_duration = 35
 	self.street.assault.sustain_duration_min = { 50, 70, 90 }
 	self.street.assault.sustain_duration_max = { 60, 90, 120 }
@@ -176,7 +178,7 @@ function GroupAITweakData:_set_overkill()
 	}
 
 	local is_singleplayer = Global.game_settings.single_player
-	self.besiege.assault.force = is_singleplayer and { 20, 25, 25 } or { 25, 30, 30 }
+	self.besiege.assault.force = is_singleplayer and { 20, 25, 25 } or { 25, 25, 25 }
 	self.besiege.recon.group_size = is_singleplayer and { 2, 2, 2 } or { 4, 4, 4 }
 	self.besiege.recon.interval_variation = 7
 	self.besiege.recon.interval = { 1, 1, 1 }
@@ -236,7 +238,7 @@ function GroupAITweakData:_set_overkill_145()
 	}
 
 	local is_singleplayer = Global.game_settings.single_player
-	self.besiege.assault.force = is_singleplayer and { 20, 25, 30 } or { 25, 35, 35 }
+	self.besiege.assault.force = is_singleplayer and { 20, 25, 25 } or { 25, 25, 25 }
 	self.besiege.recon.group_size = is_singleplayer and { 2, 2, 2 } or { 4, 4, 4 }
 	self.besiege.recon.interval_variation = 7
 	self.besiege.recon.interval = { 1, 1, 1 }
