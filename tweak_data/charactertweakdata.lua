@@ -219,7 +219,7 @@ module:hook(50, CharacterTweakData, "_presets", function(self, tweak_data)
 
 	-- presets for AI heisters, these do work
 	-- beretta92 still applies even if their actual pistol is switched to Bronco
-	presets.gang_member_damage.HEALTH_INIT = 50
+	presets.gang_member_damage.HEALTH_INIT = 60
 	presets.gang_member_damage.REGENERATE_TIME = 3
 	presets.gang_member_damage.REGENERATE_TIME_AWAY = 1
 
