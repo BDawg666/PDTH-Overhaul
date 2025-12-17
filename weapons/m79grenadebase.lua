@@ -65,84 +65,84 @@ module:hook(M79GrenadeBase, "_detect_and_give_dmg", function(self, hit_pos)
 	for _, hit_body in ipairs(bodies) do
 		local hit_unit = hit_body:unit()
 		local hit_unit_key = hit_unit:key()
-		local apply_dmg = hit_body:extension() and hit_body:extension().damage
-		local character = (not characters_hit[hit_unit_key] or apply_dmg)
-			and hit_unit:character_damage()
-			and hit_unit:character_damage().damage_explosion
+		local char_dmg_ext = hit_unit:character_damage()
+		local char_dead = char_dmg_ext and char_dmg_ext:dead()
+		local apply_char_dmg = char_dmg_ext and not char_dead and char_dmg_ext.damage_explosion and not characters_hit[hit_unit_key]
+		local apply_body_dmg = hit_body:extension() and hit_body:extension().damage
 
 		units_to_push[hit_unit_key] = hit_unit
 
-		local dir, len, damage, ray_hit
-		if character then
-			for _, s_pos in ipairs(splinters) do
-				ray_hit = not World:raycast(
-					"ray",
-					s_pos,
-					hit_body:center_of_mass(),
-					"slot_mask",
-					slotmask,
-					"ignore_unit",
-					{ hit_unit },
-					"report"
-				)
-				if ray_hit then
-					break
-				end
-			end
-		elseif apply_dmg or hit_body:dynamic() then
-			ray_hit = true
-		end
-
-		if ray_hit then
-			dir = hit_body:center_of_mass()
-			len = mvector3.direction(dir, hit_pos, dir)
-			damage = dmg * math.pow(math.clamp(1 - len / range, 0, 1), self._curve_pow)
-			damage = math.max(damage, 1)
-
-			if apply_dmg then
-				local normal = dir
-				hit_body:extension().damage:damage_explosion(user_unit, normal, hit_body:position(), dir, damage)
-				hit_body:extension().damage:damage_damage(user_unit, normal, hit_body:position(), dir, damage)
-
-				if hit_unit:id() ~= -1 then
-					managers.network:session():send_to_peers_synched(
-						"sync_body_damage_explosion",
-						hit_body,
-						user_unit,
-						normal,
-						hit_body:position(),
-						dir,
-						damage
+		-- unit is a character and can take explosion damage, or one of it's bodies can
+		if apply_char_dmg or apply_body_dmg then
+			local dir, len, damage, ray_hit
+			if char_dmg_ext and not char_dead then -- dead units have no gameplay relevance, don't bother raycasting
+				for _, s_pos in ipairs(splinters) do
+					ray_hit = not World:raycast(
+						"ray",
+						s_pos,
+						hit_body:center_of_mass(),
+						"slot_mask",
+						slotmask,
+						"ignore_unit",
+						{ hit_unit },
+						"report"
 					)
+					if ray_hit then
+						break
+					end
 				end
+			else
+				ray_hit = true
 			end
 
-			if character and not characters_hit[hit_unit_key] then
-				characters_hit[hit_unit_key] = true
+			if ray_hit then
+				dir = hit_body:center_of_mass()
+				len = mvector3.direction(dir, hit_pos, dir)
+				damage = dmg * math.pow(math.clamp(1 - len / range, 0, 1), self._curve_pow)
+				damage = math.max(damage, 1)
 
-				local action_data = {
-					variant = "explosion",
-					damage = damage,
-					attacker_unit = user_unit,
-					weapon_unit = self._owner,
-					col_ray = self._col_ray or { position = hit_body:position(), ray = dir },
-				}
+				if apply_body_dmg then
+					local normal = dir
+					hit_body:extension().damage:damage_explosion(user_unit, normal, hit_body:position(), dir, damage)
+					hit_body:extension().damage:damage_damage(user_unit, normal, hit_body:position(), dir, damage)
 
-				hit_unit:character_damage():damage_explosion(action_data)
+					if hit_unit:id() ~= -1 then
+						managers.network:session():send_to_peers_synched(
+							"sync_body_damage_explosion",
+							hit_body,
+							user_unit,
+							normal,
+							hit_body:position(),
+							dir,
+							damage
+						)
+					end
+				end
+
+				if apply_char_dmg then
+					characters_hit[hit_unit_key] = true
+
+					local action_data = {
+						variant = "explosion",
+						damage = damage,
+						attacker_unit = user_unit,
+						weapon_unit = self._owner,
+						col_ray = self._col_ray or { position = hit_body:position(), ray = dir },
+					}
+
+					hit_unit:character_damage():damage_explosion(action_data)
+				end
 			end
 		end
 	end
 
 	for _, unit in pairs(units_to_push) do
 		if alive(unit) then
-			local is_character = unit:character_damage() and unit:character_damage().damage_explosion
-			if not is_character or unit:character_damage():dead() then
-				if
-					is_character
-					and unit:movement()._active_actions[1]
-					and unit:movement()._active_actions[1]:type() == "hurt"
-				then
-					unit:movement()._active_actions[1]:force_ragdoll()
+			local char_dmg = unit:character_damage()
+			if not char_dmg or char_dmg:dead() then
+				local action = char_dmg and unit:movement:get_action(1);
+				if action and action:type() == "hurt" then
+					action:force_ragdoll()
 				end
 
 				for i_u_body = 0, unit:num_bodies() - 1 do
