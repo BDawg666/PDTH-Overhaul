@@ -140,7 +140,7 @@ module:hook(M79GrenadeBase, "_detect_and_give_dmg", function(self, hit_pos)
 		if alive(unit) then
 			local char_dmg = unit:character_damage()
 			if not char_dmg or char_dmg:dead() then
-				local action = char_dmg and unit:movement:get_action(1);
+				local action = char_dmg and unit:movement():get_action(1);
 				if action and action:type() == "hurt" then
 					action:force_ragdoll()
 				end
